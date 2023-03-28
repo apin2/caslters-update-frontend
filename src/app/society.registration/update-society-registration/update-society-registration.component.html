@@ -1,0 +1,227 @@
+
+<div class="home-page-container">
+  <section>
+    <div class="developer_form">
+      <div class="container mt-3">
+        <form #updatesocitey="ngForm" (ngSubmit)="update(updatesocitey)">
+          <div class="row jumbotron box8">
+            <div class="col-sm-12 mx-t3 mb-4">
+              <h2 class="text-center">Update Information of Society</h2>
+            </div>
+
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="societyName">Society Name</label>
+              <input type="text" class="form-control" [(ngModel)]="updatesociet.socityname" name="societyName" id="societyName"
+                placeholder="Enter your Society Name" required>
+            </div>
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="societyRegistrationNumber">Society Registration Number</label>
+              <input type="text" class="form-control" [(ngModel)]="updatesociet.registrationnumber" name="societyRegistrationNumber" id="societyRegistrationNumber"
+                placeholder="Enter your society Registration Number" required>
+            </div>
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="address">Address of Society</label>
+              <input type="text" class="form-control" name="address" [(ngModel)]="updatesociet.address" id="address" placeholder="Enter Society address" required>
+            </div>
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="age">Age of building</label>
+              <input type="text" class="form-control" name="age" [(ngModel)]="updatesociet.ageofbuiling" id="age" placeholder="Enter Building age" required>
+            </div>
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="existingMemberCount">Existing Member Count</label>
+              <input type="text" class="form-control" [(ngModel)]="updatesociet.membercount" name="existingMemberCount" id="existingMemberCount"
+                placeholder="Enter your Existing Member" required>
+            </div>
+            
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="emailSociety">E-mail ID of Society</label>
+              <input type="text" class="form-control" [(ngModel)]="updatesociet.societyemail" name="emailSociety" id="emailSociety"
+                placeholder="Enter Email ID" required>
+            </div>
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="typeOfDevelopment">Type Of Development</label>
+              <select id="typeOfDevelopment" [(ngModel)]="updatesociet.devlopmenttype" name="typeOfDevelopment" class="form-control browser-default custom-select">
+                <option value="select" disabled selected> -Select Type of Development- </option>
+                <option value="regularDevelopment">Regular Development</option>
+                <option value="limitedSelfDevelopment">Limited Self Development</option>
+                <option value="selfDevelopment">Self Development</option>
+              </select>
+            </div>       
+            <div class="col-lg-4 col-md-6  form-group" *ngIf="updatesociet.devlopmenttype == 'regulardevelopment'">
+              <label class="metro" for="typeOfTrety">Type Of Trety</label>
+              <select id="typeOfTrety" [(ngModel)]="updatesociet.tretytype" name="typeoftrety" class="form-control browser-default custom-select">
+                <option value="select" disabled selected> -Select Type of Trety- </option>
+                <option value="privateTrety">Private Trety</option>
+                <option value="tendering">Tendering</option>
+              </select>
+            </div>
+            <div class="col-lg-4 col-md-6  form-group" *ngIf="updatesociet.devlopmenttype == 'limitedSelfDevelopment'">
+              <label class="metro" for="typeOfTrety">Type Of Trety</label>
+              <select id="typeOfTrety" [(ngModel)]="updatesociet.tretytype" name="typeoftrety" class="form-control browser-default custom-select">
+                <option value="select" disabled selected> -Select Type of Trety- </option>
+                <option value="privateTrety">Private Trety</option>
+                <!-- <option value="tendering">Tendering</option> -->
+              </select>
+            </div> 
+            
+            
+
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="age">Office Bearers of Society</label>
+              <select id="age" [(ngModel)]="newbaarer.bearers" name="bearer" class="form-control browser-default custom-select">
+                <option value="select" disabled selected> -Select Type of Bearers- </option>
+                <option value="chairmen">Chairmen </option>
+                <option value="secretory"> Secretory </option>
+                <option value="treasurer"> Treasurer </option>                
+                <option value="member">Member </option>                
+              </select>
+            </div>
+            <div class="col-md-12" *ngIf="newbaarer.bearers">
+              <form action="">
+                <div class="row">
+                  <div class="col-lg-3 col-md-6  form-group">
+                    <label class="metro" for="chairmanName">Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="newbaarer.name" name="chairmanName" id="chairmanName"
+                      placeholder="Enter Name" required>
+                  </div>
+                  <div class="col-lg-3 col-md-6  form-group">
+                    <label class="metro" for="chairmanEmailID">Email ID </label>
+                    <input type="text" class="form-control" [(ngModel)]="newbaarer.email" name="chairmanEmailID" id="chairmanEmailID"
+                      placeholder="Enter Email ID" required>
+                  </div>
+                  <div class="col-lg-3 col-md-6  form-group">
+                    <label class="metro" for="chairmanNumber">Number</label>
+                    <input type="text" class="form-control" [(ngModel)]="newbaarer.number" name="chairmanNumber" id="chairmanNumber"
+                      placeholder="Enter Number" required>
+                  </div>
+                  <div class="col-sm-3 form-group mb-0" style=" display: flex; justify-content: center; padding: 2rem 0;">
+                    <button class="btn" type="button" (click)="bearerssave()">Add</button> 
+                  </div>
+                </div>
+                <table class="table" *ngIf="socitybearer">
+                  <thead>
+                    <th>S.No</th>
+                    <th>Type of Bearers</th>
+                    <th>Name</th>
+                    <th>E-mail Id</th>
+                    <th>Number</th>
+                    <th>Action</th>
+                  </thead>
+                  <tbody *ngFor="let data of socitybearer; let i = index">
+                    <tr>
+                      <td data-label="S.No">{{i+1}}</td>
+                      <td data-label="bearers">{{data.bearers}}</td>
+                      <td data-label="Name">{{data.name}}</td>
+                      <td data-label="E-mailId">{{data.email}}</td>
+                      <td data-label="number">{{data.number}}</td>
+                      <td data-label="action">
+                        <a style="margin-right: 15px;" (click)="edititem(i)"><img class="custom_icon" src="../../assets/images/pen-to-square-solid.svg"></a>
+                        <a (click)="removeitem(i)"><img class="custom_icon" src="../../assets/images/trash-can-solid.svg"></a>
+                      </td>
+                    </tr>
+                
+                    <!-- <tr>
+                      <td data-label="S.No">2</td>
+                      <td data-label="bearers">Secretory</td>
+                      <td data-label="Name">Rajesh Kumar</td>
+                      <td data-label="E-mailId">rajesh@gmail.com</td>
+                      <td data-label="number">9876456722</td>
+                      <td data-label="action">
+                        <a href="" style="margin-right: 15px;"><i class="fa-regular fa-pen-to-square"></i></a>
+                        <a href=""><i class="fa-regular fa-trash-can"></i></a>
+                      </td>
+                    </tr> -->
+                    </tbody>
+                </table>
+              </form>
+            </div>
+            
+            <!-- <div class="col-sm-12" style="margin-bottom: 1rem;">
+              <input type="checkbox" class="form-check d-inline" id="updateSocietyDetails" required>
+              <label for="updateSocietyDetails" class="form-check-label">Please checked, If you want to update details of Society.</label>
+            </div> -->
+
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="sizeOfPlot">Size of Plot</label>
+              <input type="text" [(ngModel)]="updatesociet.plotsize" #plotsize="ngModel" class="form-control" name="sizeOfPlot" id="sizeOfPlot"
+                placeholder="Enter your Plot Size" required>
+                <span style="color:red" *ngIf="plotsize.invalid &&(plotsize.dirty || plotsize.touched)">Size of Plot is Requered</span>
+            </div>
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="plotDimensions">Plot Dimensions</label>
+              <input type="text" class="form-control" [(ngModel)]="updatesociet.plotdimensions" #plotdimensions="ngModel" name="plotDimensions" id="plotDimensions"
+                placeholder="Enter your Plot Dimensions" required>
+                <span style="color:red" *ngIf="plotdimensions.invalid &&(plotdimensions.dirty || plotdimensions.touched)">Plot Dimensions is Requered</span>
+            </div>
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="totalCarpetBldgArea">Carpet Area of Building</label>
+              <input type="text" class="form-control" [(ngModel)]="updatesociet.carpetareofbuilding" #carpetareofbuilding="ngModel" name="address" id="totalCarpetBldgArea"
+                placeholder="Enter Total Carpet Area" required>
+                <span style="color:red" *ngIf="carpetareofbuilding.invalid &&(carpetareofbuilding.dirty || carpetareofbuilding.touched)">Carpet Area of Building is Requered</span>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group">
+              <label class="metro" for="noOfWings">Number of Wings</label>
+              <input type="text" class="form-control" [(ngModel)]="updatesociet.numberofwing" name="noOfWings" id="noOfWings"
+                placeholder="Enter Number of Wing" required>
+            </div>
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" >Building Used For</label>
+              <select class="form-control browser-default custom-select" name="usedfor" [(ngModel)]="updatesociet.usedfor">
+                <option value="select" disabled selected> -Select Your Purpose- </option>
+                <option value="commercialuse">Commercial Use</option>
+                <option value="residentialuse">Residential Use</option>
+                <option value="mixeduse">Mixed Use</option>
+              </select>
+              <!-- <span style="color:red" *ngIf="updatesocitey.invalid &&(updatesocitey.dirty || updatesocitey.touched)">Building Used For is Requered</span> -->
+            </div>
+            
+            <div class="col-lg-4 col-md-6  form-group" *ngIf="updatesociet.usedfor=='commercialuse' || updatesociet.usedfor=='mixeduse'">
+              <label class="metro" for="numberOfCommercialTenaments">Commercial Tenaments</label>
+              <input type="text" class="form-control" [(ngModel)]="updatesociet.ctenament" #ctenament="ngModel" name="numberOfCommercialTenaments" id="numberOfCommercialTenaments"
+                placeholder="Enter Number of Tenaments" required>
+                <span style="color:red" *ngIf="ctenament.invalid &&(ctenament.dirty || ctenament.touched)">Commercial Tenaments is Requered</span>
+            </div>
+            <div class="col-lg-4 col-md-6  form-group" *ngIf="updatesociet.usedfor=='residentialuse' || updatesociet.usedfor=='mixeduse' ">
+              <label class="metro" for="numberOfResidentialTenaments">Residential Tenaments</label>
+              <input type="text" class="form-control" [(ngModel)]="updatesociet.rtenament" #rtenament="ngModel"  name="numberOfResidentialTenaments" id="numberOfResidentialTenaments"
+                placeholder="Enter Number of Tenaments" required>
+                <span style="color:red" *ngIf="rtenament.invalid &&(rtenament.dirty || rtenament.touched)">Residential Tenaments is Requered</span>
+            </div>
+
+            <div class="col-lg-4 col-md-6  form-group" *ngIf="updatesociet.usedfor=='commercialuse' || updatesociet.usedfor=='mixeduse'">
+              <label class="metro" for="totalCommercialBuiltUpBldgArea">Commercial Builtup Area</label>
+              <input type="text" class="form-control" [(ngModel)]="updatesociet.cbuiltuparea" #cbuiltuparea="ngModel" name="totalCommercialBuiltUpBldgArea" id="totalCommercialBuiltUpBldgArea"
+                placeholder="Enter Commercial Built Up Area" required>
+                <span style="color:red" *ngIf="cbuiltuparea.invalid &&(cbuiltuparea.dirty || cbuiltuparea.touched)">Commercial Builtup Area is Requered</span>
+            </div>
+            <div class="col-lg-4 col-md-6  form-group" *ngIf="updatesociet.usedfor=='residentialuse' || updatesociet.usedfor=='mixeduse' ">
+              <label class="metro" for="totalResidentialBuiltUpBldgArea">Residential Builtup Area</label>
+              <input type="text" class="form-control" [(ngModel)]="updatesociet.rbuiltuparea" #rbuiltuparea="ngModel" name="totalResidentialBuiltUpBldgArea" id="totalResidentialBuiltUpBldgArea"
+                placeholder="Enter Residential Built Up Area" required>
+                <span style="color:red" *ngIf="rbuiltuparea.invalid &&(rbuiltuparea.dirty || rbuiltuparea.touched)">Residential Builtup Area is Requered</span>
+            </div>
+            
+           
+            
+            
+            <div class="col-lg-4 col-md-6 form-group">
+              <label class="metro" for="approchRoadWidth">Width of Approach Road</label>
+              <input type="text" class="form-control" [(ngModel)]="updatesociet.widthofroad" #widthofroad="ngModel" name="address" id="approchRoadWidth"
+                placeholder="Enter Width in meter" required>
+                <span style="color:red" *ngIf="widthofroad.invalid &&(widthofroad.dirty || widthofroad.touched)">Approch Road Width is Requered</span>
+            </div>
+            
+            <!-- <div class="col-sm-12">
+              <input type="checkbox" class="form-check d-inline" id="chb" required><label for="chb"
+                class="form-check-label">I accept all terms and conditions.
+              </label>
+            </div> -->
+            <div class="col-sm-12 form-group mb-0" style=" display: flex; justify-content: left; margin-top: 2rem;">
+              <button type="submit" class="btn">Update</button> 
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>

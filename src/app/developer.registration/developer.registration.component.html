@@ -1,0 +1,219 @@
+<div class="home-page-container">
+  <section>
+    <div class="accor_container">
+      <!-- <h1>Accordion</h1> -->
+      <div class="faq-drawer">
+        <input class="faq-drawer__trigger" id="faq-drawer" (click)="clickelayer1('layer1')" type="checkbox" />
+        <label class="faq-drawer__title" for="faq-drawer">Organisation Details</label>
+        <div class="faq-drawer__content-wrapper" *ngIf="layer=='layer1'">
+          <div class="faq-drawer__content">
+            <div class="developer_KYC_form">
+              <div class="container mt-3">
+                <form>
+                  <div class="row jumbotron box8">
+                    <!-- <div class="col-sm-12 mx-t3 mb-4">
+                      <h2 class="text-center">Developer KYC Registration Form</h2>
+                    </div> -->
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="typeOfOrganisation">Type of Organisation</label>
+                      <select id="typeOfOrganisation" class="form-control browser-default custom-select">
+                        <option value="select" disabled selected> -Select Your Purpose- </option>
+                        <option value="proprietaryConcern">Proprietary Concern</option>
+                        <option value="partnershipFirm ">Partnership Firm</option>
+                        <option value="llp ">LLP</option>
+                        <option value="privateLtd">Private Ltd</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="OrganisationName">Name of Organisation</label>
+                      <input type="text" class="form-control" name="OrganisationName" id="organisationName"
+                        placeholder="Enter organisation Name" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="yearOfExperience">Year of Experience</label>
+                      <input type="text" class="form-control" name="yearOfExperience" id="yearOfExperience"
+                        placeholder="Enter Year of Experience" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="officeAddress">Registered Office Address</label>
+                      <input type="text" class="form-control" name="officeAddress" id="officeAddress"
+                        placeholder="Enter Office Address" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="emailID">Authorized Email ID</label>
+                      <input type="text" class="form-control" name="emailID" id="emailID" placeholder="Enter Email ID"
+                        required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="contactNumber">Authorized Contact Number</label>
+                      <input type="text" class="form-control" name="contactNumber" id="contactNumber"
+                        placeholder="Enter Contact Number" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="organisationPanNumber">Organisation PAN Number</label>
+                      <input type="text" class="form-control" name="organisationPanNumber" id="organisationPanNumber"
+                        placeholder="Enter Your PAN Number" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="gstNumber">GST Number</label>
+                      <input type="text" class="form-control" name="gstNumber" id="gstNumber"
+                        placeholder="Enter GST Number" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="logoPath">Select Company Logo</label>
+                      <input type="file" class="form-control" name="logoPath" id="logoPath" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="profile">Profile</label>
+                      <input type="file" class="form-control" name="profile" id="profile" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="websiteURL">Website URL</label>
+                      <input type="text" class="form-control" name="websiteURL" id="websiteURL"
+                        placeholder="Enter Your Website URL" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="nameDocuments">Name Of Document</label>
+                      <input type="text" class="form-control" name="nameDocuments" id="nameDocuments"
+                        placeholder="Enter Name  of Document" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="otherDocuments">Select Document</label>
+                      <input type="file" class="form-control" name="otherDocuments" id="otherDocuments" required>
+                    </div>
+                    <div class="col-sm-4 col-md-4 form-group mb-0" style="margin-top: 2rem; text-align: center;">
+                      <div class="form-group mb-0">
+                        <button class="btn">Add File</button>
+                      </div>
+                    </div>
+
+                    <table class="table">
+                      <thead>
+                        <th>S.No</th>
+                        <th>File Name</th>
+                        <th>Action</th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="S.No">1</td>
+                          <td data-label="bearers">Profile</td>
+                          <td data-label="action">
+                            <!-- <a href="" style="margin-right: 15px;"><i class="fa-regular fa-pen-to-square"></i></a> -->
+                            <a href=""><i class="fa-regular fa-trash-can"></i></a>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td data-label="S.No">2</td>
+                          <td data-label="bearers">Registration Doc</td>
+                          <td data-label="action">
+                            <!-- <a href="" style="margin-right: 15px;"><i class="fa-regular fa-pen-to-square"></i></a> -->
+                            <a href=""><i class="fa-regular fa-trash-can"></i></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="faq-drawer">
+        <input class="faq-drawer__trigger" id="faq-drawer-2" (click)="clickelayer1('layer2')" type="checkbox" /><label
+          class="faq-drawer__title" for="faq-drawer-2">Member Details</label>
+        <div class="faq-drawer__content-wrapper" *ngIf="layer=='layer2'">
+          <div class="faq-drawer__content">
+            <!-- Partners KYC Form start -->
+            <div class="partners_kyc_form">
+              <div class="container mt-3">
+                <form>
+                  <div class="row jumbotron box8">
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="patnerName">Name</label>
+                      <input type="text" class="form-control" name="patnerName" id="patnerName" placeholder="Enter Name"
+                        required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="designation">Designation</label>
+                      <input type="text" class="form-control" name="designation" id="designation"
+                        placeholder="Enter Designation" disabled required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="patnerNumber">Contact Number</label>
+                      <input type="text" class="form-control" name="patnerNumber" id="patnerNumber"
+                        placeholder="Enter Number" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="patnerEmailId">E-mail ID</label>
+                      <input type="text" class="form-control" name="patnerEmailId" id="patnerEmailId"
+                        placeholder="Enter Email Id" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="adharCardNumber">Adhar Card Number</label>
+                      <input type="text" class="form-control" name="adharCardNumber" id="adharCardNumber"
+                        placeholder="Enter Incorporation Name" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="organisationPanNumber"> PAN Number</label>
+                      <input type="text" class="form-control" name="organisationPanNumber" id="organisationPanNumber"
+                        placeholder="Enter PAN Number" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="memberFileUpload"> File Name</label>
+                      <input type="text" class="form-control" name="memberFileUpload" id="memberFileUpload"
+                        placeholder="Enter File Name" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="chooseFile"> Select File</label>
+                      <input type="file" class="form-control" name="chooseFile" id="chooseFile" required>
+                    </div>
+                    <div class="col-md-4 form-group mb-0" style="margin-top: 2rem; ">
+                      <div class="form-group mb-0">
+                        <button class="upload">Add File</button>
+                      </div>
+                    </div>
+                    <table class="table">
+                      <thead>
+                        <th>S.No</th>
+                        <th>File Name</th>
+                        <th>Action</th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="S.No">1</td>
+                          <td data-label="bearers">Profile</td>
+                          <td data-label="action">
+                            <a href="" style="margin-right: 15px;"><i class="fa-regular fa-pen-to-square"></i></a>
+                            <a href=""><i class="fa-regular fa-trash-can"></i></a>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td data-label="S.No">2</td>
+                          <td data-label="bearers">Registration Doc</td>
+                          <td data-label="action">
+                            <a href="" style="margin-right: 15px;"><i class="fa-regular fa-pen-to-square"></i></a>
+                            <a href=""><i class="fa-regular fa-trash-can"></i></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <div class="col-sm-4 form-group mb-0"
+                      style=" display: flex; justify-content: right; margin-top: 2rem;">
+                      <button class="btn" type="submit">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- Partners KYC Form end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,441 @@
+<div class="home-page-container">
+  <section>
+    <div class="accor_container">
+
+      <!-- Technical Details Start -->
+
+      <div class="faq-drawer">
+        <input class="faq-drawer__trigger" id="faq-drawer-1" (click)="clickelayer1('layer1')" type="checkbox" />
+        <label class="faq-drawer__title" for="faq-drawer-1">TECHNICAL DETAILS</label>
+        <div class="faq-drawer__content-wrapper" *ngIf="layer=='layer1'">
+          <div class="faq-drawer__content">
+            <div class="developer_KYC_form">
+              <div class="container mt-3">
+                <form #technical_detail="ngForm" (ngSubmit)="technical_detail_save(technical_detail)">
+                  <div class="row jumbotron box8">                    
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="sizeOfPlot">Size of Plot</label>
+                      <input type="text" class="form-control" [(ngModel)]="technicaldetail.sizeOfPlot" name="sizeOfPlot" id="sizeOfPlot"
+                        placeholder="Enter size in Sq. meter" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="plotDimensions">Plot Dimensions</label>
+                      <input type="text" class="form-control" [(ngModel)]="technicaldetail.plotDimensions" name="plotDimensions" id="plotDimensions"
+                        placeholder="Enter Dimension in meter" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="usedfor">Use of existing building</label>
+                      <select id="usedfor" [(ngModel)]="technicaldetail.existingbuilding" name="usedfor" class="form-control browser-default custom-select">
+                        <option value="select" disabled selected> -Select Your Purpose- </option>
+                        <option value="commercialuse">Commercial Use</option>
+                        <option value="residentialuse">Residential Use</option>
+                        <option value="mixeduse">Mixed Use</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-4 col-md-6 form-group">
+                      <label class="metro" for="noOfWings">Number of Wings</label>
+                      <input type="text" class="form-control" [(ngModel)]="technicaldetail.numberofwing" name="noOfWings" id="noOfWings"
+                        placeholder="Enter Number of Wing" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="numberOfCommercialTenaments">Existing Commercial Tenaments</label>
+                      <input type="text" class="form-control" [(ngModel)]="technicaldetail.existing_commercial_tenaments" name="numberOfCommercialTenaments" id="numberOfCommercialTenaments"
+                        placeholder="Enter Number of Tenaments" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="numberOfResidentialTenaments">Existing Residential Tenaments</label>
+                      <input type="text" class="form-control" [(ngModel)]="technicaldetail.existing_residential_tenaments" name="numberOfResidentialTenaments" id="numberOfResidentialTenaments"
+                        placeholder="Enter Number of Tenaments" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="totalCommercialBuiltUpBldgArea">Existing Commercial Built-up Area</label>
+                      <input type="text" class="form-control" [(ngModel)]="technicaldetail.existing_commercial_builtup_area" name="totalCommercialBuiltUpBldgArea" id="totalCommercialBuiltUpBldgArea"
+                        placeholder="Enter Commercial Built Up Area" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="totalResidentialBuiltUpBldgArea">Existing Residential Built-up Area</label>
+                      <input type="text" class="form-control" [(ngModel)]="technicaldetail.existing_residential_builtup_area" name="totalResidentialBuiltUpBldgArea" id="totalResidentialBuiltUpBldgArea"
+                        placeholder="Enter Residential Built Up Area" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6 form-group">
+                      <label class="metro" for="totalBuiltArea"> Total built-up Area</label>
+                      <input type="text" class="form-control" [(ngModel)]="technicaldetail.total_builtup_area" name="totalBuiltArea" id="totalBuiltArea"
+                        placeholder="Enter Total Built Area" required>
+                    </div>
+                    <div class="col-lg-4 col-md-6 form-group">
+                      <label class="metro" for="approchRoadWidth">Width of Approach Road </label>
+                      <input type="text" class="form-control" [(ngModel)]="technicaldetail.width_of_approach_road" name="address" id="approchRoadWidth"
+                        placeholder="Enter Width in meter" required>
+                    </div>
+                    <div class="col-sm-12 form-group mb-0" style=" display: flex; justify-content: left; margin-top: 2rem;">
+                      <button type="submit" class="upload">Update</button> 
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical Details End -->
+
+      <!-- MASTER FILE DOCUMENTS Start -->
+      <div class="faq-drawer">
+        <input class="faq-drawer__trigger" id="faq-drawer-3" (click)="clickelayer1('layer3')" type="checkbox" /><label
+          class="faq-drawer__title" for="faq-drawer-3">MASTER FILE DOCUMENT</label>
+        <div class="faq-drawer__content-wrapper" *ngIf="layer=='layer3'">
+          <div class="faq-drawer__content">
+
+            <div class="accor_sub_container">
+              <!-- <h1>Accordion</h1> -->
+              <div class="faq-drawer">
+                <input class="faq-drawer__trigger" id="faq-drawer-31" (click)="clicklayer1('layer31')" type="checkbox" />
+                <label class="faq-drawer__title" for="faq-drawer-31">Legal Document</label>
+                <div class="faq-drawer__content-wrapper" *ngIf="layerNew=='layer31'">
+                  <div class="faq-drawer__content">
+                    <div class="developer_KYC_form">
+                      <div class="container mt-3">
+                        <form #legal_document="ngForm" (ngSubmit)="legaldocSave(legal_document)">
+                          <div class="row jumbotron box8">
+                            <div class="col-lg-4 col-md-6  form-group">
+                              <label class="metro" for="usedfor">Type of Document</label>
+                              <select id="usedfor" [(ngModel)]="legal.type_of_document" name="typeofdoc" class="form-control browser-default custom-select">
+                                <option value="select" disabled selected> -Select File Name- </option>
+                                <option value="commercialuse">Property Card or 7/12 Extract</option>
+                                <option value="residentialuse">Other Revenue Documents</option>
+                                <option value="mixeduse">Conveyance Deed</option>
+                                <option value="mixeduse">Order for Deemed Conveyance</option>
+                                <option value="mixeduse">Deemed Conveyance</option>
+                                <option value="mixeduse">Society registration Certificate</option>
+                                <option value="mixeduse">Society’s Members List</option>
+                                <option value="mixeduse">Other</option>
+                              </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6  form-group">
+                              <label class="metro" for="chooseFile"> Select File</label>
+                              <input type="file" class="form-control" [(ngModel)]="legal.file" name="chooseFile" id="chooseFile" required>
+                            </div>
+                            <div class="col-md-4 form-group mb-0">
+                              <div class="form-group "  style="margin-top: 2.6rem;">
+                                <button type="submit" class="upload">Upload File</button>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+              </div>
+              <div class="faq-drawer">
+                <input class="faq-drawer__trigger" id="faq-drawer-32" (click)="clicklayer1('layer32')" type="checkbox" /><label
+                  class="faq-drawer__title" for="faq-drawer-32">Technical Document</label>
+                <div class="faq-drawer__content-wrapper" *ngIf="layerNew=='layer32'">
+                  <div class="faq-drawer__content">
+                    <!-- Partners KYC Form start -->
+                    <div class="partners_kyc_form">
+                      <div class="container mt-3">
+                        <form #technical_document="ngForm" (ngSubmit)="technicaldocSave(technical_document)">
+                          <div class="row jumbotron box8">
+                            <div class="col-lg-4 col-md-6  form-group">
+                              <label class="metro" for="usedfor">Type of Document</label>
+                              <select id="usedfor" [(ngModel)]="technicaldoc.type_of_document" name="typeofdoc" class="form-control browser-default custom-select">
+                                <option value="select" disabled selected> -Select File Name- </option>
+                                <option value="commercialuse">N/A Order</option>
+                                <option value="residentialuse">Commencement Certificate</option>
+                                <option value="mixeduse">Existing Building Plan</option>
+                                <option value="mixeduse">Completion Certificate</option>
+                                <option value="mixeduse">Demarcation Certificate</option>
+                                <option value="mixeduse">Other</option>
+                              </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6  form-group">
+                              <label class="metro" for="chooseFile"> Select File</label>
+                              <input type="file" class="form-control" [(ngModel)]="technicaldoc.file" name="chooseFile" id="chooseFile" required>
+                            </div>
+                            <div class="col-md-4 form-group mb-0">
+                              <div class="form-group"  style="margin-top: 2.6rem;">
+                                <button type="submit" class="upload">Upload File</button>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <!-- Partners KYC Form end -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      
+      <!-- MASTER FILE DOCUMENTS End -->
+
+       <!-- Compliance DOCUMENTS Start -->
+       <div class="faq-drawer">
+        <input class="faq-drawer__trigger" id="faq-drawer-5" (click)="clickelayer1('layer5')" type="checkbox" /><label
+          class="faq-drawer__title" for="faq-drawer-5">COMPLIANCE DOCUMENTS</label>
+        <div class="faq-drawer__content-wrapper" *ngIf="layer=='layer5'">
+          <div class="faq-drawer__content">
+
+            <div class="accor_sub_container">
+              <!-- <h1>Accordion</h1> -->
+              <div class="faq-drawer">
+                <input class="faq-drawer__trigger" id="faq-drawer-51" (click)="click_layer('layer51')" type="checkbox" />
+                <label class="faq-drawer__title" for="faq-drawer-51">Resolution</label>
+                <div class="faq-drawer__content-wrapper" *ngIf="layer_compliance=='layer51'">
+                  <div class="faq-drawer__content">
+                    <div class="developer_KYC_form">
+                      <div class="container mt-3">
+                        <form>
+                          <div class="row jumbotron box8">
+                            <div class="col-lg-4 col-md-6  form-group">
+                              <label class="metro" for="usedfor">Type of File</label>
+                              <select id="usedfor" class="form-control browser-default custom-select">
+                                <option value="select" disabled selected> -Select File Name- </option>
+                                <option value="commercialuse">Resolution for redevelopment</option>
+                                <option value="residentialuse">Resolution for re-development committee</option>
+                                <option value="mixeduse">Resolution for tender structure finalization</option>
+                                <option value="">Resolution for tentative appointment of society</option>
+                                <option value="">Resolution for final appointment of developer</option>
+                                <option value="">Resolution for approval of legal drafts</option>
+                                <option value="">Resolution for appointment of representative of society</option>
+                                <option value="">Resolution for approval of pre-submission drawing of building plan</option>
+                                <option value="">Resolution for tentative allotment of tenements to members</option>
+                                <option value="">Resolution to grant permission for demolition of existing building</option>
+                                <option value="">Other</option>
+                              </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6  form-group">
+                              <label class="metro" for="chooseFile"> Select File</label>
+                              <input type="file" class="form-control" name="chooseFile" id="chooseFile" required>
+                            </div>
+                            <div class="col-md-4 form-group mb-0">
+                              <div class="form-group "  style="margin-top: 2.6rem;">
+                                <button class="upload">Upload File</button>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+              </div>
+              <div class="faq-drawer">
+                <input class="faq-drawer__trigger" id="faq-drawer-52" (click)="click_layer('layer52')" type="checkbox" /><label
+                  class="faq-drawer__title" for="faq-drawer-52">Consents</label>
+                <div class="faq-drawer__content-wrapper" *ngIf="layer_compliance=='layer52'">
+                  <div class="faq-drawer__content">
+                    <!-- Partners KYC Form start -->
+                    <div class="partners_kyc_form">
+                      <div class="container mt-3">
+                        <form>
+                          <div class="row jumbotron box8">
+                            <div class="col-lg-4 col-md-6  form-group">
+                              <label class="metro" for="usedfor">Type of Document</label>
+                              <select id="usedfor" class="form-control browser-default custom-select">
+                                <option value="select" disabled selected> -Select Document Name- </option>
+                                <option value="commercialuse">Consent letter from each member for redevelopment</option>
+                                <option value="residentialuse">Consent letter from each member for area finalization</option>
+                                <option value="mixeduse">Approval from members for draft of alternate permanent accommodation</option>
+                                <option value="">Consent for deviation in area of new flat</option>
+                                <option value="">Other</option>
+                              </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6  form-group">
+                              <label class="metro" for="chooseFile"> Select File</label>
+                              <input type="file" class="form-control" name="chooseFile" id="chooseFile" required>
+                            </div>
+                            <div class="col-md-4 form-group mb-0">
+                              <div class="form-group"  style="margin-top: 2.6rem;">
+                                <button class="upload">Upload File</button>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <!-- Partners KYC Form end -->
+                  </div>
+                </div>
+              </div>
+              <div class="faq-drawer">
+                <input class="faq-drawer__trigger" id="faq-drawer-53" (click)="click_layer('layer53')" type="checkbox" /><label
+                  class="faq-drawer__title" for="faq-drawer-53">Reports</label>
+                <div class="faq-drawer__content-wrapper" *ngIf="layer_compliance=='layer53'">
+                  <div class="faq-drawer__content">
+                    <!-- Partners KYC Form start -->
+                    <div class="partners_kyc_form">
+                      <div class="container mt-3">
+                        <form>
+                          <div class="row jumbotron box8">
+                            <div class="col-lg-4 col-md-6  form-group">
+                              <label class="metro" for="usedfor">Type of Document</label>
+                              <select id="usedfor" class="form-control browser-default custom-select">
+                                <option value="select" disabled selected> -Select Document Name- </option>
+                                <option value="">Search and title report of land</option>
+                                <option value="">Financial feasibility report</option>
+                                <option value="">Land survey report</option>
+                                <option value="">Block feasibility report</option>
+                                <option value="">Flat area assessment report</option>
+                                <option value="">Increased area feasibility report</option>
+                                <option value="">Pre-submission plan verification report</option>
+                                <option value="">Sanction plan verification report</option>
+                                <option value="">Technical audit report</option>
+                                <option value="">Other</option>
+                              </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6  form-group">
+                              <label class="metro" for="chooseFile"> Select File</label>
+                              <input type="file" class="form-control" name="chooseFile" id="chooseFile" required>
+                            </div>
+                            <div class="col-md-4 form-group mb-0">
+                              <div class="form-group"  style="margin-top: 2.6rem;">
+                                <button class="upload">Upload File</button>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <!-- Partners KYC Form end -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      
+      <!-- Compliance DOCUMENTS End -->
+
+
+      <!-- Appointment Of Developer Start -->
+      <div class="faq-drawer">
+        <input class="faq-drawer__trigger" id="faq-drawer-2" (click)="clickelayer1('layer2')" type="checkbox" />
+        <label class="faq-drawer__title" for="faq-drawer-2">APPOINTMENT OF DEVELOPER</label>
+        <div class="faq-drawer__content-wrapper" *ngIf="layer=='layer2'">
+          <div class="faq-drawer__content">
+            <div class="developer_KYC_form">
+              <div class="container mt-3">
+                <form>
+                  <div class="row jumbotron box8">              
+                    <div class="col-sm-12" >
+                      <div class="row">
+                        <div class="col-lg-4 col-md-6  form-group">
+                          <label class="metro" for="paperPublicationNotice">Paper Publication Notice</label>
+                          <!-- <input type="file" class="form-control" name="paperPublicationNotice" id="paperPublicationNotice" required> -->
+                        </div>
+                        <div class="col-lg-4 col-md-6  form-group">
+                          <!-- <label class="metro" for="paperPublicationNotice">Paper Publication Notice</label> -->
+                          <input type="file" class="form-control" name="paperPublicationNotice" id="paperPublicationNotice" required>
+                        </div>
+                        <div class="col-lg-4 col-md-6 form-group">
+                          <button class="upload">Submit</button> 
+                        </div>                 
+                      </div>
+                    </div>          
+                    <!-- <div class="col-sm-12" >
+                      <div class="row">
+                        <div class="col-lg-4 col-md-6  form-group">
+                          <label class="metro" for="Intimation">Intimation</label>
+                          <input type="file" class="form-control" name="Intimation" id="Intimation" required>
+                        </div>
+                        <div class="col-lg-4 col-md-6  form-group">
+                          <label class="metro" for="Intimation">Paper Publication Notice</label>
+                          <input type="file" class="form-control" name="Intimation" id="Intimation" required>
+                        </div>
+                        <div class="col-lg-4 col-md-6 form-group">
+                          <button class="upload">Submit</button> 
+                        </div>                 
+                      </div>
+                    </div>           -->
+                    
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Appointment Of Developer End -->
+
+      <!-- Developer OR Contractor Details Start -->
+      <div class="faq-drawer">
+        <input class="faq-drawer__trigger" id="faq-drawer-4" (click)="clickelayer1('layer4')" type="checkbox" /><label
+          class="faq-drawer__title" for="faq-drawer-4">DEVELOPER’S/CONTRACTOR’S INFORMATION</label>
+        <div class="faq-drawer__content-wrapper" *ngIf="layer=='layer4'">
+          <div class="faq-drawer__content">
+
+            <!-- Partners KYC Form start -->
+            <div class="partners_kyc_form">
+              <div class="container mt-3">
+                <form>
+                  <div class="row jumbotron box8">
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="usedfor">Who are you?</label>
+                      <select id="usedfor" class="form-control browser-default custom-select">
+                        <option value="select" disabled selected> -I am a- </option>
+                        <option value="Developer">Developer</option>
+                        <option value="Contractor">Contractor</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-4 col-md-6  form-group">
+                      <label class="metro" for="chooseFile">Developer Code</label>
+                      <input type="text" class="form-control" name="chooseFile" id="chooseFile" 
+                        placeholder="Enter Your Code" required>
+                    </div>
+                    <div class="col-md-4 form-group mb-0" style="margin-top: 2rem; ">
+                      <div class="form-group mb-0">
+                        <button class="upload">Submit</button>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <form action="">
+                        <div class="row">
+                          <div class="col-lg-4 col-md-6  form-group">
+                            <label class="metro" for="typeOfOrganisation">Type of Organisation</label>
+                            <select id="typeOfOrganisation" class="form-control browser-default custom-select">
+                              <option value="select" disabled selected> -Select Your Organisation- </option>
+                              <option value="proprietaryConcern">Proprietary Concern</option>
+                              <option value="partnershipFirm ">Partnership Firm</option>
+                              <option value="llp ">LLP</option>
+                              <option value="privateLtd">Private Limited company </option>
+                              <option value="individual">Individual</option>
+                            </select>
+                          </div>
+                          <div class="col-lg-4 col-md-6  form-group">
+                            <label class="metro" for="OrganisationName">Name of Organisation</label>
+                            <input type="text" class="form-control" name="OrganisationName" id="organisationName"
+                              placeholder="Enter organisation Name" required>
+                          </div>
+                          <div class="col-lg-4 col-md-6  form-group">
+                            <label class="metro" for="yearOfExperience">Year of Experience</label>
+                            <input type="text" class="form-control" name="yearOfExperience" id="yearOfExperience"
+                              placeholder="Enter Year of Experience" required>
+                          </div>
+                          <div class="col-md-4 form-group mb-0" style="margin-top: 2rem; ">
+                            <div class="form-group mb-0">
+                              <button class="upload">Submit</button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- Partners KYC Form end -->
+          </div>
+        </div>
+      </div> 
+      <!-- Developer OR Contractor Details end -->
+
+    </div>
+  </section>
+</div>

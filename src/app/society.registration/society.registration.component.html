@@ -1,0 +1,228 @@
+<div class="home-page-container" >
+  <section>
+    <div class="developer_form">
+      <div class="container mt-3">
+        <form [formGroup]="userForm" (submit)="save(userForm)">
+          <div class="row jumbotron box8">
+            <div class="col-sm-12 mx-t3 mb-4">
+              <h2 class="text-center">Society Registration Form</h2>
+            </div>
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="societyName">Society Name</label>
+              <input type="text" class="form-control" formControlName="societyName" name="societyName" id="societyName"
+                placeholder="Enter your Society Name" required>
+                <span style="color:red" *ngIf="(registerFormControl.societyName.touched || submitted) && registerFormControl.societyName.errors?.required">Society Name is Requered</span>
+            </div>
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="societyRegistrationNumber">Society Registration Number</label>
+              <input type="text" formControlName="societyRegistrationNumber" class="form-control" name="societyRegistrationNumber" id="societyRegistrationNumber"
+                placeholder="Enter your society Registration Number" required>
+                <span style="color:red" *ngIf="(registerFormControl.societyRegistrationNumber.touched || submitted) && registerFormControl.societyRegistrationNumber.errors?.required">Society Registration Number is Requered</span>
+            </div>
+
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="age">address of society</label>
+              <input type="text" class="form-control" formControlName="address" name="age" id="age" placeholder="Enter your address" required>
+              <span style="color:red" *ngIf="(registerFormControl.address.touched || submitted) && registerFormControl.address.errors?.required">Age is Requered</span>
+            </div>
+
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="age">Age of building</label>
+              <input type="number" class="form-control" formControlName="ageofbuilding" name="age" id="age" placeholder="Enter your age" required>
+              <span style="color:red" *ngIf="(registerFormControl.ageofbuilding.touched || submitted) && registerFormControl.ageofbuilding.errors?.required">Age is Requered</span>
+            </div>
+
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="existingMemberCount">Existing Member Count</label>
+              <input type="number" class="form-control" formControlName="existingMemberCount" name="existingMemberCount" id="existingMemberCount"
+                placeholder="Enter your Existing Member" required>
+                <span style="color:red" *ngIf="(registerFormControl.existingMemberCount.touched || submitted) && registerFormControl.existingMemberCount.errors?.required">Existing Member Count is Requered</span>
+            </div>
+            
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="emailofsociet">email of society</label>
+              <input type="text" class="form-control" formControlName="emailofsociet" name="emailofsociet" id="emailofsociet" placeholder="Enter your email" required>
+              <span style="color:red" *ngIf="(registerFormControl.emailofsociet.touched || submitted) && registerFormControl.emailofsociet.errors">email is Requered</span>
+            </div>
+            
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="typeOfDevelopment">Type Of Development</label>
+              <select id="typeOfDevelopment" formControlName="typedevelopment" class="form-control browser-default custom-select">
+                <option value="select" disabled selected> -Select Type of Development- </option>
+                <option value="1" >Regular Development</option>
+                <option value="2">Limited Self Development</option>
+                <option value="3">Self Development</option>
+              </select>
+            </div> 
+
+            <div class="col-lg-4 col-md-6  form-group" *ngIf="userForm.value.typedevelopment == '1'">
+              <label class="metro" for="typeOfTrety">Type Of Trety</label>
+              <select id="typeOfTrety" formControlName="typetrety" class="form-control browser-default custom-select">
+                <option value="select" disabled selected> -Select Type of Trety- </option>
+                <option value="privateTrety">Private Trety</option>
+                <option value="tendering">Tendering</option>
+              </select>
+            </div>
+            <div class="col-lg-4 col-md-6  form-group" *ngIf="userForm.value.typedevelopment == '2'">
+              <label class="metro" for="typeOfTrety">Type Of Trety</label>
+              <select id="typeOfTrety" formControlName="typetrety" class="form-control browser-default custom-select">
+                <option value="select" disabled selected> -Select Type of Trety- </option>
+                <option value="privateTrety">Private Trety</option>
+                <!-- <option value="tendering">Tendering</option> -->
+              </select>
+            </div>
+            
+            
+
+            <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="age">Office Bearers of Society</label>
+              <select id="age" formControlName="bearers" class="form-control browser-default custom-select">
+                <option value="select" disabled selected> -Select Type of Bearers- </option>
+                <option value="1">Chairmen </option>
+                <option value="2"> Secretory </option>
+                <option value="3"> Treasurer </option>                
+                <option value="4">Member </option>                
+              </select>
+            </div>
+            
+            <div class="col-md-12" *ngIf="userForm.value.bearers">
+                <div class="row">
+                  <div class="col-lg-3 col-md-6  form-group">
+                    <label class="metro" for="chairmanName">Name</label>
+                    <input type="text" formControlName="name" class="form-control" name="chairmanName" id="chairmanName"
+                      placeholder="Enter Name" required>
+                  </div>
+                  <div class="col-lg-3 col-md-6  form-group">
+                    <label class="metro" for="chairmanEmailID">Email ID </label>
+                    <input type="text" class="form-control" formControlName="email" name="chairmanEmailID" id="chairmanEmailID"
+                      placeholder="Enter Email ID" required>
+                  </div>
+                  <div class="col-lg-3 col-md-6  form-group">
+                    <label class="metro" for="chairmanNumber">Number</label>
+                    <input type="text" class="form-control" formControlName="number" name="chairmanNumber" id="chairmanNumber"
+                      placeholder="Enter Number" required>
+                  </div>
+                  <div class="col-sm-3 form-group mb-0" style=" display: flex; justify-content: center; padding: 2rem 0;">
+                    <button type="button" (click)="bearerssave(userForm.value.bearers,userForm.value.name,userForm.value.email,userForm.value.number)" class="btn">Add</button> 
+                  </div>
+                </div>
+                <table class="table" *ngIf="socitybearer">
+                  <thead>
+                    <th>S.No</th>
+                    <th>Type of Bearers</th>
+                    <th>Name</th>
+                    <th>E-mail Id</th>
+                    <th>Number</th>
+                    <th>Action</th>
+                  </thead>
+                  <tbody *ngFor="let data of socitybearer; let i = index">
+                    <tr>
+                      <td data-label="S.No">{{i+1}}</td>
+                      <td data-label="bearers" *ngIf="data.societyMemberDesignationId == '1'">Chairmen</td>
+                      <td data-label="bearers" *ngIf="data.societyMemberDesignationId == '2'">Secretory</td>
+                      <td data-label="bearers" *ngIf="data.societyMemberDesignationId == '3'">Treasurer</td>
+                      <td data-label="bearers" *ngIf="data.societyMemberDesignationId == '4'">Member</td>
+                      <td data-label="Name">{{data.memberName}}</td>
+                      <td data-label="E-mailId">{{data.email}}</td>
+                      <td data-label="number">{{data.mobileNumber}}</td>
+                      <td data-label="action">
+                        <a style="margin-right: 15px;" (click)="edititem(i)"><img class="custom_icon" src="../../assets/images/pen-to-square-solid.svg"></a>
+                        <a (click)="removeitem(i)"><img class="custom_icon" src="../../assets/images/trash-can-solid.svg"></a>
+                      </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+            <!-- <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="age">Age</label>
+              <select id="age" formControlName="ageofbuilding" class="form-control browser-default custom-select">
+                <option value="select" disabled selected> -Select Age of Building- </option>
+                <option value="lessthan30years"> < 30 Years </option>
+                <option value="30-50years"> 30-50 Years </option>
+                <option value="morethan50years"> > 50 Years</option>                
+              </select>
+            </div> -->
+           
+
+            <!-- <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="usedfor">Type of Tenaments</label>
+              <select id="usedfor" class="form-control browser-default custom-select">
+                <option value="select" disabled selected> -Select Your Tenaments- </option>
+                <option value="numberOfCommercialTenaments">Commercial Tenaments</option>
+                <option value="numberOfResidentialTenaments">Residential Tenaments</option>
+                <option value="numberOfMixedTenaments">Mixed Tenaments</option>
+              </select>
+            </div> -->
+
+            <!-- <div class="col-lg-4 col-md-6  form-group">
+              <label class="metro" for="usedfor">Type of Building Area</label>
+              <select id="usedfor" class="form-control browser-default custom-select">
+                <option value="select" disabled selected> -Select Your Builtup Area- </option>
+                <option value="totalCommercialBuiltUpBldgArea">Commercial Built Up</option>
+                <option value="totalResidentialBuiltUpBldgArea">Residential Built Up</option>
+                <option value="totalMixedBuiltUpBldgArea">Mixed Built Up</option>
+              </select>
+            </div> -->
+            
+
+                  
+            
+            <!-- <div class="col-lg-4 col-md-6  form-group">
+                <label for="zip">Postal-Code</label>
+                <input type="zip" class="form-control" name="Zip" id="zip" placeholder="Postal-Code." required>
+              </div> 
+              
+              <div class="col-lg-4 col-md-6  form-group">
+                <label for="Date">Date Of Birth</label>
+                <input type="Date" name="dob" class="form-control" id="Date" placeholder="" required>
+              </div>
+              <div class="col-lg-4 col-md-6  form-group">
+                <label for="sex">Gender</label>
+                <select id="sex" class="form-control browser-default custom-select">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="unspesified">Unspecified</option>
+                </select>
+              </div>
+              
+              <div class="col-lg-4 col-md-6  form-group">
+                <label for="tel">Phone</label>
+                <input type="tel" name="phone" class="form-control" id="tel" placeholder="Enter Your Contact Number." required>
+              </div>
+              <div class="col-lg-4 col-md-6  form-group">
+                <label for="pass">Password</label>
+                <input type="Password" name="password" class="form-control" id="pass" placeholder="Enter your password." required>
+              </div>
+              <div class="col-lg-4 col-md-6  form-group">
+                <label for="pass2">Confirm Password</label>
+                <input type="Password" name="cnf-password" class="form-control" id="pass2" placeholder="Re-enter your password." required>
+              </div> -->
+
+
+            <!-- <div class="col-sm-12">
+              <input type="checkbox" formControlName="termandcondition" class="form-check d-inline" id="chb" required><label for="chb"
+                class="form-check-label">&nbsp;I accept all terms and conditions.
+              </label>
+              <span style="color:red" *ngIf="(registerFormControl.termandcondition.touched || submitted) && registerFormControl.termandcondition.errors?.required">accept all terms and conditions is Requered</span>
+            </div> -->
+
+
+            <div class="col-sm-12 form-group mb-0" style=" display: flex; justify-content: center; margin-top: 2rem;">
+              <button class="btn" style="margin-right: 10px;"  type="submit" >Submit</button> 
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+
+
+

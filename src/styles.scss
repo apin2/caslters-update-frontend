@@ -1,0 +1,86 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body { 
+    height: 100%; 
+}
+html{
+    overflow-x: hidden;
+}
+body { 
+    overflow-x: hidden;
+    // font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+@font-face {
+    font-family: metro_office;
+    src: url(../src/assets/font/MetroOfficeW01Regular.ttf) format('truetype');
+}
+.metro{
+    font-family: metro_office;
+}
+@font-face {
+    font-family: gotham_medium;
+    src: url(../src/assets/font/gotham-medium.ttf) format('truetype');
+}
+.gotham_medium{
+    font-family: gotham_medium;
+}
+@font-face {
+    font-family: supra;
+    src: url(../src/assets/font/Supra-XLightMezzo.ttf);
+}
+.supra{
+    font-family: supra;
+}
+@font-face {
+    font-family: rock1;
+    src: url(../src/assets/font/ROCC.TTF) format('truetype');
+}
+@font-face {
+    font-family: rock2;
+    src: url(../src/assets/font/ROCCB.TTF) format('truetype');
+}
+@font-face {
+    font-family: rock3;
+    src: url(../src/assets/font/ROCK.TTF) format('truetype');
+}
+@font-face {
+    font-family: rock4;
+    src: url(../src/assets/font/ROCKB.TTF) format('truetype');
+}
+@font-face {
+    font-family: rock5;
+    src: url(../src/assets/font/ROCKBI.TTF) format('truetype');
+}
+@font-face {
+    font-family: rock6;
+    src: url(../src/assets/font/ROCKEB.TTF) format('truetype');
+}
+@font-face {
+    font-family: rock7;
+    src: url(../src/assets/font/ROCKI.TTF) format('truetype');
+}
+.r1{
+    font-family: rock1;
+}
+.r2{
+    font-family: rock2;
+}
+.r3{
+    font-family: rock3;
+}
+.r4{
+    font-family: rock4;
+}
+.r5{
+    font-family: rock5;
+}
+.r6{
+    font-family: rock6;
+}
+.r7{
+    font-family: rock7;
+}
