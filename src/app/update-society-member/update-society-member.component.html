@@ -9,11 +9,11 @@
               </div>
               <div class="col-lg-4 col-md-6  form-group">
                 <label class="metro" for="typeOfSociety">Select Society</label>
-                <select id="typeOfSociety" class="form-control browser-default custom-select">
+                <select id="typeOfSociety" [(ngModel)]="selectedsocietyid" class="form-control browser-default custom-select">
                   <option value="select" disabled selected> -Select Society- </option>
-                  <option value="regularSociety">Regular Society</option>
-                  <option value="limitedSelfSociety">Limited Self Society</option>
-                  <option value="selfSociety">Self Society</option>
+                  <option [value]="allsociety.registeredSocietyid" *ngFor="let allsociety of allregistersociety">{{allsociety.societyName}}</option>
+                  <!-- <option value="limitedSelfSociety">Limited Self Society</option>
+                  <option value="selfSociety">Self Society</option> -->
                 </select>
               </div>       
               <div class="col-lg-8 col-md-6 form-group " style=" display: flex; justify-content: left; margin-top: 2rem;">

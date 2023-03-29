@@ -13,6 +13,8 @@ export class UpdateSocietyMemberComponent {
   as: any = XLSX;
   fileName: string = 'updatemember.xlsx';
   show: any = false;
+  allregistersociety:any;
+  selectedsocietyid:any;
 
   constructor(private service: ServiceService) {
     this.service.getRegisterSociety();
@@ -21,6 +23,7 @@ export class UpdateSocietyMemberComponent {
   ngOnInit() {
     this.service.getRegisterSociety().subscribe((res) => {
       console.log(res);
+      this.allregistersociety=res;
     });
   }
 

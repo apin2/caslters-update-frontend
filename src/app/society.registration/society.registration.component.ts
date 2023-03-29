@@ -22,6 +22,7 @@ export class SocietyRegistrationComponent {
   updatesociety:any=new Societyupdate;
   public id:any;
   memberdetail:any;
+  designation:any;
   check:any = {
     chairman: false,
     Secretory: false,
@@ -54,6 +55,7 @@ export class SocietyRegistrationComponent {
     });
     
     this.service.getSocietyMemberDesignations().subscribe((res) => {
+      this.designation=res;
       console.log(res);
     });
 
@@ -69,7 +71,7 @@ export class SocietyRegistrationComponent {
       // console.log(this.socitybearer);
       let obj={
         "registeredSocietyId": 0,
-        "societyDevelopmentTypeId": JSON.parse(f.value.typedevelopment),
+        "societyDevelopmentTypeId": (f.value.typedevelopment),
         "societyDevelopmentSubType": f.value.typetrety,
         "societyRegistrationNumber": f.value.societyRegistrationNumber,
         "societyName": f.value.societyName,
@@ -85,11 +87,11 @@ export class SocietyRegistrationComponent {
       localStorage.setItem('society_detail',local);
       this.service.registersociety(obj).subscribe(res =>{
         if(res){
+          this.toastr.success( 'Registration success',"Society" );
         }
         console.log(res);
       });
-      this.toastr.success( 'Registration success',"Society" );
-      // this.route.navigate(['societyRegistration/DeveloperKYC']);
+      this.route.navigate(['selectSociety']);
     }
     else{
       this.toastr.error( 'is Requered',"societyName" );

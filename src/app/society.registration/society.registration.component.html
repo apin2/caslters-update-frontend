@@ -78,10 +78,10 @@
               <label class="metro" for="age">Office Bearers of Society</label>
               <select id="age" formControlName="bearers" class="form-control browser-default custom-select">
                 <option value="select" disabled selected> -Select Type of Bearers- </option>
-                <option value="1">Chairmen </option>
-                <option value="2"> Secretory </option>
+                <option [value]="designate.societyMemberDesignationId" *ngFor="let designate of designation">{{designate.designationType}} </option>
+                <!-- <option value="2"> Secretory </option>
                 <option value="3"> Treasurer </option>                
-                <option value="4">Member </option>                
+                <option value="4">Member </option>                 -->
               </select>
             </div>
             

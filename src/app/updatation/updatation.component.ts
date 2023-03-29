@@ -15,7 +15,8 @@ export class UpdatationComponent {
   updatesociety:any=new Societyupdate;
   updatememberdetail:any=[]
   memberdetail:any;
-  id:any
+  id:any;
+  societyid:any
   check:any = {
     chairman: false,
     Secretory: false,
@@ -27,13 +28,19 @@ export class UpdatationComponent {
 
   ngOnInit(){
     this.memberdetail = new Memberdetail;
-    // this.getupdatesociety();
+   
+    this.getupdatesociety();
    
   }
 
   getupdatesociety(){
-    let update:any= localStorage.getItem('society_detail')
-    let detail=JSON.parse(update)
+    // let update:any= localStorage.getItem('society_detail')
+    // let detail=JSON.parse(update)
+    let detail:any;
+    this.societyid= localStorage.getItem('societyid');
+   this.service.getsocietybyid(this.societyid).subscribe((res)=>{
+    detail=res;
+   })
     this.updatesociety = detail;
     console.log("detail",detail);
     console.log("this.updatesociety",this.updatesociety)
@@ -42,7 +49,9 @@ export class UpdatationComponent {
   }
   saveupdatesociety(f:any){
     console.log(f);
-    this.service.updateRegistrationSocietyDetails(f).subscribe();
+    this.service.updateRegistrationSocietyDetails(f).subscribe((res)=>{
+      console.log(res);
+    });
   }
 
   updatemember(){
@@ -108,10 +117,26 @@ export class UpdatationComponent {
   }
 
   }
-  updatedititem(i:any){
-
+  updatedititem(index:any){
+    this.id=index;
+    for(let i=0;i<=this.updatememberdetail.length;i++){
+      if(index == i){
+        // console.log("this.socitybearer[i].name",this.socitybearer[i]);
+        this.memberdetail.bearers=this.updatememberdetail[i].bearers;
+        this.memberdetail.name=this.updatememberdetail[i].name;
+        this.memberdetail.email=this.updatememberdetail[i].email;
+        this.memberdetail.number=this.updatememberdetail[i].number;
+        // this.userForm.controls['name'].reset(this.socitybearer[i].name);
+        // this.userForm.controls['email'].reset(this.socitybearer[i].email);
+        // this.userForm.controls['number'].reset(this.socitybearer[i].number);
+      }
+    }
   }
   updateremoveitem(i:any){
-
+    console.log(i);
+    this.updatememberdetail.splice(i,1);
+    this.check.chairman=false;
+    this.check.secretory=false;
+    this.check.treasurer=false;
   }
 }
