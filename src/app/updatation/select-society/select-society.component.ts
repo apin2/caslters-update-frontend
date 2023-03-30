@@ -15,10 +15,12 @@ export class SelectSocietyComponent {
   constructor( private service: ServiceService, private route : Router){}
 
   ngOnInit(){
-this.service.getRegisterSociety().subscribe((res) => {
-      console.log(res);
-      this.allregistersociety=res;
-    });
+    setTimeout(()=>{
+      this.service.getRegisterSociety().subscribe((res) => {
+            console.log(res);
+            this.allregistersociety=res;
+          });
+    },800)
   }
 
   select(f:any){

@@ -19,6 +19,7 @@ export class UpdatationComponent {
   societyid:any;
   designation:any;
   productID:any;
+  detail:any;
   check:any = {
     chairman: false,
     Secretory: false,
@@ -47,15 +48,19 @@ export class UpdatationComponent {
   getupdatesociety(){
     // let update:any= localStorage.getItem('society_detail')
     // let detail=JSON.parse(update)
-    let detail:any;
-    this.societyid= localStorage.getItem('societyid');
-   this.service.getsocietybyid(this.societyid).subscribe((res)=>{
-    detail=res;
-   })
-    this.updatesociety = detail;
-    console.log("detail",detail);
+    // let detail:any;
+    this.societyid=this.aroute.snapshot.paramMap.get('id');
+    setTimeout(()=>{
+      this.service.getsocietybyid(this.societyid).subscribe((res)=>{
+       if(res){
+         this.detail=res;
+       }
+      })
+    },800)
+    this.updatesociety = this.detail;
+    console.log("detail",this.detail);
     console.log("this.updatesociety",this.updatesociety)
-    this.updatememberdetail=detail.societyMemberDetails;   
+    this.updatememberdetail=this.detail.societyMemberDetails;   
     console.log("this.memberdetail",this.updatememberdetail);
   }
   saveupdatesociety(f:any){

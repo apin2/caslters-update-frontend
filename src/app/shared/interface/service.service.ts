@@ -25,7 +25,7 @@ export class ServiceService {
     return this.http.get('https://localhost:44362/api/RegisteredSociety/UpdateRegisteredSociety', data);
   }
   public getsocietybyid(id:any):Observable<any>{
-    return this.http.get('https://localhost:44362/api/RegisteredSociety/getRegisteredSocietyInfo',(id));
+    return this.http.get('https://localhost:44362/api/RegisteredSociety/getRegisteredSocietyInfo'+id);
   }
 }
 

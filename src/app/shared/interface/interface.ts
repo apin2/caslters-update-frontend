@@ -8,6 +8,7 @@ export class Baerer {
 }
 
 // update society
+
 export class Societyupdate {
     age :any
     email :any
@@ -16,10 +17,10 @@ export class Societyupdate {
     registeredSocietyId : any
     societyDevelopmentSubType :any
     societyDevelopmentTypeId : any
+    societyMemberDetails :Memberdetail|any
     societyName : any
     societyRegisteredCode : any
     societyRegistrationNumber : any
-    societyMemberDetails :Memberdetail|any
 }
 
 export class Memberdetail {
