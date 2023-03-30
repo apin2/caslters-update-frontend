@@ -35,7 +35,7 @@ const routes: Routes = [
   { path: 'UpdateSocietyMember', component: UpdateSocietyMemberComponent },
   { path: 'DisplaySociety', component: DisplaySocietyComponent },
   { path: 'selectSociety', component: SelectSocietyComponent },
-  { path: 'updateSociety', component: UpdatationComponent },
+  { path: 'updateSociety/:id', component: UpdatationComponent },
 
 ];
 

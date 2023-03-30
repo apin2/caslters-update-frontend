@@ -79,7 +79,7 @@ export class SocietyRegistrationComponent {
         "email": f.value.emailofsociet,
         "existingMemberCount": f.value.existingMemberCount,
         "age": f.value.ageofbuilding,
-        "societyRegisteredCode": f.value.societyRegistrationNumber,
+        "societyRegisteredCode": 'MHP'+f.value.societyRegistrationNumber+Math.floor(Math.random() * (90 - 10 + 1)) + 10,
         "societyMemberDetails": this.socitybearer,
       }
       console.log("obj====>>",obj);

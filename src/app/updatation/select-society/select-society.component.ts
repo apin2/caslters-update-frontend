@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/shared/interface/service.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class SelectSocietyComponent {
   allregistersociety:any;
   selectedsocietyid:any;
 
-  constructor( private service: ServiceService){}
+  constructor( private service: ServiceService, private route : Router){}
 
   ngOnInit(){
 this.service.getRegisterSociety().subscribe((res) => {
@@ -21,7 +22,10 @@ this.service.getRegisterSociety().subscribe((res) => {
   }
 
   select(f:any){
-    localStorage.setItem('societyid',this.selectedsocietyid);
+    console.log(f);
+    // this.route.navigateByUrl('../updateSociety/'+this.selectedsocietyid);
+    this.route.navigateByUrl('/updateSociety/'+this.selectedsocietyid);
+    // localStorage.setItem('societyid',this.selectedsocietyid);
     console.log(f);
 
   }

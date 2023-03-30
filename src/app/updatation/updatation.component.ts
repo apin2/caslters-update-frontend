@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Memberdetail, Societyupdate } from '../shared/interface/interface';
 import { ServiceService } from '../shared/interface/service.service';
@@ -16,19 +16,30 @@ export class UpdatationComponent {
   updatememberdetail:any=[]
   memberdetail:any;
   id:any;
-  societyid:any
+  societyid:any;
+  designation:any;
+  productID:any;
   check:any = {
     chairman: false,
     Secretory: false,
     treasurer: false
   }
-  constructor(private fb: FormBuilder,public toastr: ToastrService, private route: Router , private service:ServiceService) {
+  constructor(private fb: FormBuilder,public toastr: ToastrService,private aroute: ActivatedRoute, private route: Router , private service:ServiceService) {
    
   }
 
   ngOnInit(){
+    // this.aroute.params.subscribe(
+    //   params => this.productID = params['id']
+    // );
+    this.productID= this.aroute.snapshot.paramMap.get('id');
+    console.log(this.productID);
+    
     this.memberdetail = new Memberdetail;
-   
+    this.service.getSocietyMemberDesignations().subscribe((res) => {
+      this.designation=res;
+      console.log(res);
+    });
     this.getupdatesociety();
    
   }
