@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import * as XLSX from 'xlsx';
 import { ServiceService } from '../shared/interface/service.service';
 type AOA = any[][];
@@ -13,23 +14,31 @@ export class UpdateSocietyMemberComponent {
   as: any = XLSX;
   fileName: string = 'updatemember.xlsx';
   show: any = false;
-  allregistersociety:any;
-  selectedsocietyid:any;
-
-  constructor(private service: ServiceService) {
+  allregistersociety: any;
+  selectedsocietyid: any;
+  file: any;
+  uploadForm: FormGroup | any;
+  constructor(
+    private service: ServiceService,
+    private formBuilder: FormBuilder
+  ) {
     this.service.getRegisterSociety();
   }
 
   ngOnInit() {
+    this.uploadForm = this.formBuilder.group({ profile: [''] });
     this.service.getRegisterSociety().subscribe((res) => {
       console.log(res);
-      this.allregistersociety=res;
+      this.allregistersociety = res;
     });
   }
 
   onFileChange(evt: any) {
     console.log(evt);
+    const file = evt.target.files[0];
+    this.uploadForm.get('profile').setValue(file);
     /* wire up file reader */
+    this.file = evt.target.files[0];
     const target: DataTransfer = <DataTransfer>evt.target;
     if (target.files.length !== 1) throw new Error('Cannot use multiple files');
     const reader: FileReader = new FileReader();
@@ -76,8 +85,25 @@ export class UpdateSocietyMemberComponent {
     console.log('i', this.data);
     this.data.splice(i, 1);
   }
+  memberupdate(f: any) {}
 
   showtable() {
+    const formData = new FormData();
+    formData.append('memberDetails', this.uploadForm.get('profile').value);
+
+    console.log(this.file);
+    console.log(this.selectedsocietyid);
     this.show = true;
+    const formfile = new FormData();
+    formfile.append('memberDetails', this.file);
+    console.log();
+    let obj: any = {
+      societyId: this.selectedsocietyid,
+      societyNewMemberDetails: formfile,
+    };
+    console.log(obj);
+    this.service.addnewmember(formData,this.selectedsocietyid).subscribe((res) => {
+      console.log(res);
+    });
   }
 }
