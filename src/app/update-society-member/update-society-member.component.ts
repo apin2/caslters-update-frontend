@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import * as XLSX from 'xlsx';
 import { Memberdetail } from '../shared/interface/interface';
 import { ServiceService } from '../shared/interface/service.service';
@@ -27,7 +28,8 @@ export class UpdateSocietyMemberComponent {
   uploadForm: FormGroup | any;
   constructor(
     private service: ServiceService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public toastr: ToastrService
   ) {
     this.service.getRegisterSociety();
   }
@@ -121,7 +123,10 @@ export class UpdateSocietyMemberComponent {
     }
     this.service.deletemember(obj).subscribe((res)=>{
       console.log(res);
-      
+      if(res){
+        this.onSocietySelected(this.selectedsocietyid);
+        this.toastr.success( 'delete successfully','Success');
+      }
     })
     // this.data.splice(i, 1);
   }
@@ -144,6 +149,10 @@ export class UpdateSocietyMemberComponent {
     console.log(obj);
     this.service.addnewmember(formData,this.selectedsocietyid).subscribe((res) => {
       console.log(res);
+      if(res){
+        this.onSocietySelected(this.selectedsocietyid);
+        this.toastr.success( 'Member added successfully','Success');
+      }
     });
   }
   updatemember(){
@@ -160,6 +169,10 @@ export class UpdateSocietyMemberComponent {
       }]
       this.service.updatemember(obj).subscribe((res)=>{
         console.log(res)
+        if(res){
+          this.onSocietySelected(this.selectedsocietyid);
+          this.toastr.success( 'update successfully','Success');
+        }
       })
     }
     // this.id;

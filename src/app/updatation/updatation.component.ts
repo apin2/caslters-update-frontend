@@ -19,6 +19,7 @@ export class UpdatationComponent {
   designation: any;
   productID: any;
   detail: any;
+  singlemember:any;
   check: any = {
     chairman: false,
     Secretory: false,
@@ -33,8 +34,6 @@ export class UpdatationComponent {
   ) {}
 
   ngOnInit() {
-    this.productID = this.aroute.snapshot.paramMap.get('id');
-    console.log(this.productID);
 
     this.memberdetail = new Memberdetail();
     this.service.getSocietyMemberDesignations().subscribe((res) => {
@@ -48,11 +47,8 @@ export class UpdatationComponent {
     this.societyid = this.aroute.snapshot.paramMap.get('id');
     this.service.getsocietybyid(this.societyid).subscribe((res) => {
       if (res) {
-        console.log();
         this.updatesociety = res;
         this.updatememberdetail = res.societyMemberDetails;
-        console.log('this.updatesociety', this.updatesociety);
-        console.log('this.memberdetail', this.updatememberdetail);
         for (let i = 0; i < this.updatememberdetail.length; i++) {
           console.log(this.updatememberdetail[i].societyMemberDesignationId);
           if (this.updatememberdetail[i].societyMemberDesignationId === 1) {
@@ -65,12 +61,8 @@ export class UpdatationComponent {
         }
       }
     });
-    console.log('detail', this.updatesociety);
   }
   saveupdatesociety(f: any) {
-    // console.log(f.value);
-    console.log('this.detail==>>', this.updatesociety);
-
     this.service
       .updateRegistrationSocietyDetails(this.updatesociety)
       .subscribe((res) => {
@@ -125,12 +117,22 @@ export class UpdatationComponent {
         } else {
           console.log(`${bearers.societyMemberDesignationId} is already Exist`);
           console.log("this.toastr.success('Hello world!', 'Toastr fun!')");
-          this.toastr.error('is already Exist!', bearers.societyMemberDesignationId);
+          if(bearers.societyMemberDesignationId=='1'){
+        let alertmessage='chairman'
+        this.toastr.error( 'is already Exist!', alertmessage);
+      }else if(bearers.societyMemberDesignationId=='2'){
+        let alertmessage='Secretory';
+        this.toastr.error( 'is already Exist!', alertmessage);
+      }else if(bearers.societyMemberDesignationId=='3'){
+        let alertmessage='Treasurer';
+        this.toastr.error( 'is already Exist!', alertmessage);
+      }
         }
       }
     }
   }
-  updatedititem(index: any) {
+  updatedititem(index: any,data:any) {
+    this.singlemember=data;
     this.id = index;
     for (let i = 0; i <= this.updatememberdetail.length; i++) {
       if (index == i) {
@@ -141,9 +143,21 @@ export class UpdatationComponent {
       }
     }
   }
-  updateremoveitem(i: any) {
+  updateremoveitem(i: any,data:any) {
+    let obj:any={
+      'societyMemberDetailsId':data.societyMemberDetailsId,
+      'registeredSocietyId':data.registeredSocietyId
+    }
+    this.service.deletemember(obj).subscribe((res)=>{
+      console.log(res);
+      if(res){
+        // this.onSocietySelected(this.selectedsocietyid);
+        this.toastr.success( 'delete successfully','Success');
+      }
+    })
     console.log(i);
     this.updatememberdetail.splice(i, 1);
+    this.toastr.success( 'delete successfully','Success');
     this.check.chairman = false;
     this.check.secretory = false;
     this.check.treasurer = false;

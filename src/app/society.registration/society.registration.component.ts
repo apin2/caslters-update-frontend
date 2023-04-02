@@ -167,7 +167,17 @@ export class SocietyRegistrationComponent {
       }
        else {console.log(`${this.bearers.societyMemberDesignationId} is already Exist`)
       //  console.log("this.toastr.success('Hello world!', 'Toastr fun!')",this.toastr.success('Hello world!', 'Toastr fun!'))
-       this.toastr.error( 'is already Exist!', this.bearers.societyMemberDesignationId);
+      if(this.bearers.societyMemberDesignationId=='1'){
+        let alertmessage='chairman'
+        this.toastr.error( 'is already Exist!', alertmessage);
+      }else if(this.bearers.societyMemberDesignationId=='2'){
+        let alertmessage='Secretory';
+        this.toastr.error( 'is already Exist!', alertmessage);
+      }else if(this.bearers.societyMemberDesignationId=='3'){
+        let alertmessage='Treasurer';
+        this.toastr.error( 'is already Exist!', alertmessage);
+      }
+       
       }
     }
   }
