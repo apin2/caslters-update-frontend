@@ -96,7 +96,7 @@ export class UpdatationComponent {
       console.log('if');
       for (let i = 0; i <= this.updatememberdetail.length; i++) {
         if (this.id == i) {
-          this.updatememberdetail[i].bearers = bearers.bearers;
+          this.updatememberdetail[i].bearers = bearers.societyMemberDesignationId;
           this.updatememberdetail[i].name = bearers.name;
           this.updatememberdetail[i].email = bearers.email;
           this.updatememberdetail[i].number = bearers.number;
@@ -104,26 +104,28 @@ export class UpdatationComponent {
         }
       }
     } else {
-      if (!['1', '2', '3'].includes(bearers.bearers)) {
+      if (!['1', '2', '3'].includes(bearers.societyMemberDesignationId)) {
         this.updatememberdetail.push(bearers);
-        console.log('esel', this.updatememberdetail);
+        console.log('esel', this.memberdetail.societyMemberDesignationId); 
       } else {
-        if (!this.check.chairman && bearers.bearers === '1') {
+        console.log('elsethis.==',this.memberdetail.societyMemberDesignationId);
+        
+        if (!this.check.chairman && bearers.societyMemberDesignationId === '1') {
           this.updatememberdetail.push(bearers);
           this.check.chairman = true;
           console.log('this.', this.updatememberdetail);
-        } else if (!this.check.Secretory && bearers.bearers === '2') {
+        } else if (!this.check.Secretory && bearers.societyMemberDesignationId === '2') {
           this.check.Secretory = true;
           this.updatememberdetail.push(bearers);
           console.log('seretory', this.updatememberdetail);
-        } else if (!this.check.treasurer && bearers.bearers === '3') {
+        } else if (!this.check.treasurer && bearers.societyMemberDesignationId === '3') {
           this.check.treasurer = true;
           this.updatememberdetail.push(bearers);
           console.log('treasurer', this.updatememberdetail);
         } else {
-          console.log(`${bearers.bearers} is already Exist`);
+          console.log(`${bearers.societyMemberDesignationId} is already Exist`);
           console.log("this.toastr.success('Hello world!', 'Toastr fun!')");
-          this.toastr.error('is already Exist!', bearers.bearers);
+          this.toastr.error('is already Exist!', bearers.societyMemberDesignationId);
         }
       }
     }

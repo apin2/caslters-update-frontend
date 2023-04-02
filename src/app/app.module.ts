@@ -21,6 +21,7 @@ import { UpdatationComponent } from './updatation/updatation.component';
 import { SelectSocietyComponent } from './updatation/select-society/select-society.component';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { ServiceService } from './shared/interface/service.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 // import { SocietyRegistrationModule } from './society.registration/society.registration.module';
 // import { DeveloperRegistrationModule } from './developer.registration/developer.registration.module';
 
@@ -49,7 +50,8 @@ import { ServiceService } from './shared/interface/service.service';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxPaginationModule
     // SocietyRegistrationModule,
     // DeveloperRegistrationModule
   ],

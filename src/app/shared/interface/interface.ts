@@ -37,6 +37,7 @@ export class updatesocietyReg {
     socityname: any;
     registrationnumber: any;
     address: any;
+    city:any;
     ageofbuiling: any;
     membercount: any;
     societyemail: any;

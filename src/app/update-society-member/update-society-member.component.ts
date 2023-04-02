@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import * as XLSX from 'xlsx';
+import { Memberdetail } from '../shared/interface/interface';
 import { ServiceService } from '../shared/interface/service.service';
 type AOA = any[][];
 
@@ -17,6 +18,12 @@ export class UpdateSocietyMemberComponent {
   allregistersociety: any;
   selectedsocietyid: any;
   file: any;
+  memberdetail:any=new Memberdetail;
+  showfile:any=false;
+  id:any;
+  p:any;
+  societydata:any;
+  singlemember:any;
   uploadForm: FormGroup | any;
   constructor(
     private service: ServiceService,
@@ -26,11 +33,19 @@ export class UpdateSocietyMemberComponent {
   }
 
   ngOnInit() {
+   
     this.uploadForm = this.formBuilder.group({ profile: [''] });
     this.service.getRegisterSociety().subscribe((res) => {
       console.log(res);
       this.allregistersociety = res;
     });
+  }
+
+  onSocietySelected(societyid:any){
+    console.log(societyid);
+     this.service.getallmember(societyid).subscribe((res)=>{
+      this.societydata=res;
+     })
   }
 
   onFileChange(evt: any) {
@@ -78,12 +93,36 @@ export class UpdateSocietyMemberComponent {
     /* save to file */
     XLSX.writeFile(wb, this.fileName);
   }
-  edititem(i: any) {
-    console.log('i', i);
+  edititem(index: any,data:any) {
+    this.memberdetail.memberName=data.memberName;
+    this.memberdetail.mobileNumber=data.mobileNumber;
+    this.memberdetail.email=data.email;
+    this.singlemember=data;
+    
+    this.showfile=true
+    // console.log('i', index);
+    // this.id=index;
+    // console.log("dat===>>",this.data);
+    // for(let i =1 ; i<=this.data.length ; i++){
+    //   if(index==i){
+    //     console.log(this.data[i]); 
+    //     this.memberdetail.memberName=this.data[i][1];
+    //     this.memberdetail.email=this.data[i][2];
+    //     this.memberdetail.mobileNumber=this.data[i][3];
+    //   }
+    // }
   }
-  removeitem(i: any) {
+  removeitem(i: any,data:any) {
     console.log('i', this.data);
-    this.data.splice(i, 1);
+    let obj:any={
+      societyMemberDetailsId:data.societyMemberDetailsId,
+      registeredSocietyId:data.registeredSocietyId
+    }
+    this.service.deletemember(obj).subscribe((res)=>{
+      console.log(res);
+      
+    })
+    // this.data.splice(i, 1);
   }
   memberupdate(f: any) {}
 
@@ -105,5 +144,26 @@ export class UpdateSocietyMemberComponent {
     this.service.addnewmember(formData,this.selectedsocietyid).subscribe((res) => {
       console.log(res);
     });
+  }
+  updatemember(){
+    if(this.singlemember.societyMemberDetailsId){
+      let obj:any=[{
+        "societyMemberDetailsId": this.singlemember.societyMemberDetailsId,
+        "registeredSocietyId": this.singlemember.registeredSocietyId,
+        "memberName": this.memberdetail.memberName,
+        "mobileNumber": this.memberdetail.mobileNumber,
+        "email": this.memberdetail.email,
+        "societyMemberDesignationId": this.singlemember.societyMemberDesignationId,
+        "createdDate": this.singlemember.createdDate,
+        "updatedDate": this.singlemember.updatedDate
+      }]
+      this.service.updatemember(obj).subscribe((res)=>{
+        console.log(res)
+      })
+    }
+    // this.id;
+    // this.data[this.id][1]=this.memberdetail.memberName;
+    // this.data[this.id][2]=this.memberdetail.email;
+    // this.data[this.id][3]=this.memberdetail.mobileNumber;
   }
 }

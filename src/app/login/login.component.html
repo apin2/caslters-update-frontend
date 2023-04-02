@@ -1,0 +1,32 @@
+<div class="home-page-container">
+    <section>
+        <div class="developer_form">
+            <div class="container mt-3">
+                <form #loginform="ngForm" (ngSubmit)="login(loginform)">
+                    <div class="row jumbotron box8">
+                        <div class="col-sm-12 mx-t3 mb-4">
+                            <h2 class="text-center">Login</h2>
+                        </div>
+                        <div class="col-sm-12 mb-4" style="display: flex;">
+                            <div class="col-sm-12" *ngIf="username">
+                                <label class="metro" for="typeOfDevelopment">User Name</label>
+                                <input class="form-control" placeholder="Enter User Name ">
+                            </div>
+                            <div class="col-sm-6" *ngIf="!username">
+                                <label class="metro" for="typeOfDevelopment">Mobile Number</label>
+                                <input class="form-control" placeholder="Enter Mobile Number ">
+                            </div>
+                            <div class="col-sm-6" *ngIf="!username">
+                                <button style="margin-top: 38px;" class="btn" type="button" (click)="send()">Send</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 form-group mb-0" style=" display: flex; justify-content: center; margin-top: 2rem;">
+                            <button class="btn" style="margin-right: 10px;" (click)="next()"  type="button"  *ngIf="username">Next</button>
+                            <button class="btn" style="margin-right: 10px;"  type="submit"  *ngIf="!username">Login</button> 
+                          </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>

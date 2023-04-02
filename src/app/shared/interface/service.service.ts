@@ -46,4 +46,20 @@ export class ServiceService {
       data
     );
   }
+  public updatemember(data: any): Observable<any> {
+    return this.http.post(
+      'https://localhost:44362/api/SocietyMemberDetails/UpdateRegisteredSocietyMembers',
+      data
+    );
+  }
+  public deletemember(id:any): Observable<any> {
+    return this.http.delete(
+      'https://localhost:44362/api/SocietyMemberDetails/DeleteRegisteredSocietyMemberById/'+id
+    );
+  }
+  public getallmember(societyId: any): Observable<any> {
+    return this.http.get(
+      'https://localhost:44362/api/SocietyMemberDetails/GetRegisteredSocietyMembersBySocietyId/' + societyId
+    );
+  }
 }

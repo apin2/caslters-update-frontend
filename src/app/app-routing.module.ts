@@ -22,7 +22,9 @@ const routes: Routes = [
   { path: 'societyRegistration', 
   loadChildren: () => import("./society.registration/society.registration.module").then(m => m.SocietyRegistrationModule),
   runGuardsAndResolvers: 'always' },
-
+  { path: 'login', 
+  loadChildren: () => import("./login/login.module").then(m => m.LoginModule),
+  runGuardsAndResolvers: 'always' },
 
   // { path: '',   redirectTo: '/homePage', pathMatch: 'full' },
   // { path: 'homePage', component: HomePageComponentComponent },

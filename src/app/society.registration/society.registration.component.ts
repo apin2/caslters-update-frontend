@@ -39,6 +39,7 @@ export class SocietyRegistrationComponent {
       societyRegistrationNumber: new FormControl('',[Validators.required] ),
       societyName: new FormControl('',[Validators.required] ),
       address: new FormControl('',[Validators.required]),
+      city:new FormControl('',[Validators.required]),
       emailofsociet:new FormControl('',[Validators.required,Validators.email]),
       existingMemberCount: new FormControl('',[Validators.required] ),
       // age: new FormControl('',[Validators.required] ),
@@ -67,7 +68,7 @@ export class SocietyRegistrationComponent {
 
   save(f:any){
     if(f.value.societyName != ''){
-      // console.log(f.value);
+      console.log(f.value);
       // console.log(this.socitybearer);
       let obj={
         "registeredSocietyId": 0,
@@ -76,6 +77,7 @@ export class SocietyRegistrationComponent {
         "societyRegistrationNumber": f.value.societyRegistrationNumber,
         "societyName": f.value.societyName,
         "registeredAddress": f.value.address,
+        "city": f.value.city,
         "email": f.value.emailofsociet,
         "existingMemberCount": f.value.existingMemberCount,
         "age": f.value.ageofbuilding,
@@ -105,7 +107,7 @@ export class SocietyRegistrationComponent {
     this.userForm.controls['email'].reset();
     this.userForm.controls['number'].reset();
     this.bearers= new Baerer();
-    this.bearers.societyMemberDesignationId= JSON.parse(bearers);
+    this.bearers.societyMemberDesignationId= bearers;
     this.bearers.memberName = name;
     this.bearers.email = email;
     this.bearers.mobileNumber = number;

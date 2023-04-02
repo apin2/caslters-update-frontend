@@ -25,7 +25,17 @@
                 <input type="text" [(ngModel)]="updatesociety.registeredAddress" class="form-control" name="registeredAddress" id="registeredAddress" placeholder="Enter your address" required>
                 <!-- <span style="color:red" *ngIf="(registerFormControl.address.touched || submitted) && registerFormControl.address.errors?.required">Age is Requered</span> -->
               </div>
-  
+              <div class="col-lg-4 col-md-6  form-group">
+                <label class="metro" for="typeOfDevelopment">City</label>
+                <select id="typeOfDevelopment" [(ngModel)]="updatesociety.city" class="form-control browser-default custom-select">
+                  <option value="select" disabled selected> -Select City- </option>
+                  <option value="pune" >Pune</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="navi mumbai">Navi mumbai</option>
+                <option value="thane">Thane</option>
+                <option value="navi mumbai">kolhapur</option>
+                </select>
+              </div>
               <div class="col-lg-4 col-md-6  form-group">
                 <label class="metro" for="age">Age of building</label>
                 <input type="text" [(ngModel)]="updatesociety.age" class="form-control" name="age" id="age" placeholder="Enter your age" required>
