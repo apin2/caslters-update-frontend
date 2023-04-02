@@ -45,6 +45,7 @@ export class UpdateSocietyMemberComponent {
     console.log(societyid);
      this.service.getallmember(societyid).subscribe((res)=>{
       this.societydata=res;
+      this.show = true;
      })
   }
 
@@ -115,8 +116,8 @@ export class UpdateSocietyMemberComponent {
   removeitem(i: any,data:any) {
     console.log('i', this.data);
     let obj:any={
-      societyMemberDetailsId:data.societyMemberDetailsId,
-      registeredSocietyId:data.registeredSocietyId
+      'societyMemberDetailsId':data.societyMemberDetailsId,
+      'registeredSocietyId':data.registeredSocietyId
     }
     this.service.deletemember(obj).subscribe((res)=>{
       console.log(res);
