@@ -67,7 +67,7 @@ export class SocietyRegistrationComponent {
   }
 
   save(f:any){
-    if(f.value.societyName != ''){
+    if(f.value.societyName != '' && f.value.societyRegistrationNumber != '' && f.value.societyRegistrationNumber != ''){
       console.log(f.value);
       // console.log(this.socitybearer);
       let obj={
@@ -96,13 +96,14 @@ export class SocietyRegistrationComponent {
       this.route.navigate(['selectSociety']);
     }
     else{
-      this.toastr.error( 'is Requered',"societyName" );
+      this.toastr.error( 'is Requered',"Fields" );
     }
   }
   bearersocity:any=[];
 
   // Office Bearers of Society member adding condition wise
   bearerssave(bearers:any,name:any,email:any,number:any){
+    if(bearers != '' && name != '' && number != ''){
     this.userForm.controls['name'].reset();
     this.userForm.controls['email'].reset();
     this.userForm.controls['number'].reset();
@@ -181,6 +182,9 @@ export class SocietyRegistrationComponent {
       }
     }
   }
+    }else{
+      this.toastr.error( 'is Requered',"Fields" );
+    }
   }
 
   edititem(index:any){
