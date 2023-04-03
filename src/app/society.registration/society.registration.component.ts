@@ -83,8 +83,8 @@ export class SocietyRegistrationComponent {
     return this.userForm.controls;
   }
 
-  save(f: any) {
-    if (f.value.societyName != '') {
+  save(f:any){
+    if(f.value.societyName != '' && f.value.societyRegistrationNumber != '' && f.value.societyRegistrationNumber != ''){
       console.log(f.value);
       // console.log(this.socitybearer);
       let obj = {
@@ -115,6 +115,9 @@ export class SocietyRegistrationComponent {
         console.log(res);
       });
       this.route.navigate(['selectSociety']);
+    }
+    else{
+      this.toastr.error( 'is Requered',"Fields" );
     } else {
       this.toastr.error('Is Required', 'societyName');
     }
@@ -122,6 +125,8 @@ export class SocietyRegistrationComponent {
   bearersocity: any = [];
 
   // Office Bearers of Society member adding condition wise
+  bearerssave(bearers:any,name:any,email:any,number:any){
+    if(bearers != '' && name != '' && number != ''){
   bearerssave(bearers: any, name: any, email: any, number: any) {
     this.userForm.controls['name'].reset();
     this.userForm.controls['email'].reset();
@@ -210,6 +215,10 @@ export class SocietyRegistrationComponent {
           }
         }
       }
+    }
+  }
+    }else{
+      this.toastr.error( 'is Requered',"Fields" );
     }
   }
 
