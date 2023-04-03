@@ -19,12 +19,12 @@ export class UpdateSocietyMemberComponent {
   allregistersociety: any;
   selectedsocietyid: any;
   file: any;
-  memberdetail:any=new Memberdetail;
-  showfile:any=false;
-  id:any;
-  p:any;
-  societydata:any;
-  singlemember:any;
+  memberdetail: any = new Memberdetail();
+  showfile: any = false;
+  id: any;
+  p: any;
+  societydata: any;
+  singlemember: any;
   uploadForm: FormGroup | any;
   constructor(
     private service: ServiceService,
@@ -35,7 +35,6 @@ export class UpdateSocietyMemberComponent {
   }
 
   ngOnInit() {
-   
     this.uploadForm = this.formBuilder.group({ profile: [''] });
     this.service.getRegisterSociety().subscribe((res) => {
       console.log(res);
@@ -43,12 +42,12 @@ export class UpdateSocietyMemberComponent {
     });
   }
 
-  onSocietySelected(societyid:any){
+  onSocietySelected(societyid: any) {
     console.log(societyid);
-     this.service.getallmember(societyid).subscribe((res)=>{
-      this.societydata=res;
+    this.service.getallmember(societyid).subscribe((res) => {
+      this.societydata = res;
       this.show = true;
-     })
+    });
   }
 
   onFileChange(evt: any) {
@@ -96,38 +95,38 @@ export class UpdateSocietyMemberComponent {
     /* save to file */
     XLSX.writeFile(wb, this.fileName);
   }
-  edititem(index: any,data:any) {
-    this.memberdetail.memberName=data.memberName;
-    this.memberdetail.mobileNumber=data.mobileNumber;
-    this.memberdetail.email=data.email;
-    this.singlemember=data;
-    
-    this.showfile=true
+  edititem(index: any, data: any) {
+    this.memberdetail.memberName = data.memberName;
+    this.memberdetail.mobileNumber = data.mobileNumber;
+    this.memberdetail.email = data.email;
+    this.singlemember = data;
+
+    this.showfile = true;
     // console.log('i', index);
     // this.id=index;
     // console.log("dat===>>",this.data);
     // for(let i =1 ; i<=this.data.length ; i++){
     //   if(index==i){
-    //     console.log(this.data[i]); 
+    //     console.log(this.data[i]);
     //     this.memberdetail.memberName=this.data[i][1];
     //     this.memberdetail.email=this.data[i][2];
     //     this.memberdetail.mobileNumber=this.data[i][3];
     //   }
     // }
   }
-  removeitem(i: any,data:any) {
+  removeitem(i: any, data: any) {
     console.log('i', this.data);
-    let obj:any={
-      'societyMemberDetailsId':data.societyMemberDetailsId,
-      'registeredSocietyId':data.registeredSocietyId
-    }
-    this.service.deletemember(obj).subscribe((res)=>{
+    let obj: any = {
+      societyMemberDetailsId: data.societyMemberDetailsId,
+      registeredSocietyId: data.registeredSocietyId,
+    };
+    this.service.deletemember(obj).subscribe((res) => {
       console.log(res);
-      if(res){
+      if (res) {
         this.onSocietySelected(this.selectedsocietyid);
-        this.toastr.success( 'delete successfully','Success');
+        this.toastr.success('Member Deleted Successfully', 'Success');
       }
-    })
+    });
     // this.data.splice(i, 1);
   }
   memberupdate(f: any) {}
@@ -147,33 +146,38 @@ export class UpdateSocietyMemberComponent {
       societyNewMemberDetails: formfile,
     };
     console.log(obj);
-    this.service.addnewmember(formData,this.selectedsocietyid).subscribe((res) => {
-      console.log(res);
-      if(res){
-        this.onSocietySelected(this.selectedsocietyid);
-        this.toastr.success( 'Member added successfully','Success');
-      }
-    });
-  }
-  updatemember(){
-    if(this.singlemember.societyMemberDetailsId){
-      let obj:any=[{
-        "societyMemberDetailsId": this.singlemember.societyMemberDetailsId,
-        "registeredSocietyId": this.singlemember.registeredSocietyId,
-        "memberName": this.memberdetail.memberName,
-        "mobileNumber": this.memberdetail.mobileNumber,
-        "email": this.memberdetail.email,
-        "societyMemberDesignationId": this.singlemember.societyMemberDesignationId,
-        "createdDate": this.singlemember.createdDate,
-        "updatedDate": this.singlemember.updatedDate
-      }]
-      this.service.updatemember(obj).subscribe((res)=>{
-        console.log(res)
-        if(res){
+    this.service
+      .addnewmember(formData, this.selectedsocietyid)
+      .subscribe((res) => {
+        console.log(res);
+        if (res) {
           this.onSocietySelected(this.selectedsocietyid);
-          this.toastr.success( 'update successfully','Success');
+          this.toastr.success('Members Added Successfully', 'Success');
         }
-      })
+      });
+  }
+  updatemember() {
+    if (this.singlemember.societyMemberDetailsId) {
+      let obj: any = [
+        {
+          societyMemberDetailsId: this.singlemember.societyMemberDetailsId,
+          registeredSocietyId: this.singlemember.registeredSocietyId,
+          memberName: this.memberdetail.memberName,
+          mobileNumber: this.memberdetail.mobileNumber,
+          email: this.memberdetail.email,
+          societyMemberDesignationId:
+            this.singlemember.societyMemberDesignationId,
+          createdDate: this.singlemember.createdDate,
+          updatedDate: this.singlemember.updatedDate,
+        },
+      ];
+      this.service.updatemember(obj).subscribe((res) => {
+        console.log(res);
+        if (res) {
+          this.onSocietySelected(this.selectedsocietyid);
+          this.toastr.success('Member Updated Successfully', 'Success');
+        }
+      });
     }
     // this.id;
     // this.data[this.id][1]=this.memberdetail.memberName;

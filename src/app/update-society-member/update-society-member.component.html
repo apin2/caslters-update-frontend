@@ -9,17 +9,29 @@
             </div>
             <div class="col-lg-4 col-md-6 form-group">
               <label class="metro" for="typeOfSociety">Select Society</label>
-              <select #mySelect (change)='onSocietySelected(mySelect.value)' id="typeOfSociety" name="society"
-                [(ngModel)]="selectedsocietyid" class="form-control browser-default custom-select">
+              <select
+                #mySelect
+                (change)="onSocietySelected(mySelect.value)"
+                id="typeOfSociety"
+                name="society"
+                [(ngModel)]="selectedsocietyid"
+                class="form-control browser-default custom-select"
+              >
                 <option value="select" disabled selected>
                   -Select Society-
                 </option>
-                <option *ngFor="let allsociety of allregistersociety" [value]="allsociety.registeredSocietyId">
+                <option
+                  *ngFor="let allsociety of allregistersociety"
+                  [value]="allsociety.registeredSocietyId"
+                >
                   {{ allsociety.societyName }}
                 </option>
               </select>
             </div>
-            <div class="col-lg-8 col-md-6 form-group" style="display: flex; justify-content: left; margin-top: 2rem">
+            <div
+              class="col-lg-8 col-md-6 form-group"
+              style="display: flex; justify-content: left; margin-top: 2rem"
+            >
               <button (click)="export()" type="button" class="btn">
                 Download Member Format
               </button>
@@ -28,40 +40,90 @@
               <form action="">
                 <div class="row">
                   <div class="col-lg-4 col-md-6 form-group">
-                    <label class="metro" for="importMembersFile" style="font-size: 1.4rem">Import Members File</label>
+                    <label
+                      class="metro"
+                      for="importMembersFile"
+                      style="font-size: 1.4rem"
+                      >Import Members File</label
+                    >
                     <!-- <input type="text" class="form-control" name="chairmanName" id="chairmanName"
                         placeholder="Enter Youe File Name" required> -->
                   </div>
                   <div class="col-lg-4 col-md-6 form-group">
                     <!-- <label class="metro" for="chairmanNumber">Upload File</label> -->
-                    <input type="file" #file (change)="onFileChange($event)" class="form-control" name="chairmanNumber"
-                      id="chairmanNumber" placeholder="Enter Number" required />
+                    <input
+                      type="file"
+                      #file
+                      (change)="onFileChange($event)"
+                      class="form-control"
+                      name="chairmanNumber"
+                      id="chairmanNumber"
+                      placeholder="Enter Number"
+                      required
+                    />
                   </div>
-                  <div class="col-lg-4 col-md-6 form-group mb-0" style="display: flex; justify-content: center">
-                    <button class="btn" type="button" (click)="showtable()" style="margin-bottom: 10px">
+                  <div
+                    class="col-lg-4 col-md-6 form-group mb-0"
+                    style="display: flex; justify-content: center"
+                  >
+                    <button
+                      class="btn"
+                      type="button"
+                      (click)="showtable()"
+                      style="margin-bottom: 10px"
+                    >
                       Add File
                     </button>
                   </div>
                 </div>
                 <div class="row" *ngIf="showfile">
-                  <div class="col-lg-3 col-md-6  form-group">
+                  <div class="col-lg-3 col-md-6 form-group">
                     <label class="metro" for="chairmanName">Name</label>
-                    <input type="text" [(ngModel)]="memberdetail.memberName" class="form-control" name="chairmanName"
-                      id="chairmanName" placeholder="Enter Name" required>
+                    <input
+                      type="text"
+                      [(ngModel)]="memberdetail.memberName"
+                      class="form-control"
+                      name="chairmanName"
+                      id="chairmanName"
+                      placeholder="Enter Name"
+                      required
+                    />
                   </div>
-                  <div class="col-lg-3 col-md-6  form-group">
+                  <div class="col-lg-3 col-md-6 form-group">
                     <label class="metro" for="chairmanEmailID">Email ID </label>
-                    <input type="text" [(ngModel)]="memberdetail.email" class="form-control" name="chairmanEmailID"
-                      id="chairmanEmailID" placeholder="Enter Email ID" required>
+                    <input
+                      type="text"
+                      [(ngModel)]="memberdetail.email"
+                      class="form-control"
+                      name="chairmanEmailID"
+                      id="chairmanEmailID"
+                      placeholder="Enter Email ID"
+                      required
+                    />
                   </div>
-                  <div class="col-lg-3 col-md-6  form-group">
+                  <div class="col-lg-3 col-md-6 form-group">
                     <label class="metro" for="chairmanNumber">Number</label>
-                    <input type="text" [(ngModel)]="memberdetail.mobileNumber" class="form-control"
-                      name="chairmanNumber" id="chairmanNumber" placeholder="Enter Number" required>
+                    <input
+                      type="text"
+                      [(ngModel)]="memberdetail.mobileNumber"
+                      class="form-control"
+                      name="chairmanNumber"
+                      id="chairmanNumber"
+                      placeholder="Enter Number"
+                      required
+                    />
                   </div>
-                  <div class="col-sm-3 form-group mb-0"
-                    style=" display: flex; justify-content: center; padding: 2rem 0;">
-                    <button type="button" (click)="updatemember()" class="btn">Add</button>
+                  <div
+                    class="col-sm-3 form-group mb-0"
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      padding: 2rem 0;
+                    "
+                  >
+                    <button type="button" (click)="updatemember()" class="btn">
+                      Update
+                    </button>
                   </div>
                 </div>
                 <table class="table" style="margin-top: 2rem" *ngIf="show">
@@ -75,20 +137,30 @@
                   </thead>
                   <tbody *ngFor="let data of societydata; let i = index">
                     <tr>
-                      <td data-label="S.No">{{i+1}}</td>
+                      <td data-label="S.No">{{ i + 1 }}</td>
                       <!-- <td data-label="bearers" *ngIf="data.societyMemberDesignationId == '1'">Chairmen</td>
                       <td data-label="bearers" *ngIf="data.societyMemberDesignationId == '2'">Secretory</td>
                       <td data-label="bearers" *ngIf="data.societyMemberDesignationId == '3'">Treasurer</td>
                       <td data-label="bearers" *ngIf="data.societyMemberDesignationId == '4'">Member</td> -->
-                      <td data-label="Name">{{data.memberName}}</td>
-                      <td data-label="E-mailId">{{data.email}}</td>
-                      <td data-label="number">{{data.mobileNumber}}</td>
+                      <td data-label="Name">{{ data.memberName }}</td>
+                      <td data-label="E-mailId">{{ data.email }}</td>
+                      <td data-label="number">{{ data.mobileNumber }}</td>
                       <td data-label="action">
-                        <a style="margin-right: 15px;" (click)="edititem(i,data)"><img class="custom_icon" src="../../assets/images/pen-to-square-solid.svg"></a>
-                        <a (click)="removeitem(i,data)"><img class="custom_icon" src="../../assets/images/trash-can-solid.svg"></a>
+                        <a
+                          style="margin-right: 15px"
+                          (click)="edititem(i, data)"
+                          ><img
+                            class="custom_icon"
+                            src="../../assets/images/pen-to-square-solid.svg"
+                        /></a>
+                        <a (click)="removeitem(i, data)"
+                          ><img
+                            class="custom_icon"
+                            src="../../assets/images/trash-can-solid.svg"
+                        /></a>
                       </td>
                     </tr>
-                    </tbody>
+                  </tbody>
                   <!-- <tbody>
                     <tr *ngFor="let row of data | paginate: { itemsPerPage: 10, currentPage: p }; let i = index ">
                       <td *ngIf="i==0">S.No.</td>
@@ -106,7 +178,10 @@
                   </tbody> -->
                 </table>
                 <div class="col-sm-12" *ngIf="show">
-                  <pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+                  <pagination-controls
+                    (pageChange)="p = $event"
+                    class="float-right"
+                  ></pagination-controls>
                 </div>
               </form>
             </div>
