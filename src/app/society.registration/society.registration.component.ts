@@ -118,16 +118,13 @@ export class SocietyRegistrationComponent {
     }
     else{
       this.toastr.error( 'is Requered',"Fields" );
-    } else {
-      this.toastr.error('Is Required', 'societyName');
-    }
+    } 
   }
   bearersocity: any = [];
 
   // Office Bearers of Society member adding condition wise
   bearerssave(bearers:any,name:any,email:any,number:any){
     if(bearers != '' && name != '' && number != ''){
-  bearerssave(bearers: any, name: any, email: any, number: any) {
     this.userForm.controls['name'].reset();
     this.userForm.controls['email'].reset();
     this.userForm.controls['number'].reset();
@@ -217,7 +214,7 @@ export class SocietyRegistrationComponent {
       }
     }
   }
-    }else{
+    else{
       this.toastr.error( 'is Requered',"Fields" );
     }
   }
