@@ -176,6 +176,9 @@ export class UpdateSocietyMemberComponent {
         if (res) {
           this.onSocietySelected(this.selectedsocietyid);
           this.toastr.success('Member Updated Successfully', 'Success');
+          this.memberdetail.memberName='';
+          this.memberdetail.mobileNumber='';
+          this.memberdetail.email='';
         }
       });
     }

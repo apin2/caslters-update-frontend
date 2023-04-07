@@ -120,7 +120,7 @@ export class SocietyRegistrationComponent {
       });
       this.route.navigate(['selectSociety']);
     } else {
-      this.toastr.error('Is Required', 'societyName');
+      this.toastr.error('is Requered', 'Fields');
     }
   }
   bearersocity: any = [];

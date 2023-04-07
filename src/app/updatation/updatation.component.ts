@@ -19,7 +19,7 @@ export class UpdatationComponent {
   designation: any;
   productID: any;
   detail: any;
-  singlemember:any;
+  singlemember: any;
   check: any = {
     chairman: false,
     Secretory: false,
@@ -34,7 +34,6 @@ export class UpdatationComponent {
   ) {}
 
   ngOnInit() {
-
     this.memberdetail = new Memberdetail();
     this.service.getSocietyMemberDesignations().subscribe((res) => {
       this.designation = res;
@@ -53,9 +52,13 @@ export class UpdatationComponent {
           console.log(this.updatememberdetail[i].societyMemberDesignationId);
           if (this.updatememberdetail[i].societyMemberDesignationId === 1) {
             this.check.chairman = true;
-          } else if (this.updatememberdetail[i].societyMemberDesignationId === 2) {
+          } else if (
+            this.updatememberdetail[i].societyMemberDesignationId === 2
+          ) {
             this.check.seretory = true;
-          } else if (this.updatememberdetail[i].societyMemberDesignationId === 3) {
+          } else if (
+            this.updatememberdetail[i].societyMemberDesignationId === 3
+          ) {
             this.check.treasurer = true;
           }
         }
@@ -88,7 +91,8 @@ export class UpdatationComponent {
       console.log('if');
       for (let i = 0; i <= this.updatememberdetail.length; i++) {
         if (this.id == i) {
-          this.updatememberdetail[i].bearers = bearers.societyMemberDesignationId;
+          this.updatememberdetail[i].bearers =
+            bearers.societyMemberDesignationId;
           this.updatememberdetail[i].name = bearers.name;
           this.updatememberdetail[i].email = bearers.email;
           this.updatememberdetail[i].number = bearers.number;
@@ -98,41 +102,53 @@ export class UpdatationComponent {
     } else {
       if (!['1', '2', '3'].includes(bearers.societyMemberDesignationId)) {
         this.updatememberdetail.push(bearers);
-        console.log('esel', this.memberdetail.societyMemberDesignationId); 
+        console.log('esel', this.memberdetail.societyMemberDesignationId);
       } else {
-        console.log('elsethis.==',this.memberdetail.societyMemberDesignationId);
-        
-        if (!this.check.chairman && bearers.societyMemberDesignationId === '1') {
+        console.log(
+          'elsethis.==',
+          this.memberdetail.societyMemberDesignationId
+        );
+
+        if (
+          !this.check.chairman &&
+          bearers.societyMemberDesignationId === '1'
+        ) {
           this.updatememberdetail.push(bearers);
           this.check.chairman = true;
           console.log('this.', this.updatememberdetail);
-        } else if (!this.check.Secretory && bearers.societyMemberDesignationId === '2') {
+        } else if (
+          !this.check.Secretory &&
+          bearers.societyMemberDesignationId === '2'
+        ) {
           this.check.Secretory = true;
           this.updatememberdetail.push(bearers);
           console.log('seretory', this.updatememberdetail);
-        } else if (!this.check.treasurer && bearers.societyMemberDesignationId === '3') {
+        } else if (
+          !this.check.treasurer &&
+          bearers.societyMemberDesignationId === '3'
+        ) {
           this.check.treasurer = true;
           this.updatememberdetail.push(bearers);
           console.log('treasurer', this.updatememberdetail);
         } else {
           console.log(`${bearers.societyMemberDesignationId} is already Exist`);
           console.log("this.toastr.success('Hello world!', 'Toastr fun!')");
-          if(bearers.societyMemberDesignationId=='1'){
-        let alertmessage='chairman'
-        this.toastr.error( 'is already Exist!', alertmessage);
-      }else if(bearers.societyMemberDesignationId=='2'){
-        let alertmessage='Secretory';
-        this.toastr.error( 'is already Exist!', alertmessage);
-      }else if(bearers.societyMemberDesignationId=='3'){
-        let alertmessage='Treasurer';
-        this.toastr.error( 'is already Exist!', alertmessage);
-      }
+          if (bearers.societyMemberDesignationId == '1') {
+            let alertmessage = 'chairman';
+            this.toastr.error('is already Exist!', alertmessage);
+          } else if (bearers.societyMemberDesignationId == '2') {
+            let alertmessage = 'Secretory';
+            this.toastr.error('is already Exist!', alertmessage);
+          } else if (bearers.societyMemberDesignationId == '3') {
+            let alertmessage = 'Treasurer';
+            this.toastr.error('is already Exist!', alertmessage);
+          }
         }
       }
     }
   }
-  updatedititem(index: any,data:any) {
-    this.singlemember=data;
+  updatedititem(index: any, data: any) {
+    this.singlemember = data;
     this.id = index;
     for (let i = 0; i <= this.updatememberdetail.length; i++) {
       if (index == i) {
@@ -143,21 +159,21 @@ export class UpdatationComponent {
       }
     }
   }
-  updateremoveitem(i: any,data:any) {
-    let obj:any={
-      'societyMemberDetailsId':data.societyMemberDetailsId,
-      'registeredSocietyId':data.registeredSocietyId
-    }
-    this.service.deletemember(obj).subscribe((res)=>{
+  updateremoveitem(i: any, data: any) {
+    let obj: any = {
+      societyMemberDetailsId: data.societyMemberDetailsId,
+      registeredSocietyId: data.registeredSocietyId,
+    };
+    this.service.deletemember(obj).subscribe((res) => {
       console.log(res);
-      if(res){
+      if (res) {
         // this.onSocietySelected(this.selectedsocietyid);
-        this.toastr.success( 'delete successfully','Success');
+        this.toastr.success('delete successfully', 'Success');
       }
-    })
+    });
     console.log(i);
     this.updatememberdetail.splice(i, 1);
-    this.toastr.success( 'delete successfully','Success');
+    // this.toastr.success( 'delete successfully','Success');
     this.check.chairman = false;
     this.check.secretory = false;
     this.check.treasurer = false;

@@ -12,6 +12,7 @@ export class Baerer {
 export class Societyupdate {
     age :any
     email :any
+    city:any
     existingMemberCount :any
     registeredAddress : any
     registeredSocietyId : any
