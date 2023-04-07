@@ -9,7 +9,7 @@ export class ServiceService {
   constructor(private http: HttpClient) {
     // let header =new HttpHeaders()
   }
-  
+
   public registersociety(data: any): Observable<any> {
     console.log('data==>>', data);
     return this.http.post(
@@ -43,13 +43,15 @@ export class ServiceService {
     );
   }
   public addnewmember(data: any): Observable<any> {
-    let header = new HttpHeaders({'Content-Type': 'multipart/form-data', 'enctypr':'multipart/form-data'});
+    let header = new HttpHeaders({ 'Content-Type': '' });
     // header = header.append('Content-Type', 'multipart/form-data')
-    let option={
-      headers:header,
-    }
+    let option = {
+      headers: header,
+    };
     return this.http.post(
-      'https://localhost:44362/api/SocietyMemberDetails/AddRegisteredSocietyNewMembers' , data,option);
+      'https://localhost:44362/api/SocietyMemberDetails/AddRegisteredSocietyNewMembers',
+      data
+    );
   }
   public updatemember(data: any): Observable<any> {
     return this.http.put(

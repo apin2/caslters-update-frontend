@@ -139,58 +139,55 @@ export class UpdateSocietyMemberComponent {
     console.log(this.selectedsocietyid);
     this.show = true;
     const formfile = new FormData();
-    formfile.append('memberDetails', this.file);
-    console.log();
-    let obj: any = {
-      societyId: this.selectedsocietyid,
-      societyNewMemberDetails: formfile,
-    };
-    console.log(obj);
-    this.service
-      .addnewmember(obj)
-      .subscribe((res) => {
-        console.log(res);
-        if (res) {
-          this.onSocietySelected(this.selectedsocietyid);
-          this.toastr.success('Members Added Successfully', 'Success');
-        }
-      });
+    formfile.append('societyNewMemberDetails', this.file);
+    formfile.append('societyId', this.selectedsocietyid);
+    this.service.addnewmember(formfile).subscribe((res) => {
+      console.log(res);
+      if (res) {
+        this.onSocietySelected(this.selectedsocietyid);
+        this.toastr.success('Members Added Successfully', 'Success');
+      }
+    });
   }
   updatemember() {
-    if(this.memberdetail.email !='' && this.memberdetail.mobileNumber != ''){
-    if(!this.societydata.includes(this.memberdetail.email && this.memberdetail.email)){
-    if (this.singlemember.societyMemberDetailsId) {
-      let obj: any = [
-        {
-          societyMemberDetailsId: this.singlemember.societyMemberDetailsId,
-          registeredSocietyId: this.singlemember.registeredSocietyId,
-          memberName: this.memberdetail.memberName,
-          mobileNumber: this.memberdetail.mobileNumber,
-          email: this.memberdetail.email,
-          societyMemberDesignationId:
-            this.singlemember.societyMemberDesignationId,
-          createdDate: this.singlemember.createdDate,
-          updatedDate: this.singlemember.updatedDate,
-        },
-      ];
-      this.memberdetail= new Memberdetail();
-      this.service.updatemember(obj).subscribe((res) => {
-        console.log(res);
-        if (res) {
-          this.onSocietySelected(this.selectedsocietyid);
-          this.toastr.success('Member Updated Successfully', 'Success');
-          this.memberdetail.memberName='';
-          this.memberdetail.mobileNumber='';
-          this.memberdetail.email='';
+    if (this.memberdetail.email != '' && this.memberdetail.mobileNumber != '') {
+      if (
+        !this.societydata.includes(
+          this.memberdetail.email && this.memberdetail.email
+        )
+      ) {
+        if (this.singlemember.societyMemberDetailsId) {
+          let obj: any = [
+            {
+              societyMemberDetailsId: this.singlemember.societyMemberDetailsId,
+              registeredSocietyId: this.singlemember.registeredSocietyId,
+              memberName: this.memberdetail.memberName,
+              mobileNumber: this.memberdetail.mobileNumber,
+              email: this.memberdetail.email,
+              societyMemberDesignationId:
+                this.singlemember.societyMemberDesignationId,
+              createdDate: this.singlemember.createdDate,
+              updatedDate: this.singlemember.updatedDate,
+            },
+          ];
+          this.memberdetail = new Memberdetail();
+          this.service.updatemember(obj).subscribe((res) => {
+            console.log(res);
+            if (res) {
+              this.onSocietySelected(this.selectedsocietyid);
+              this.toastr.success('Member Updated Successfully', 'Success');
+              this.memberdetail.memberName = '';
+              this.memberdetail.mobileNumber = '';
+              this.memberdetail.email = '';
+            }
+          });
         }
-      });
+      } else {
+        this.toastr.error('', 'All ready exist');
+      }
+    } else {
+      this.toastr.error('All filed must be requered', 'Requered');
     }
-  }else{
-    this.toastr.error('','All ready exist');
-  }
-}else{
-  this.toastr.error('All filed must be requered','Requered');
-}
     // this.id;
     // this.data[this.id][1]=this.memberdetail.memberName;
     // this.data[this.id][2]=this.memberdetail.email;
