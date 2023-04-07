@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent {
   resend:any=false;
   display: any;
   public timerInterval: any;
-  constructor(){}
+  constructor(private toster:ToastrService){}
   ngOnInit(){
 
   }
@@ -23,16 +24,20 @@ export class LoginComponent {
     console.log(this.otp);
   }
   next(){
+    if(this.user_name == 'pradeep'){
     this.first_stage=false;
     this.second_stage=true;
     console.log(this.first_stage,this.second_stage);
-    
+    }
+    else{
+      this.toster.error('user name does not  exist','Invalid user name');
+    }
   }
   send(){
     this.second_stage=false;
     console.log(this.mobile_number);
     this.timer(1);
-  }
+  } 
 
   reSend(){
     this.resend=false;

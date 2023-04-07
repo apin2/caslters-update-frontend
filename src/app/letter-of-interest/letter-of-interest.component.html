@@ -102,14 +102,14 @@
                               <label class="metro" for="usedfor">Type of Document</label>
                               <select id="usedfor" [(ngModel)]="legal.type_of_document" name="typeofdoc" class="form-control browser-default custom-select">
                                 <option value="select" disabled selected> -Select File Name- </option>
-                                <option value="commercialuse">Property Card or 7/12 Extract</option>
-                                <option value="residentialuse">Other Revenue Documents</option>
-                                <option value="mixeduse">Conveyance Deed</option>
-                                <option value="mixeduse">Order for Deemed Conveyance</option>
-                                <option value="mixeduse">Deemed Conveyance</option>
-                                <option value="mixeduse">Society registration Certificate</option>
-                                <option value="mixeduse">Society’s Members List</option>
-                                <option value="mixeduse">Other</option>
+                                <option value="Property-Card-or-7/12-Extract">Property Card or 7/12 Extract</option>
+                                <option value="Other-Revenue-Documents">Other Revenue Documents</option>
+                                <option value="Conveyance-Deed">Conveyance Deed</option>
+                                <option value="Order-for-Deemed-Conveyance">Order for Deemed Conveyance</option>
+                                <option value="Deemed-Conveyance">Deemed Conveyance</option>
+                                <option value="Society-registration-Certificate">Society registration Certificate</option>
+                                <option value="Societys-Members-List">Society’s Members List</option>
+                                <option value="Other">Other</option>
                               </select>
                             </div>
                             <div class="col-lg-4 col-md-6  form-group">
@@ -144,11 +144,11 @@
                               <select id="usedfor" [(ngModel)]="technicaldoc.type_of_document" name="typeofdoc" class="form-control browser-default custom-select">
                                 <option value="select" disabled selected> -Select File Name- </option>
                                 <option value="commercialuse">N/A Order</option>
-                                <option value="residentialuse">Commencement Certificate</option>
-                                <option value="mixeduse">Existing Building Plan</option>
-                                <option value="mixeduse">Completion Certificate</option>
-                                <option value="mixeduse">Demarcation Certificate</option>
-                                <option value="mixeduse">Other</option>
+                                <option value="Commencement-Certificate">Commencement Certificate</option>
+                                <option value="Existing-Building-Plan">Existing Building Plan</option>
+                                <option value="Completion-Certificate">Completion Certificate</option>
+                                <option value="Demarcation-Certificate">Demarcation Certificate</option>
+                                <option value="Other">Other</option>
                               </select>
                             </div>
                             <div class="col-lg-4 col-md-6  form-group">
@@ -190,19 +190,19 @@
                   <div class="faq-drawer__content">
                     <div class="developer_KYC_form">
                       <div class="container mt-3">
-                        <form>
+                        <form #resolutions="ngForm" (ngSubmit)="resolutionSave(resolutions)">
                           <div class="row jumbotron box8">
                             <div class="col-lg-4 col-md-6  form-group">
                               <label class="metro" for="usedfor">Type of File</label>
-                              <select id="usedfor" class="form-control browser-default custom-select">
+                              <select id="usedfor" [(ngModel)]="resolution.type_of_document" name="typeofdoc" class="form-control browser-default custom-select">
                                 <option value="select" disabled selected> -Select File Name- </option>
-                                <option value="commercialuse">Resolution for redevelopment</option>
-                                <option value="residentialuse">Resolution for re-development committee</option>
-                                <option value="mixeduse">Resolution for tender structure finalization</option>
-                                <option value="">Resolution for tentative appointment of society</option>
-                                <option value="">Resolution for final appointment of developer</option>
-                                <option value="">Resolution for approval of legal drafts</option>
-                                <option value="">Resolution for appointment of representative of society</option>
+                                <option value="Resolution-for-redevelopment">Resolution for redevelopment</option>
+                                <option value="Resolution-for-re-development-committee">Resolution for re-development committee</option>
+                                <option value="Resolution-for-tender-structure-finalization">Resolution for tender structure finalization</option>
+                                <option value="Resolution-for-tentative-appointment-of-society">Resolution for tentative appointment of society</option>
+                                <option value="Resolution-for-final-appointment-of-developer">Resolution for final appointment of developer</option>
+                                <option value="Resolution-for-approval-of-legal-drafts">Resolution for approval of legal drafts</option>
+                                <option value="Resolution-for-appointment-of-representative-of-society">Resolution for appointment of representative of society</option>
                                 <option value="">Resolution for approval of pre-submission drawing of building plan</option>
                                 <option value="">Resolution for tentative allotment of tenements to members</option>
                                 <option value="">Resolution to grant permission for demolition of existing building</option>
@@ -211,11 +211,11 @@
                             </div>
                             <div class="col-lg-4 col-md-6  form-group">
                               <label class="metro" for="chooseFile"> Select File</label>
-                              <input type="file" class="form-control" name="chooseFile" id="chooseFile" required>
+                              <input type="file" [(ngModel)]="resolution.file" class="form-control" name="chooseFile" id="chooseFile" required>
                             </div>
                             <div class="col-md-4 form-group mb-0">
                               <div class="form-group "  style="margin-top: 2.6rem;">
-                                <button class="upload">Upload File</button>
+                                <button type="submit" class="upload">Upload File</button>
                               </div>
                             </div>
                           </div>
@@ -234,11 +234,11 @@
                     <!-- Partners KYC Form start -->
                     <div class="partners_kyc_form">
                       <div class="container mt-3">
-                        <form>
+                        <form #Consents_save="ngForm" (ngSubmit)="ConsentsSave(Consents_save)">
                           <div class="row jumbotron box8">
                             <div class="col-lg-4 col-md-6  form-group">
                               <label class="metro" for="usedfor">Type of Document</label>
-                              <select id="usedfor" class="form-control browser-default custom-select">
+                              <select [(ngModel)]="consents.type_of_document" name="filetype" id="usedfor" class="form-control browser-default custom-select">
                                 <option value="select" disabled selected> -Select Document Name- </option>
                                 <option value="commercialuse">Consent letter from each member for redevelopment</option>
                                 <option value="residentialuse">Consent letter from each member for area finalization</option>
@@ -249,11 +249,11 @@
                             </div>
                             <div class="col-lg-4 col-md-6  form-group">
                               <label class="metro" for="chooseFile"> Select File</label>
-                              <input type="file" class="form-control" name="chooseFile" id="chooseFile" required>
+                              <input type="file" class="form-control" [(ngModel)]="consents.file" name="chooseFile" id="chooseFile" required>
                             </div>
                             <div class="col-md-4 form-group mb-0">
                               <div class="form-group"  style="margin-top: 2.6rem;">
-                                <button class="upload">Upload File</button>
+                                <button type="submit" class="upload">Upload File</button>
                               </div>
                             </div>
                           </div>
@@ -272,11 +272,11 @@
                     <!-- Partners KYC Form start -->
                     <div class="partners_kyc_form">
                       <div class="container mt-3">
-                        <form>
+                        <form #Reports_save="ngForm" (ngSubmit)="ReportsSave(Reports_save)">
                           <div class="row jumbotron box8">
                             <div class="col-lg-4 col-md-6  form-group">
                               <label class="metro" for="usedfor">Type of Document</label>
-                              <select id="usedfor" class="form-control browser-default custom-select">
+                              <select id="usedfor" [(ngModel)]="reports.type_of_document" name="filetype" class="form-control browser-default custom-select">
                                 <option value="select" disabled selected> -Select Document Name- </option>
                                 <option value="">Search and title report of land</option>
                                 <option value="">Financial feasibility report</option>
@@ -292,11 +292,11 @@
                             </div>
                             <div class="col-lg-4 col-md-6  form-group">
                               <label class="metro" for="chooseFile"> Select File</label>
-                              <input type="file" class="form-control" name="chooseFile" id="chooseFile" required>
+                              <input type="file" [(ngModel)]="reports.file" class="form-control" name="chooseFile" id="chooseFile" required>
                             </div>
                             <div class="col-md-4 form-group mb-0">
                               <div class="form-group"  style="margin-top: 2.6rem;">
-                                <button class="upload">Upload File</button>
+                                <button type="submit" class="upload">Upload File</button>
                               </div>
                             </div>
                           </div>
@@ -322,7 +322,7 @@
           <div class="faq-drawer__content">
             <div class="developer_KYC_form">
               <div class="container mt-3">
-                <form>
+                <form #Appointment_save="ngForm" (ngSubmit)="appointmentSave(Appointment_save)">
                   <div class="row jumbotron box8">              
                     <div class="col-sm-12" >
                       <div class="row">
@@ -332,10 +332,10 @@
                         </div>
                         <div class="col-lg-4 col-md-6  form-group">
                           <!-- <label class="metro" for="paperPublicationNotice">Paper Publication Notice</label> -->
-                          <input type="file" class="form-control" name="paperPublicationNotice" id="paperPublicationNotice" required>
+                          <input type="file" [(ngModel)]="devappointment.file" class="form-control" name="paperPublicationNotice" id="paperPublicationNotice" required>
                         </div>
                         <div class="col-lg-4 col-md-6 form-group">
-                          <button class="upload">Submit</button> 
+                          <button type="submit" class="upload">Submit</button> 
                         </div>                 
                       </div>
                     </div>          
@@ -374,11 +374,11 @@
             <!-- Partners KYC Form start -->
             <div class="partners_kyc_form">
               <div class="container mt-3">
-                <form>
+                <form #devloper_contractorinfo_save="ngForm" (ngSubmit)="devandconSave(devloper_contractorinfo_save)">
                   <div class="row jumbotron box8">
                     <div class="col-lg-4 col-md-6  form-group">
                       <label class="metro" for="usedfor">Who are you?</label>
-                      <select id="usedfor" class="form-control browser-default custom-select">
+                      <select id="usedfor" [(ngModel)]="dev_information.role" name="role" class="form-control browser-default custom-select">
                         <option value="select" disabled selected> -I am a- </option>
                         <option value="Developer">Developer</option>
                         <option value="Contractor">Contractor</option>
@@ -386,7 +386,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6  form-group">
                       <label class="metro" for="chooseFile">Developer Code</label>
-                      <input type="text" class="form-control" name="chooseFile" id="chooseFile" 
+                      <input type="text" class="form-control" [(ngModel)]="dev_information.developercode" name="chooseFile" id="chooseFile" 
                         placeholder="Enter Your Code" required>
                     </div>
                     <div class="col-md-4 form-group mb-0" style="margin-top: 2rem; ">
@@ -399,7 +399,7 @@
                         <div class="row">
                           <div class="col-lg-4 col-md-6  form-group">
                             <label class="metro" for="typeOfOrganisation">Type of Organisation</label>
-                            <select id="typeOfOrganisation" class="form-control browser-default custom-select">
+                            <select id="typeOfOrganisation" [(ngModel)]="dev_information.organisation_type" name="organisation_type" class="form-control browser-default custom-select">
                               <option value="select" disabled selected> -Select Your Organisation- </option>
                               <option value="proprietaryConcern">Proprietary Concern</option>
                               <option value="partnershipFirm ">Partnership Firm</option>
@@ -410,17 +410,17 @@
                           </div>
                           <div class="col-lg-4 col-md-6  form-group">
                             <label class="metro" for="OrganisationName">Name of Organisation</label>
-                            <input type="text" class="form-control" name="OrganisationName" id="organisationName"
+                            <input type="text" class="form-control" [(ngModel)]="dev_information.organisation_name" name="OrganisationName" id="organisationName"
                               placeholder="Enter organisation Name" required>
                           </div>
                           <div class="col-lg-4 col-md-6  form-group">
                             <label class="metro" for="yearOfExperience">Year of Experience</label>
-                            <input type="text" class="form-control" name="yearOfExperience" id="yearOfExperience"
+                            <input type="text" class="form-control" [(ngModel)]="dev_information.year_Experience" name="yearOfExperience" id="yearOfExperience"
                               placeholder="Enter Year of Experience" required>
                           </div>
                           <div class="col-md-4 form-group mb-0" style="margin-top: 2rem; ">
                             <div class="form-group mb-0">
-                              <button class="upload">Submit</button>
+                              <button type="submit" class="upload">Submit</button>
                             </div>
                           </div>
                         </div>

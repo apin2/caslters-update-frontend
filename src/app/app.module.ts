@@ -22,6 +22,9 @@ import { SelectSocietyComponent } from './updatation/select-society/select-socie
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { ServiceService } from './shared/interface/service.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SocietyInfoViewComponent } from './society-info-view/society-info-view.component';
+import { NgChartsModule } from 'ng2-charts';
+
 // import { SocietyRegistrationModule } from './society.registration/society.registration.module';
 // import { DeveloperRegistrationModule } from './developer.registration/developer.registration.module';
 
@@ -41,7 +44,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DisplaySocietyComponent,
     UpdatationComponent,
     SelectSocietyComponent,
-    
+    SocietyInfoViewComponent
   ],
   imports: [
     HttpClientModule ,
@@ -51,7 +54,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgChartsModule 
     // SocietyRegistrationModule,
     // DeveloperRegistrationModule
   ],

@@ -20,16 +20,34 @@ export class LetterOfInterestComponent {
   dev_information:any = new DevConinformation;
 
   technical_detail_save(f:any){
-    console.log(f.value);
+    console.log(this.technicaldetail);
   }
   legaldocSave(f:any){
-    console.log(f.value);
+    console.log(this.legal);
   }
   technicaldocSave(f:any){
-    console.log(f.value);
+    console.log(this.technicaldoc);    
+  }
+  resolutionSave(f:any){
+    console.log(this.resolution);    
+  }
+  ConsentsSave(f:any){
+    console.log(this.consents);
+    
+  }
+  appointmentSave(f:any){
+    console.log(this.devappointment);
+    
+  }
+  devandconSave(f:any){
+    console.log(this.dev_information);
     
   }
 
+  ReportsSave(f:any){
+    console.log(this.reports);
+    
+  }
   clickelayer1(layer:any){
     console.log("layer===>>>",layer);
     this.layer=layer;

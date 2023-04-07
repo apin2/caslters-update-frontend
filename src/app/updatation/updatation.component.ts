@@ -82,7 +82,6 @@ export class UpdatationComponent {
       societyMemberDetailsId: this.updatesociety.societyMemberDetailsId,
       registeredSocietyId: this.updatesociety.registeredSocietyId,
     };
-    console.log('this.bearers', bearers);
     this.memberdetail.memberName = '';
     this.memberdetail.email = '';
     this.memberdetail.mobileNumber = '';

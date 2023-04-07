@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServiceService {
-  constructor(private http: HttpClient) {}
-
+  constructor(private http: HttpClient) {
+    // let header =new HttpHeaders()
+  }
+  
   public registersociety(data: any): Observable<any> {
     console.log('data==>>', data);
     return this.http.post(
@@ -40,12 +42,14 @@ export class ServiceService {
         id
     );
   }
-  public addnewmember(data: any, id: any): Observable<any> {
+  public addnewmember(data: any): Observable<any> {
+    let header = new HttpHeaders({'Content-Type': 'multipart/form-data', 'enctypr':'multipart/form-data'});
+    // header = header.append('Content-Type', 'multipart/form-data')
+    let option={
+      headers:header,
+    }
     return this.http.post(
-      'https://localhost:44362/api/SocietyMemberDetails/AddRegisteredSocietyNewMembers/' +
-        id,
-      data
-    );
+      'https://localhost:44362/api/SocietyMemberDetails/AddRegisteredSocietyNewMembers' , data,option);
   }
   public updatemember(data: any): Observable<any> {
     return this.http.put(

@@ -7,6 +7,7 @@ import { DisplaySocietyComponent } from './display-society/display-society.compo
 import { HomePageComponentComponent } from './home.page.component/home.page.component.component';
 import { LetterOfInterestComponent } from './letter-of-interest/letter-of-interest.component';
 import { NotificationComponent } from './notification/notification.component';
+import { SocietyInfoViewComponent } from './society-info-view/society-info-view.component';
 import { SelectSocietyComponent } from './updatation/select-society/select-society.component';
 import { UpdatationComponent } from './updatation/updatation.component';
 import { UpdateSocietyMemberComponent } from './update-society-member/update-society-member.component';
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'DisplaySociety', component: DisplaySocietyComponent },
   { path: 'selectSociety', component: SelectSocietyComponent },
   { path: 'updateSociety/:id', component: UpdatationComponent },
+  { path: 'society-info-view', component:SocietyInfoViewComponent }
 
 ];
 

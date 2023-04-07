@@ -147,7 +147,7 @@ export class UpdateSocietyMemberComponent {
     };
     console.log(obj);
     this.service
-      .addnewmember(formData, this.selectedsocietyid)
+      .addnewmember(obj)
       .subscribe((res) => {
         console.log(res);
         if (res) {
@@ -157,6 +157,8 @@ export class UpdateSocietyMemberComponent {
       });
   }
   updatemember() {
+    if(this.memberdetail.email !='' && this.memberdetail.mobileNumber != ''){
+    if(!this.societydata.includes(this.memberdetail.email && this.memberdetail.email)){
     if (this.singlemember.societyMemberDetailsId) {
       let obj: any = [
         {
@@ -171,6 +173,7 @@ export class UpdateSocietyMemberComponent {
           updatedDate: this.singlemember.updatedDate,
         },
       ];
+      this.memberdetail= new Memberdetail();
       this.service.updatemember(obj).subscribe((res) => {
         console.log(res);
         if (res) {
@@ -182,6 +185,12 @@ export class UpdateSocietyMemberComponent {
         }
       });
     }
+  }else{
+    this.toastr.error('','All ready exist');
+  }
+}else{
+  this.toastr.error('All filed must be requered','Requered');
+}
     // this.id;
     // this.data[this.id][1]=this.memberdetail.memberName;
     // this.data[this.id][2]=this.memberdetail.email;
