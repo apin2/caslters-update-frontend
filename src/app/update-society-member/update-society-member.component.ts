@@ -141,6 +141,8 @@ export class UpdateSocietyMemberComponent {
     const formfile = new FormData();
     formfile.append('societyNewMemberDetails', this.file);
     formfile.append('societyId', this.selectedsocietyid);
+    console.log(formfile);
+    
     this.service.addnewmember(formfile).subscribe((res) => {
       console.log(res);
       if (res) {

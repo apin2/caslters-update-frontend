@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomePageComponentComponent } from './home.page.component/home.page.component.component';
+// import { HomePageComponentComponent } from './home.page.component/home.page.component.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -31,7 +31,7 @@ import { NgChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponentComponent,
+    // HomePageComponentComponent,
     HeaderComponent,
     FooterComponent,
     AboutUsComponent,

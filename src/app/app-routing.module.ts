@@ -4,9 +4,10 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { DeveloperKYCComponent } from './developer-kyc/developer-kyc.component';
 import { DisplaySocietyComponent } from './display-society/display-society.component';
 // import { DeveloperRegistrationComponent } from './developer.registration/developer.registration.component';
-import { HomePageComponentComponent } from './home.page.component/home.page.component.component';
+// import { HomePageComponentComponent } from './home.page.component/home.page.component.component';
 import { LetterOfInterestComponent } from './letter-of-interest/letter-of-interest.component';
 import { NotificationComponent } from './notification/notification.component';
+import { AuthGuard } from './shared/interface/auth/auth.guard';
 import { SocietyInfoViewComponent } from './society-info-view/society-info-view.component';
 import { SelectSocietyComponent } from './updatation/select-society/select-society.component';
 import { UpdatationComponent } from './updatation/updatation.component';
@@ -14,18 +15,24 @@ import { UpdateSocietyMemberComponent } from './update-society-member/update-soc
 // import { SocietyRegistrationComponent } from './society.registration/society.registration.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/homePage', pathMatch: 'full' }, // redirect to `first-component`
+  { path: '', canActivate: [AuthGuard], runGuardsAndResolvers: 'always',data: { roles: ['Admin','User']},
+  loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule) }, // redirect to `first-component`
   // { path: '**', component: HomePageComponentComponent },  // Wildcard route for a 404 page
-  { path: 'homePage', component: HomePageComponentComponent },
-  { path: 'aboutUs', component: AboutUsComponent },
-  { path: 'developerRegistration',
-  loadChildren: () => import("./developer.registration/developer.registration.module").then(m => m.DeveloperRegistrationModule) },
-  { path: 'societyRegistration', 
-  loadChildren: () => import("./society.registration/society.registration.module").then(m => m.SocietyRegistrationModule),
-  runGuardsAndResolvers: 'always' },
-  { path: 'login', 
-  loadChildren: () => import("./login/login.module").then(m => m.LoginModule),
-  runGuardsAndResolvers: 'always' },
+  // { path: 'homePage', component: HomePageComponentComponent, canActivate: [AuthGuard] },
+  { path: 'aboutUs', component: AboutUsComponent, canActivate: [AuthGuard],data: { roles: ['Admin','User']} },
+  {
+    path: 'developerRegistration', runGuardsAndResolvers: 'always', canActivate: [AuthGuard],data: { roles: ['Admin','Devloper']},
+    loadChildren: () => import("./developer.registration/developer.registration.module").then(m => m.DeveloperRegistrationModule)
+  },
+  {
+    path: 'societyRegistration', runGuardsAndResolvers: 'always', canActivate: [AuthGuard],data: { roles: ['admin','devloper']},
+    loadChildren: () => import("./society.registration/society.registration.module").then(m => m.SocietyRegistrationModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import("./login/login.module").then(m => m.LoginModule),
+    runGuardsAndResolvers: 'always'
+  },
 
   // { path: '',   redirectTo: '/homePage', pathMatch: 'full' },
   // { path: 'homePage', component: HomePageComponentComponent },
@@ -33,13 +40,13 @@ const routes: Routes = [
   // { path: 'developerRegistration', component: DeveloperRegistrationComponent },
   // { path: 'DeveloperKYC', component: DeveloperKYCComponent },
   // { path: 'societyRegistration', component: SocietyRegistrationComponent },
-  { path: 'notification', component: NotificationComponent },
-  { path: 'LetterOfInterest', component: LetterOfInterestComponent },
-  { path: 'UpdateSocietyMember', component: UpdateSocietyMemberComponent },
-  { path: 'DisplaySociety', component: DisplaySocietyComponent },
-  { path: 'selectSociety', component: SelectSocietyComponent },
-  { path: 'updateSociety/:id', component: UpdatationComponent },
-  { path: 'society-info-view', component:SocietyInfoViewComponent }
+  { path: 'notification', component: NotificationComponent, canActivate: [AuthGuard],data: { roles: ['Admin','User']} },
+  { path: 'LetterOfInterest', component: LetterOfInterestComponent, canActivate: [AuthGuard],data: { roles: ['Admin']} },
+  { path: 'UpdateSocietyMember', component: UpdateSocietyMemberComponent, canActivate: [AuthGuard],data: { roles: ['Admin']} },
+  { path: 'DisplaySociety', component: DisplaySocietyComponent, canActivate: [AuthGuard],data: { roles: ['Admin']} },
+  { path: 'selectSociety', component: SelectSocietyComponent, canActivate: [AuthGuard],data: { roles: ['Admin']} },
+  { path: 'updateSociety/:id', component: UpdatationComponent, canActivate: [AuthGuard],data: { roles: ['Admin']} },
+  { path: 'society-info-view', component: SocietyInfoViewComponent, canActivate: [AuthGuard],data: { roles: ['Admin','user']} }
 
 ];
 

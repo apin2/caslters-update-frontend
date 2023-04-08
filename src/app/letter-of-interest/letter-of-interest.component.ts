@@ -23,19 +23,65 @@ export class LetterOfInterestComponent {
     console.log(this.technicaldetail);
   }
   legaldocSave(f:any){
-    console.log(this.legal);
+    const obj = new FormData ;
+    obj.append('societyid','098234');
+    obj.append('societyname','test');
+    obj.append('type','MasterFileDocument');
+    obj.append('subtype','LegalDocument');
+    obj.append('typeofdocument',this.legal.type_of_document);
+    obj.append('documentfile',this.legal.file);
+    console.log(obj);
   }
   technicaldocSave(f:any){
+    const obj = new FormData ;
+    obj.append('societyid','098234');
+    obj.append('societyname','test');
+    obj.append('type','MasterFileDocument');
+    obj.append('subtype','TechnicalDocument');
+    obj.append('typeofdocument',this.technicaldoc.type_of_document);
+    obj.append('documentfile',this.technicaldoc.file);
     console.log(this.technicaldoc);    
   }
   resolutionSave(f:any){
+    const obj = new FormData ;
+    obj.append('societyid','098234');
+    obj.append('societyname','test');
+    obj.append('type','ComplianceDocument');
+    obj.append('subtype','ResolutionDocument');
+    obj.append('typeofdocument',this.resolution.type_of_document);
+    obj.append('documentfile',this.resolution.file);
     console.log(this.resolution);    
   }
   ConsentsSave(f:any){
+    const obj = new FormData ;
+    obj.append('societyid','098234');
+    obj.append('societyname','test');
+    obj.append('type','ComplianceDocument');
+    obj.append('subtype','ConsentsDocument');
+    obj.append('typeofdocument',this.consents.type_of_document);
+    obj.append('documentfile',this.consents.file);
     console.log(this.consents);
     
   }
+  ReportsSave(f:any){
+    const obj = new FormData ;
+    obj.append('societyid','098234');
+    obj.append('societyname','test');
+    obj.append('type','ComplianceDocument');
+    obj.append('subtype','ReportsDocument');
+    obj.append('typeofdocument',this.reports.type_of_document);
+    obj.append('documentfile',this.reports.file);
+    console.log(this.reports);
+    
+  }
   appointmentSave(f:any){
+    const obj = new FormData ;
+    obj.append('societyid','098234');
+    obj.append('societyname','test');
+    obj.append('type','AppointmentofDevloper');
+    // obj.append('subtype','ConsentsDocument');
+    // obj.append('typeofdocument',this.consents.type_of_document);
+    obj.append('documentfile',this.devappointment.file);
     console.log(this.devappointment);
     
   }
@@ -44,10 +90,6 @@ export class LetterOfInterestComponent {
     
   }
 
-  ReportsSave(f:any){
-    console.log(this.reports);
-    
-  }
   clickelayer1(layer:any){
     console.log("layer===>>>",layer);
     this.layer=layer;

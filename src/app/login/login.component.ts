@@ -14,6 +14,7 @@ export class LoginComponent {
   otp:any;
   resend:any=false;
   display: any;
+  invalidsend:any=false;
   public timerInterval: any;
   constructor(private toster:ToastrService){}
   ngOnInit(){
@@ -34,9 +35,15 @@ export class LoginComponent {
     }
   }
   send(){
-    this.second_stage=false;
-    console.log(this.mobile_number);
+    if(this.mobile_number.length >= 10){
+      this.toster.success('success');
+      this.second_stage=false;
+      console.log(this.mobile_number);
     this.timer(1);
+    }else{
+      this.toster.error("error");
+    }
+    
   } 
 
   reSend(){
