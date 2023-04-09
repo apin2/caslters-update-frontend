@@ -25,7 +25,11 @@ export class LoginComponent {
   }
   login(l:any){
     console.log(l.value);
-    this.loginservice.login(l.value).subscribe((res)=>{
+    let obj:any ={
+      username:l.value.user_name,
+      password:l.val.password
+    }
+     this.loginservice.login(obj).subscribe((res)=>{
       if(res){
         localStorage.setItem('user',res);
         this.routers.navigateByUrl('/');
