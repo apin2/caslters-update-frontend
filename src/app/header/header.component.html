@@ -25,7 +25,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #edcbaf;">
               <a class="dropdown-item gotham_medium" href="#">Action</a>
               <a class="dropdown-item gotham_medium" href="#">Another action</a>
-              <a class="dropdown-item gotham_medium" href="#">Something else here</a>
+              <!-- <a class="dropdown-item gotham_medium" href="#">Something else here</a> -->
             </div>
           </li>
           <li class="nav-item">
@@ -41,9 +41,9 @@
             <a class="nav-link" routerLink="faq">FAQ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/notification">Presentation</a>
+            <a class="nav-link" >Presentation</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" *ngIf="user_role?.role == 'Admin'">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">Admin
             </a>
@@ -55,6 +55,12 @@
               <a class="dropdown-item gotham_medium"  routerLink="/UpdateSocietyMember">Update Society Member</a>
               <a class="dropdown-item gotham_medium"  routerLink="/">Display Society</a>
             </div>
+          </li>
+          <li class="nav-item" *ngIf="login">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+          <li class="nav-item" *ngIf="!login">
+            <a class="nav-link" (click)="logout()" routerLink="/">Logout</a>
           </li>
         </ul>
       </div>

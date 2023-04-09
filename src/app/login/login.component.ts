@@ -40,6 +40,9 @@ export class LoginComponent {
         let user = JSON.stringify(res);
         localStorage.setItem('user', user);
         this.routers.navigateByUrl('/');
+        setTimeout(()=>{
+          window.location.reload();
+        },200)
       } else {
         this.toster.error('invalid user name and password', 'Invalid');
       }

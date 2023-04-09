@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +7,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor( public router: Router){}
+  user_role:any
+  login:any=true;
+  constructor(private route: ActivatedRoute, private router: Router) {
+  }
 
+  ngOnInit(){
+    let local:any = localStorage.getItem('user')
+    let user:any= JSON.parse(local);
+    this.user_role=user;
+    if(user){
+      this.login=false;
+    }
+    else{
+     this.login=true;
+    }
+    // console.log(user);
+  }
+
+  logout(){
+    // this.reload()
+    localStorage.removeItem('user');
+    window.location.reload();
+  }
   registration(){
     this.router.navigate(['/societyRegistration'])
   }

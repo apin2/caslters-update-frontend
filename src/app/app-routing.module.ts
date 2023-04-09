@@ -15,11 +15,11 @@ import { UpdateSocietyMemberComponent } from './update-society-member/update-soc
 // import { SocietyRegistrationComponent } from './society.registration/society.registration.component';
 
 const routes: Routes = [
-  { path: '', canActivate: [AuthGuard], runGuardsAndResolvers: 'always',data: { roles: ['Admin','User']},
+  { path: '',
   loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule) }, // redirect to `first-component`
   // { path: '**', component: HomePageComponentComponent },  // Wildcard route for a 404 page
   // { path: 'homePage', component: HomePageComponentComponent, canActivate: [AuthGuard] },
-  { path: 'aboutUs', component: AboutUsComponent, canActivate: [AuthGuard],data: { roles: ['Admin','User']} },
+  { path: 'aboutUs', component: AboutUsComponent},
   {
     path: 'developerRegistration', runGuardsAndResolvers: 'always', canActivate: [AuthGuard],data: { roles: ['Admin','Devloper']},
     loadChildren: () => import("./developer.registration/developer.registration.module").then(m => m.DeveloperRegistrationModule)
