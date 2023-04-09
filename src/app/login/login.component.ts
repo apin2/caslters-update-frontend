@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import {  Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LoginService } from '../shared/interface/login.service';
 
 @Component({
   selector: 'app-login',
@@ -16,13 +18,20 @@ export class LoginComponent {
   display: any;
   invalidsend:any=false;
   public timerInterval: any;
-  constructor(private toster:ToastrService){}
+  password:any;
+  constructor(private toster:ToastrService,private loginservice:LoginService, private routers:Router){}
   ngOnInit(){
 
   }
   login(l:any){
-    console.log(l);
-    console.log(this.otp);
+    console.log(l.value);
+    this.loginservice.login(l.value).subscribe((res)=>{
+      if(res){
+        localStorage.setItem('user',res);
+        this.routers.navigateByUrl('/');
+      }
+      this.toster.error('invalid user name and password','Invalid')
+    })
   }
   next(){
     if(this.user_name == 'pradeep'){

@@ -7,11 +7,11 @@ export class AuthService {
   userdata:any;
   constructor() { }
   isLoggedIn(){
-    this.userdata=localStorage.getItem('userdata')
+    this.userdata=localStorage.getItem('user')
 
     if(this.userdata){
       return true;
     } 
-    return true;
+    return false;
   }
 }

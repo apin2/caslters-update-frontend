@@ -8,6 +8,7 @@ import { AuthService } from './auth.service';
 })
 export class AuthGuard implements CanActivate {
   userinfo: any;
+  userdetail:any;
   constructor(private auth: AuthService, private router: Router) { }
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -31,7 +32,9 @@ export class AuthGuard implements CanActivate {
   roleAccess(role: any): any {
     console.log("roleacess",role[0],role[1]);
     // user role active logic 
-    if(role[0] == 'Admin'||role[1] == 'Admin' ){
+    
+    this.userdetail= localStorage.getItem('user')
+    if(role[0] == this.userdetail.role ||role[1] == this.userdetail.role ){
       console.log("if");
       return true
     }else{
