@@ -12,36 +12,32 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    this.roleAccess(route.data['roles']);
-    for (let i = 0; route.data['roles'].length >= i; i++) {
-      console.log(route.data['roles'][i])
-      if (route.data['roles'][i] == 'devloper') {
-        console.log("roles==>>", route.data['roles'][i])
+    // this.roleAccess(route.data['roles']);
+    // console.log(this.roleAccess(route.data['roles']));
+
+    if (this.auth.isLoggedIn()) {
+      if(this.roleAccess(route.data['roles'])){
         return true
       }else{
         return false
       }
-    }
-    console.log("roles==>>", route.data['roles'])
-    if (this.auth.isLoggedIn()) {
-      // login auth guard
-      return true
-    }
+      // return true
+    }else{
     this.router.navigate(['/login']);
     return false
   }
+  }
 
   roleAccess(role: any): any {
-    console.log("roleacess");
+    console.log("roleacess",role[0],role[1]);
     // user role active logic 
-    if (this.userinfo) {
-      if (this.userinfo == role) {
-        console.log('role match');
-        return true
-      } else {
-        console.log('role not match');
-        return false
-      }
+    if(role[0] == 'Admin'||role[1] == 'Admin' ){
+      console.log("if");
+      return true
+    }else{
+      console.log("else");
+      
+      return false
     }
   }
 

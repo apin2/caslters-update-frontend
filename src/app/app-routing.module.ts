@@ -25,7 +25,7 @@ const routes: Routes = [
     loadChildren: () => import("./developer.registration/developer.registration.module").then(m => m.DeveloperRegistrationModule)
   },
   {
-    path: 'societyRegistration', runGuardsAndResolvers: 'always', canActivate: [AuthGuard],data: { roles: ['admin','devloper']},
+    path: 'societyRegistration', runGuardsAndResolvers: 'always', canActivate: [AuthGuard],data: { roles: ['Admin','Devloper']},
     loadChildren: () => import("./society.registration/society.registration.module").then(m => m.SocietyRegistrationModule)
   },
   {

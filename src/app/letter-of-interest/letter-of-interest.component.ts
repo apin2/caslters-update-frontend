@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Consents, Devappointment, DevConinformation, Legaldocument, Reports, Resolution, Technicaldetail, Technicaldocument } from '../shared/interface/interface';
+import { ServiceService } from '../shared/interface/service.service';
+import { FormBuilder } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-letter-of-interest',
@@ -18,6 +21,37 @@ export class LetterOfInterestComponent {
   reports:any = new Reports;
   devappointment:any = new Devappointment;
   dev_information:any = new DevConinformation;
+  allregistersociety:any;
+  societydata:any;
+  show:any=false;
+  selectedsocietyid:any;
+
+  constructor(
+    private service: ServiceService,
+    private formBuilder: FormBuilder,
+    public toastr: ToastrService
+  ) {
+    this.service.getRegisterSociety();
+  }
+  ngOnInit() {
+    this.show=false;
+    this.service.getRegisterSociety().subscribe((res) => {
+      console.log(res);
+      this.allregistersociety = res;
+    });
+  }
+
+  onSocietySelected(societyid: any) {
+    console.log(societyid);
+    this.service.getallmember(societyid).subscribe((res) => {
+      this.societydata = res;
+      this.show = true;
+    });
+  }
+
+  select(f:any){
+
+  }
 
   technical_detail_save(f:any){
     console.log(this.technicaldetail);
