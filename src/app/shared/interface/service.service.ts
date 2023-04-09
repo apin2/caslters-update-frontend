@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ServiceService {
-  loacal:any='https://localhost:44362/api/';
+  baseURL:any='https://aps-prd-castlers-api.azurewebsites.net/api/';
   constructor(private http: HttpClient) {
     // let header =new HttpHeaders()
   }
@@ -14,32 +14,32 @@ export class ServiceService {
   public registersociety(data: any): Observable<any> {
     console.log('data==>>', data);
     return this.http.post(
-      this.loacal+'RegisteredSociety/registerSociety',
+      this.baseURL+'RegisteredSociety/registerSociety',
       data
     );
   }
 
   public getRegisterSociety(): Observable<any> {
     return this.http.get(
-      this.loacal+'RegisteredSociety/getRegisteredSocietyList'
+      this.baseURL+'RegisteredSociety/getRegisteredSocietyList'
     );
   }
 
   public getSocietyMemberDesignations(): Observable<any> {
     return this.http.get(
-      this.loacal+'RegisteredSociety/getSocietyMemberDesignationList'
+      this.baseURL+'RegisteredSociety/getSocietyMemberDesignationList'
     );
   }
   public updateRegistrationSocietyDetails(data: any): Observable<any> {
     console.log(data);
     return this.http.put(
-      this.loacal+'RegisteredSociety/UpdateRegisteredSociety',
+      this.baseURL+'RegisteredSociety/UpdateRegisteredSociety',
       data
     );
   }
   public getsocietybyid(id: any): Observable<any> {
     return this.http.get(
-      this.loacal+'RegisteredSociety/getRegisteredSocietyInfo/' +
+      this.baseURL+'RegisteredSociety/getRegisteredSocietyInfo/' +
         id
     );
   }
@@ -50,25 +50,25 @@ export class ServiceService {
       headers: header,
     };
     return this.http.post(
-      this.loacal+'SocietyMemberDetails/AddRegisteredSocietyNewMembers',
+      this.baseURL+'SocietyMemberDetails/AddRegisteredSocietyNewMembers',
       data
     );
   }
   public updatemember(data: any): Observable<any> {
     return this.http.put(
-      this.loacal+'SocietyMemberDetails/UpdateRegisteredSocietyMembers',
+      this.baseURL+'SocietyMemberDetails/UpdateRegisteredSocietyMembers',
       data
     );
   }
   public deletemember(id: any): Observable<any> {
     return this.http.post(
-      this.loacal+'SocietyMemberDetails/DeleteRegisteredSocietyMemberById',
+      this.baseURL+'SocietyMemberDetails/DeleteRegisteredSocietyMemberById',
       id
     );
   }
   public getallmember(societyId: any): Observable<any> {
     return this.http.get(
-      this.loacal+'SocietyMemberDetails/GetRegisteredSocietyMembersBySocietyId/' +
+      this.baseURL+'SocietyMemberDetails/GetRegisteredSocietyMembersBySocietyId/' +
         societyId
     );
   }
