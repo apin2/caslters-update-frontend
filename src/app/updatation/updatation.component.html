@@ -1,157 +1,320 @@
-<div class="home-page-container" >
-    <section>
-      <div class="developer_form">
-        <div class="container mt-3">
-          <form  #updatesocitey="ngForm" (ngSubmit)="saveupdatesociety(updatesocitey)">
-            <div class="row jumbotron box8">
-              <div class="col-sm-12 mx-t3 mb-4">
-                <h2 class="text-center">Update Society Registration Form</h2>
-              </div>
-              <div class="col-lg-4 col-md-6  form-group">
-                <label class="metro" for="societyName">Society Name</label>
-                <input type="text" class="form-control" [(ngModel)]="updatesociety.societyName" name="societyName" id="societyName"
-                  placeholder="Enter your Society Name" required>
-                  <!-- <span style="color:red" *ngIf="(registerFormControl.societyName.touched || submitted) && registerFormControl.societyName.errors?.required">Society Name is Requered</span> -->
-              </div>
-              <div class="col-lg-4 col-md-6  form-group">
-                <label class="metro" for="societyRegistrationNumber">Society Registration Number</label>
-                <input type="text" [(ngModel)]="updatesociety.societyRegistrationNumber" class="form-control" name="societyRegistrationNumber" id="societyRegistrationNumber"
-                  placeholder="Enter your society Registration Number" required>
-                  <!-- <span style="color:red" *ngIf="(registerFormControl.societyRegistrationNumber.touched || submitted) && registerFormControl.societyRegistrationNumber.errors?.required">Society Registration Number is Requered</span> -->
-              </div>
-  
-              <div class="col-lg-4 col-md-6  form-group">
-                <label class="metro" for="registeredAddress">address of society</label>
-                <input type="text" [(ngModel)]="updatesociety.registeredAddress" class="form-control" name="registeredAddress" id="registeredAddress" placeholder="Enter your address" required>
-                <!-- <span style="color:red" *ngIf="(registerFormControl.address.touched || submitted) && registerFormControl.address.errors?.required">Age is Requered</span> -->
-              </div>
-              <div class="col-lg-4 col-md-6  form-group">
-                <label class="metro" for="typeOfDevelopment">City</label>
-                <select id="typeOfDevelopment" name="city" [(ngModel)]="updatesociety.city" class="form-control browser-default custom-select">
-                  <option value="select" disabled selected> -Select City- </option>
-                  <option value="pune" >Pune</option>
+<div class="home-page-container">
+  <section>
+    <div class="developer_form">
+      <div class="container mt-3">
+        <form
+          #updatesocitey="ngForm"
+          (ngSubmit)="saveupdatesociety(updatesocitey)"
+        >
+          <div class="row jumbotron box8">
+            <div class="col-sm-12 mx-t3 mb-4">
+              <h2 class="text-center">Update Society Registration Form</h2>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group">
+              <label class="metro" for="societyName">Society Name</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="updatesociety.societyName"
+                name="societyName"
+                id="societyName"
+                placeholder="Enter your Society Name"
+                required
+              />
+              <!-- <span style="color:red" *ngIf="(registerFormControl.societyName.touched || submitted) && registerFormControl.societyName.errors?.required">Society Name is Requered</span> -->
+            </div>
+            <div class="col-lg-4 col-md-6 form-group">
+              <label class="metro" for="societyRegistrationNumber"
+                >Society Registration Number</label
+              >
+              <input
+                type="text"
+                [(ngModel)]="updatesociety.societyRegistrationNumber"
+                class="form-control"
+                name="societyRegistrationNumber"
+                id="societyRegistrationNumber"
+                placeholder="Enter your society Registration Number"
+                required
+              />
+              <!-- <span style="color:red" *ngIf="(registerFormControl.societyRegistrationNumber.touched || submitted) && registerFormControl.societyRegistrationNumber.errors?.required">Society Registration Number is Requered</span> -->
+            </div>
+
+            <div class="col-lg-4 col-md-6 form-group">
+              <label class="metro" for="registeredAddress"
+                >Society Address</label
+              >
+              <input
+                type="text"
+                [(ngModel)]="updatesociety.registeredAddress"
+                class="form-control"
+                name="registeredAddress"
+                id="registeredAddress"
+                placeholder="Enter your address"
+                required
+              />
+              <!-- <span style="color:red" *ngIf="(registerFormControl.address.touched || submitted) && registerFormControl.address.errors?.required">Age is Requered</span> -->
+            </div>
+            <div class="col-lg-4 col-md-6 form-group">
+              <label class="metro" for="typeOfDevelopment">City</label>
+              <select
+                id="typeOfDevelopment"
+                name="city"
+                [(ngModel)]="updatesociety.city"
+                class="form-control browser-default custom-select"
+              >
+                <option value="select" disabled selected>-Select City-</option>
+                <option value="pune">Pune</option>
                 <option value="mumbai">Mumbai</option>
                 <option value="navi mumbai">Navi mumbai</option>
                 <option value="thane">Thane</option>
                 <option value="navi mumbai">kolhapur</option>
-                </select>
-              </div>
-              <div class="col-lg-4 col-md-6  form-group">
-                <label class="metro" for="age">Age of building</label>
-                <input type="text" [(ngModel)]="updatesociety.age" class="form-control" name="age" id="age" placeholder="Enter your age" required>
-                <!-- <span style="color:red" *ngIf="(registerFormControl.ageofbuilding.touched || submitted) && registerFormControl.ageofbuilding.errors?.required">Age is Requered</span> -->
-              </div>
-  
-              <div class="col-lg-4 col-md-6  form-group">
-                <label class="metro" for="existingMemberCount">Existing Member Count</label>
-                <input type="text" [(ngModel)]="updatesociety.existingMemberCount" class="form-control" name="existingMemberCount" id="existingMemberCount"
-                  placeholder="Enter your Existing Member" required>
-                  <!-- <span style="color:red" *ngIf="(registerFormControl.existingMemberCount.touched || submitted) && registerFormControl.existingMemberCount.errors?.required">Existing Member Count is Requered</span> -->
-              </div>
-              
-              <div class="col-lg-4 col-md-6  form-group">
-                <label class="metro" for="emailofsociet">email of society</label>
-                <input type="text" [(ngModel)]="updatesociety.email" class="form-control" name="emailofsociet" id="emailofsociet" placeholder="Enter your email" required>
-                <!-- <span style="color:red" *ngIf="(registerFormControl.emailofsociet.touched || submitted) && registerFormControl.emailofsociet.errors">email is Requered</span> -->
-              </div>
-              
-              <div class="col-lg-4 col-md-6  form-group">
-                <label class="metro" for="typeOfDevelopment">Type Of Development</label>
-                <select id="typeOfDevelopment" name="typeOfDevelopment" [(ngModel)]="updatesociety.societyDevelopmentTypeId" class="form-control browser-default custom-select">
-                  <option value="select" disabled selected> -Select Type of Development- </option>
-                  <option value="1" >Regular Development</option>
-                  <option value="2">Limited Self Development</option>
-                  <option value="3">Self Development</option>
-                </select>
-              </div> 
-  
-              <div class="col-lg-4 col-md-6  form-group" *ngIf="updatesociety.societyDevelopmentTypeId == '1'">
-                <label class="metro" for="typeOfTrety">Type Of Trety</label>
-                <select id="typeOfTrety" name="typeOfTrety" [(ngModel)]="updatesociety.societyDevelopmentSubType" class="form-control browser-default custom-select">
-                  <option value="select" disabled selected> -Select Type of Trety- </option>
-                  <option value="privateTrety">Private Trety</option>
-                  <option value="tendering">Tendering</option>
-                </select>
-              </div>
-              <div class="col-lg-4 col-md-6  form-group" *ngIf="updatesociety.societyDevelopmentTypeId == '2'">
-                <label class="metro" for="typeOfTrety">Type Of Trety</label>
-                <select id="typeOfTrety" name="typeOfTrety" [(ngModel)]="updatesociety.societyDevelopmentSubType" class="form-control browser-default custom-select">
-                  <option value="privateTrety" disabled selected>Private Trety </option>
-                  <!-- <option value="privateTrety"></option> -->
-                  <!-- <option value="tendering">Tendering</option> -->
-                </select>
-              </div>
-              
-              
-  
-              <div class="col-lg-4 col-md-6  form-group">
-                <label class="metro" for="societyMemberDesignationId">Office Bearers of Society</label> 
-                <select id="societyMemberDesignationId" [(ngModel)]="memberdetail.societyMemberDesignationId" name="societyMemberDesignationId"  class="form-control browser-default custom-select">
-                  <option value="select" disabled selected> -Select Type of Bearers- </option>
-                  <option [value]="designate.societyMemberDesignationId" *ngFor="let designate of designation">{{designate.designationType}} </option>
-                  <!-- <option value="2"> Secretory </option>
+              </select>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group">
+              <label class="metro" for="age">Age of building</label>
+              <input
+                type="text"
+                [(ngModel)]="updatesociety.age"
+                class="form-control"
+                name="age"
+                id="age"
+                placeholder="Enter your age"
+                required
+              />
+              <!-- <span style="color:red" *ngIf="(registerFormControl.ageofbuilding.touched || submitted) && registerFormControl.ageofbuilding.errors?.required">Age is Requered</span> -->
+            </div>
+
+            <div class="col-lg-4 col-md-6 form-group">
+              <label class="metro" for="existingMemberCount"
+                >Existing Members Count</label
+              >
+              <input
+                type="text"
+                [(ngModel)]="updatesociety.existingMemberCount"
+                class="form-control"
+                name="existingMemberCount"
+                id="existingMemberCount"
+                placeholder="Enter your Existing Member"
+                required
+              />
+              <!-- <span style="color:red" *ngIf="(registerFormControl.existingMemberCount.touched || submitted) && registerFormControl.existingMemberCount.errors?.required">Existing Member Count is Requered</span> -->
+            </div>
+
+            <div class="col-lg-4 col-md-6 form-group">
+              <label class="metro" for="emailofsociet">Society Email</label>
+              <input
+                type="text"
+                [(ngModel)]="updatesociety.email"
+                class="form-control"
+                name="emailofsociet"
+                id="emailofsociet"
+                placeholder="Enter your email"
+                required
+              />
+              <!-- <span style="color:red" *ngIf="(registerFormControl.emailofsociet.touched || submitted) && registerFormControl.emailofsociet.errors">email is Requered</span> -->
+            </div>
+
+            <div class="col-lg-4 col-md-6 form-group">
+              <label class="metro" for="typeOfDevelopment"
+                >Type Of Development</label
+              >
+              <select
+                id="typeOfDevelopment"
+                name="typeOfDevelopment"
+                [(ngModel)]="updatesociety.societyDevelopmentTypeId"
+                class="form-control browser-default custom-select"
+              >
+                <option value="select" disabled selected>
+                  -Select Type of Development-
+                </option>
+                <option value="1">Regular Development</option>
+                <option value="2">Limited Self Development</option>
+                <option value="3">Self Development</option>
+              </select>
+            </div>
+
+            <div
+              class="col-lg-4 col-md-6 form-group"
+              *ngIf="updatesociety.societyDevelopmentTypeId == '1'"
+            >
+              <label class="metro" for="typeOfTrety">Type Of Trety</label>
+              <select
+                id="typeOfTrety"
+                name="typeOfTrety"
+                [(ngModel)]="updatesociety.societyDevelopmentSubType"
+                class="form-control browser-default custom-select"
+              >
+                <option value="select" disabled selected>
+                  -Select Type of Trety-
+                </option>
+                <option value="privateTrety">Private Trety</option>
+                <option value="tendering">Tendering</option>
+              </select>
+            </div>
+            <div
+              class="col-lg-4 col-md-6 form-group"
+              *ngIf="updatesociety.societyDevelopmentTypeId == '2'"
+            >
+              <label class="metro" for="typeOfTrety">Type Of Trety</label>
+              <select
+                id="typeOfTrety"
+                name="typeOfTrety"
+                [(ngModel)]="updatesociety.societyDevelopmentSubType"
+                class="form-control browser-default custom-select"
+              >
+                <option value="privateTrety" disabled selected>
+                  Private Trety
+                </option>
+                <!-- <option value="privateTrety"></option> -->
+                <!-- <option value="tendering">Tendering</option> -->
+              </select>
+            </div>
+
+            <div class="col-lg-4 col-md-6 form-group">
+              <label class="metro" for="societyMemberDesignationId"
+                >Office Bearers of Society</label
+              >
+              <select
+                id="societyMemberDesignationId"
+                [(ngModel)]="memberdetail.societyMemberDesignationId"
+                name="societyMemberDesignationId"
+                class="form-control browser-default custom-select"
+              >
+                <option value="select" disabled selected>
+                  -Select Type of Bearers-
+                </option>
+                <option
+                  [value]="designate.societyMemberDesignationId"
+                  *ngFor="let designate of designation"
+                >
+                  {{ designate.designationType }}
+                </option>
+                <!-- <option value="2"> Secretory </option>
                   <option value="3"> Treasurer </option>                
                   <option value="4">Member </option>                 -->
-                </select>
-              </div>
-              
-              <div class="col-md-12" *ngIf="updatememberdetail">
-                  <div class="row">
-                    <div class="col-lg-3 col-md-6  form-group">
-                      <label class="metro" for="chairmanName">Name</label>
-                      <input type="text" [(ngModel)]="memberdetail.memberName" class="form-control" name="chairmanName" id="chairmanName"
-                        placeholder="Enter Name" required>
-                    </div>
-                    <div class="col-lg-3 col-md-6  form-group">
-                      <label class="metro" for="chairmanEmailID">Email ID </label>
-                      <input type="text" [(ngModel)]="memberdetail.email" class="form-control" name="chairmanEmailID" id="chairmanEmailID"
-                        placeholder="Enter Email ID" required>
-                    </div>
-                    <div class="col-lg-3 col-md-6  form-group">
-                      <label class="metro" for="chairmanNumber">Number</label>
-                      <input type="text" [(ngModel)]="memberdetail.mobileNumber" class="form-control" name="chairmanNumber" id="chairmanNumber"
-                        placeholder="Enter Number" required>
-                    </div>
-                    <div class="col-sm-3 form-group mb-0" style=" display: flex; justify-content: center; padding: 2rem 0;">
-                      <button type="button" (click)="updatemember()" class="btn">Add</button> 
-                    </div>
-                  </div>
-                  <table class="table" *ngIf="updatememberdetail">
-                    <thead>
-                      <th>S.No</th>
-                      <th>Type of Bearers</th>
-                      <th>Name</th>
-                      <th>E-mail Id</th>
-                      <th>Number</th>
-                      <th>Action</th>
-                    </thead>
-                    <tbody *ngFor="let data of updatememberdetail; let i = index">
-                      <tr>
-                        <td data-label="S.No">{{i+1}}</td>
-                        <!-- <td data-label="bearers">{{data.societyMemberDesignationId}}</td> -->
-                        <td data-label="bearers" *ngIf="data.societyMemberDesignationId == '1'">Chairmen</td>
-                        <td data-label="bearers" *ngIf="data.societyMemberDesignationId == '2'">Secretory</td>
-                        <td data-label="bearers" *ngIf="data.societyMemberDesignationId == '3'">Treasurer</td>
-                        <td data-label="bearers" *ngIf="data.societyMemberDesignationId == '4'">Member</td>
-                        <td data-label="Name">{{data.memberName}}</td>
-                        <td data-label="E-mailId">{{data.email}}</td>
-                        <td data-label="number">{{data.mobileNumber}}</td>
-                        <td data-label="action">
-                          <a style="margin-right: 15px;" (click)="updatedititem(i,data)"><img class="custom_icon" src="../../assets/images/pen-to-square-solid.svg"></a>
-                          <a (click)="updateremoveitem(i,data)"><img class="custom_icon" src="../../assets/images/trash-can-solid.svg"></a>
-                        </td>
-                      </tr>
-                      </tbody>
-                  </table>
-              </div>
-              <div class="col-sm-12 form-group mb-0" style=" display: flex; justify-content: center; margin-top: 2rem;">
-                <button class="btn" style="margin-right: 10px;"  type="submit" >Update</button> 
-              </div>
-  
+              </select>
             </div>
-          </form>
-        </div>
-  
+
+            <div class="col-md-12" *ngIf="updatememberdetail">
+              <div class="row">
+                <div class="col-lg-3 col-md-6 form-group">
+                  <label class="metro" for="chairmanName">Name</label>
+                  <input
+                    type="text"
+                    [(ngModel)]="memberdetail.memberName"
+                    class="form-control"
+                    name="chairmanName"
+                    id="chairmanName"
+                    placeholder="Enter Name"
+                    required
+                  />
+                </div>
+                <div class="col-lg-3 col-md-6 form-group">
+                  <label class="metro" for="chairmanEmailID">Email ID </label>
+                  <input
+                    type="text"
+                    [(ngModel)]="memberdetail.email"
+                    class="form-control"
+                    name="chairmanEmailID"
+                    id="chairmanEmailID"
+                    placeholder="Enter Email ID"
+                    required
+                  />
+                </div>
+                <div class="col-lg-3 col-md-6 form-group">
+                  <label class="metro" for="chairmanNumber">Number</label>
+                  <input
+                    type="text"
+                    [(ngModel)]="memberdetail.mobileNumber"
+                    class="form-control"
+                    name="chairmanNumber"
+                    id="chairmanNumber"
+                    placeholder="Enter Number"
+                    required
+                  />
+                </div>
+                <div
+                  class="col-sm-3 form-group mb-0"
+                  style="
+                    display: flex;
+                    justify-content: center;
+                    padding: 2rem 0;
+                  "
+                >
+                  <button type="button" (click)="updatemember()" class="btn">
+                    Update
+                  </button>
+                </div>
+              </div>
+              <table class="table" *ngIf="updatememberdetail">
+                <thead>
+                  <th>S.No</th>
+                  <th>Type of Bearers</th>
+                  <th>Name</th>
+                  <th>E-mail Id</th>
+                  <th>Number</th>
+                  <th>Action</th>
+                </thead>
+                <tbody *ngFor="let data of updatememberdetail; let i = index">
+                  <tr>
+                    <td data-label="S.No">{{ i + 1 }}</td>
+                    <!-- <td data-label="bearers">{{data.societyMemberDesignationId}}</td> -->
+                    <td
+                      data-label="bearers"
+                      *ngIf="data.societyMemberDesignationId == '1'"
+                    >
+                      Chairmen
+                    </td>
+                    <td
+                      data-label="bearers"
+                      *ngIf="data.societyMemberDesignationId == '2'"
+                    >
+                      Secretory
+                    </td>
+                    <td
+                      data-label="bearers"
+                      *ngIf="data.societyMemberDesignationId == '3'"
+                    >
+                      Treasurer
+                    </td>
+                    <td
+                      data-label="bearers"
+                      *ngIf="data.societyMemberDesignationId == '4'"
+                    >
+                      Member
+                    </td>
+                    <td data-label="Name">{{ data.memberName }}</td>
+                    <td data-label="E-mailId">{{ data.email }}</td>
+                    <td data-label="number">{{ data.mobileNumber }}</td>
+                    <td data-label="action">
+                      <a
+                        style="margin-right: 15px"
+                        (click)="updatedititem(i, data)"
+                        ><img
+                          class="custom_icon"
+                          src="../../assets/images/pen-to-square-solid.svg"
+                      /></a>
+                      <a (click)="updateremoveitem(i, data)"
+                        ><img
+                          class="custom_icon"
+                          src="../../assets/images/trash-can-solid.svg"
+                      /></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+              class="col-sm-12 form-group mb-0"
+              style="display: flex; justify-content: center; margin-top: 2rem"
+            >
+              <button class="btn" style="margin-right: 10px" type="submit">
+                Update
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+</div>

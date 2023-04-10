@@ -104,7 +104,7 @@ export class SocietyRegistrationComponent {
         age: f.value.ageofbuilding,
         societyRegisteredCode:
           'MH' +
-          f.value.city[0] +
+          f.value.city[0].toUpperCase() +
           Math.floor(Math.random() * (90 - 10 + 1)) +
           100,
         societyMemberDetails: this.socitybearer,

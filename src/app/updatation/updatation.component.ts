@@ -133,14 +133,14 @@ export class UpdatationComponent {
           console.log(`${bearers.societyMemberDesignationId} is already Exist`);
           console.log("this.toastr.success('Hello world!', 'Toastr fun!')");
           if (bearers.societyMemberDesignationId == '1') {
-            let alertmessage = 'chairman';
-            this.toastr.error('is already Exist!', alertmessage);
+            let alertmessage = 'Chairmen';
+            this.toastr.error('Already Exist!', alertmessage);
           } else if (bearers.societyMemberDesignationId == '2') {
             let alertmessage = 'Secretory';
-            this.toastr.error('is already Exist!', alertmessage);
+            this.toastr.error('Already Exist!', alertmessage);
           } else if (bearers.societyMemberDesignationId == '3') {
             let alertmessage = 'Treasurer';
-            this.toastr.error('is already Exist!', alertmessage);
+            this.toastr.error('Already Exist!', alertmessage);
           }
         }
       }
@@ -149,14 +149,11 @@ export class UpdatationComponent {
   updatedititem(index: any, data: any) {
     this.singlemember = data;
     this.id = index;
-    for (let i = 0; i <= this.updatememberdetail.length; i++) {
-      if (index == i) {
-        this.memberdetail.bearers = this.updatememberdetail[i].bearers;
-        this.memberdetail.name = this.updatememberdetail[i].name;
-        this.memberdetail.email = this.updatememberdetail[i].email;
-        this.memberdetail.number = this.updatememberdetail[i].number;
-      }
-    }
+    this.memberdetail.societyMemberDesignationId =
+      data.societyMemberDesignationId;
+    this.memberdetail.memberName = data.memberName;
+    this.memberdetail.email = data.email;
+    this.memberdetail.mobileNumber = data.mobileNumber;
   }
   updateremoveitem(i: any, data: any) {
     let obj: any = {
@@ -167,7 +164,7 @@ export class UpdatationComponent {
       console.log(res);
       if (res) {
         // this.onSocietySelected(this.selectedsocietyid);
-        this.toastr.success('delete successfully', 'Success');
+        this.toastr.success('Delete Successfully', 'Member');
       }
     });
     console.log(i);
