@@ -34,6 +34,8 @@ export class UpdatationComponent {
   ) {}
 
   ngOnInit() {
+    console.log(this.id);
+    
     this.memberdetail = new Memberdetail();
     this.service.getSocietyMemberDesignations().subscribe((res) => {
       this.designation = res;
@@ -82,19 +84,20 @@ export class UpdatationComponent {
       societyMemberDetailsId: this.updatesociety.societyMemberDetailsId,
       registeredSocietyId: this.updatesociety.registeredSocietyId,
     };
+    console.log(bearers)
     this.memberdetail.memberName = '';
     this.memberdetail.email = '';
     this.memberdetail.mobileNumber = '';
-    console.log(this.memberdetail);
+    console.log(this.id);
     if (this.id || this.id == 0) {
       console.log('if');
       for (let i = 0; i <= this.updatememberdetail.length; i++) {
         if (this.id == i) {
-          this.updatememberdetail[i].bearers =
+          this.updatememberdetail[i].societyMemberDesignationId =
             bearers.societyMemberDesignationId;
-          this.updatememberdetail[i].name = bearers.name;
+          this.updatememberdetail[i].memberName = bearers.memberName;
           this.updatememberdetail[i].email = bearers.email;
-          this.updatememberdetail[i].number = bearers.number;
+          this.updatememberdetail[i].mobileNumber = bearers.mobileNumber;
           this.id = undefined;
         }
       }

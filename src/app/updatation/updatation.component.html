@@ -241,7 +241,10 @@
                     padding: 2rem 0;
                   "
                 >
-                  <button type="button" (click)="updatemember()" class="btn">
+                <button class="btn" style="margin-right: 10px" type="submit" *ngIf="id ==undefined">
+                  Add
+                </button>
+                  <button type="button" (click)="updatemember()" class="btn" *ngIf="id !=undefined">
                     Update
                   </button>
                 </div>
@@ -285,7 +288,7 @@
                     </td>
                     <td data-label="Name">{{ data.memberName }}</td>
                     <td data-label="E-mailId">{{ data.email }}</td>
-                    <td data-label="number">{{ data.mobileNumber }}</td>
+                    <td data-label="number">{{ data.memberName }}</td>
                     <td data-label="action">
                       <a
                         style="margin-right: 15px"
@@ -308,7 +311,8 @@
               class="col-sm-12 form-group mb-0"
               style="display: flex; justify-content: center; margin-top: 2rem"
             >
-              <button class="btn" style="margin-right: 10px" type="submit">
+            
+              <button class="btn" style="margin-right: 10px" type="submit" >
                 Update
               </button>
             </div>
