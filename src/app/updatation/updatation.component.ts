@@ -72,6 +72,7 @@ export class UpdatationComponent {
       .updateRegistrationSocietyDetails(this.updatesociety)
       .subscribe((res) => {
         console.log(res);
+        this.toastr.success(' updated successfully','society');
       });
   }
 
