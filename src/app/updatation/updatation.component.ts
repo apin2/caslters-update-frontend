@@ -35,7 +35,7 @@ export class UpdatationComponent {
 
   ngOnInit() {
     console.log(this.id);
-    
+
     this.memberdetail = new Memberdetail();
     this.service.getSocietyMemberDesignations().subscribe((res) => {
       this.designation = res;
@@ -72,7 +72,7 @@ export class UpdatationComponent {
       .updateRegistrationSocietyDetails(this.updatesociety)
       .subscribe((res) => {
         console.log(res);
-        this.toastr.success(' updated successfully','society');
+        this.toastr.success(' Updated Successfully', 'Society Details');
       });
   }
 
@@ -85,7 +85,7 @@ export class UpdatationComponent {
       societyMemberDetailsId: this.updatesociety.societyMemberDetailsId,
       registeredSocietyId: this.updatesociety.registeredSocietyId,
     };
-    console.log(bearers)
+    console.log(bearers);
     this.memberdetail.memberName = '';
     this.memberdetail.email = '';
     this.memberdetail.mobileNumber = '';
