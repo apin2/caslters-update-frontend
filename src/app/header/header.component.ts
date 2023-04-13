@@ -8,36 +8,51 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  user_role:any
-  login:any=true;
-  constructor(private route: ActivatedRoute, private router: Router ,private toster: ToastrService,) {
+  user_role: any
+  login: any = true;
+  expand: any;
+  constructor(private route: ActivatedRoute, private router: Router, private toster: ToastrService,) {
   }
 
-  ngOnInit(){
+  ngOnInit() {
 
-    this.router.events.subscribe((val:any)=>{
+    this.router.events.subscribe((val: any) => {
       console.log(val);
-      let local:any = localStorage.getItem('user')
-      let user:any= JSON.parse(local);
-      this.user_role=user;
-      if(user){
-        this.login=false;
+      let local: any = localStorage.getItem('user')
+      let user: any = JSON.parse(local);
+      this.user_role = user;
+      if (user) {
+        this.login = false;
       }
-      else{
-       this.login=true;
+      else {
+        this.login = true;
       }
-      
+
     })
     // console.log(user);
   }
 
-  logout(){
+  menuVisible: any = true;
+  menueshow(){
+    this.menuVisible =! this.menuVisible;
+  }
+
+  onTop() {
+    this.menuVisible =! this.menuVisible ;
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  logout() {
     // this.reload()
     localStorage.removeItem('user');
-    this.toster.success('Sccessfully','Logout');
+    this.toster.success('Sccessfully', 'Logout');
     window.location.reload();
   }
-  registration(){
+  registration() {
     this.router.navigate(['/societyRegistration'])
   }
 }

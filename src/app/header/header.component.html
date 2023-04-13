@@ -8,24 +8,19 @@
       /></a>
       <button
         class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+       
       >
-        <span class="navbar-toggler-icon"></span>
+        <span (click)="menueshow()" class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+      <div class="collapse navbar-collapse" [ngClass]="menuVisible ? '' : 'nodisplay'" >
+        <ul class="navbar-nav mr-auto" style="width: 100%;">
           <li class="nav-item active">
-            <a class="nav-link" routerLink="/"
+            <a (click)="onTop()" class="nav-link" routerLink="/" aria-expanded="true" aria-controls="widget1"
               >Home <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Tie-up Developers</a>
+            <a class="nav-link" (click)="onTop()" href="#">Tie-up Developers</a>
           </li>
           <!--    <li class="nav-item dropdown">
              <a
@@ -52,30 +47,30 @@
           </li> -->
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Our Clients</a>
+            <a class="nav-link" (click)="onTop()" href="#">Our Clients</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">E-Tenders</a>
+            <a class="nav-link" (click)="onTop()" href="#">E-Tenders</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">News</a>
+            <a class="nav-link" (click)="onTop()" href="#">News</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Blogs</a>
+            <a class="nav-link"(click)="onTop()"  href="#">Blogs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="faq">FAQ</a>
+            <a class="nav-link" (click)="onTop()" routerLink="faq">FAQ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/aboutUs" routerLinkActive="active"
+            <a class="nav-link" (click)="onTop()"  routerLink="/aboutUs" routerLinkActive="active"
               >About Us</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link">Presentation</a>
+            <a class="nav-link" (click)="onTop()">Presentation</a>
           </li>
           <li class="nav-item dropdown" *ngIf="user_role?.role == 'Admin'">
-            <a
+            <a (click)="onTop()"
               class="nav-link dropdown-toggle"
               href="#"
               id="navbarDropdown"
@@ -90,37 +85,37 @@
               aria-labelledby="navbarDropdownMenuLink"
               style="background-color: #edcbaf"
             >
-              <a class="dropdown-item gotham_medium" routerLink="/"
+              <a (click)="onTop()" class="dropdown-item gotham_medium" routerLink="/"
                 >Organisation Registration</a
               >
-              <a
+              <a (click)="onTop()"
                 class="dropdown-item gotham_medium"
                 routerLink="/societyRegistration"
                 >Society Registration</a
               >
-              <a
+              <a (click)="onTop()"
                 class="dropdown-item gotham_medium"
                 routerLink="/LetterOfInterest"
                 >Society Updation</a
               >
-              <a class="dropdown-item gotham_medium" routerLink="/selectSociety"
+              <a (click)="onTop()" class="dropdown-item gotham_medium" routerLink="/selectSociety"
                 >Old Society Updation</a
               >
-              <a
+              <a (click)="onTop()"
                 class="dropdown-item gotham_medium"
                 routerLink="/UpdateSocietyMember"
                 >Update Society Member</a
               >
-              <a class="dropdown-item gotham_medium" routerLink="/"
+              <a (click)="onTop()" class="dropdown-item gotham_medium" routerLink="/"
                 >Display Society</a
               >
             </div>
           </li>
           <li class="nav-item" *ngIf="login">
-            <a class="nav-link" routerLink="/login">Login</a>
+            <a (click)="onTop()" class="nav-link" routerLink="/login">Login</a>
           </li>
           <li class="nav-item" *ngIf="!login">
-            <a class="nav-link" (click)="logout()" routerLink="/">Logout</a>
+            <a (click)="onTop()" class="nav-link" (click)="logout()" routerLink="/">Logout</a>
           </li>
         </ul>
       </div>
