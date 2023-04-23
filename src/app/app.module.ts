@@ -24,6 +24,7 @@ import { ServiceService } from './shared/interface/service.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SocietyInfoViewComponent } from './society-info-view/society-info-view.component';
 import { NgChartsModule } from 'ng2-charts';
+import { FAQComponent } from './faq/faq.component';
 
 // import { SocietyRegistrationModule } from './society.registration/society.registration.module';
 // import { DeveloperRegistrationModule } from './developer.registration/developer.registration.module';
@@ -44,7 +45,8 @@ import { NgChartsModule } from 'ng2-charts';
     DisplaySocietyComponent,
     UpdatationComponent,
     SelectSocietyComponent,
-    SocietyInfoViewComponent
+    SocietyInfoViewComponent,
+    FAQComponent
   ],
   imports: [
     HttpClientModule ,

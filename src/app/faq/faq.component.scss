@@ -1,0 +1,191 @@
+.home-page-container{    
+    // .row-center{
+    //     display: flex;
+    //     justify-content: center;
+    // }
+    overflow-x: hidden;
+    display: grid;
+    justify-content: center;
+    background-color: #edcbaf;
+    .container{
+      margin-right: auto;
+      margin-left: auto;
+    }   
+    section{
+        padding-top: 35px;
+        overflow: hidden;
+        max-width: 1425px;
+        // margin: auto;
+    }
+    .about-row{
+
+        .limitTextHeight {
+            height: 120px;
+            overflow: hidden;
+        }
+        .pull-right{
+            position: absolute;
+            right: 50px;
+        }
+        .col-lg-6.col-sm-12.col-md-12 {
+            margin: 1rem 0px;
+            padding: 0 1.5rem;
+        }
+        .FAQ_header{
+            font-size: 50px;
+            color: #565a5d;
+            font-weight: 700;
+            font-family: "Work Sans";
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .readmore_button{
+            padding: .5rem 1rem;
+            // border-radius: 15px;
+            // background-color: #565a5d;
+            color: #565a5d;
+            font-size: 17px;
+            font-weight: 500;
+            background-color: transparent;
+            border: 2px solid #565a5d;
+            cursor: pointer;
+        }
+        
+        .col-space{
+            margin-top: 1rem;
+            padding: 0 3rem 2rem ;
+            p {
+                // font-size: 1rem;
+                // text-align: justify;
+                // color: #5b5b5b;
+                font-size: 19px;
+                line-height: 30px;
+                color: #605858;
+                font-weight: 400;
+                font-family: "Work Sans";
+            }
+            span {
+                font-weight: 500;
+                font-size: 2rem;
+            }
+        }
+        h1{
+            font-size: 26px;
+            // line-height: 12px;
+            color: #605858;
+            font-weight: 800;
+            font-family: "Work Sans";
+        }
+    }
+    
+}
+
+@media (min-width:320px) and (max-width:480px){
+    .col-lg-1.col-sm-1.col-md-1{
+        width: 1%;
+    }
+    .col-lg-11.col-sm-11.col-md-11{
+        width: 90%;
+    }
+    .FAQ_header{
+        font-size: 50px;
+        color: #565a5d;
+        font-weight: 700;
+        font-family: "Work Sans";
+        text-align: center;
+        margin-bottom: 0!important;
+    }
+    .col-space{
+        margin-top: 1rem;
+        padding: 0 2rem 2rem 2rem !important;
+        p {
+            font-size: 15px !important;
+            text-align: justify;
+            color: #5b5b5b;
+            line-height: 20px!important;
+        }
+        span {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        h1{
+            font-size: 20px !important; 
+            color: #5b5b5b;
+            font-weight: 100;
+        }
+        .readmore_button{
+            padding: 0.3rem .7rem !important;
+            color: #565a5d;
+            font-size: 14px !important;
+            font-weight: 500;
+            background-color: transparent;
+            border: 2px solid #565a5d;
+            cursor: pointer;
+        }
+    }
+}
+
+@media (min-width:480.1px) and (max-width:768px){
+    .col-lg-1.col-sm-1.col-md-1{
+        width: 1%;
+    }
+    .col-lg-11.col-sm-11.col-md-11{
+        width: 90%;
+    }
+    .FAQ_header{
+        font-size: 50px;
+        color: #565a5d;
+        font-weight: 700;
+        font-family: "Work Sans";
+        text-align: center;
+        margin-bottom: 0!important;
+    }
+    .col-space{
+        margin-top: 1rem;
+        padding: 0 2rem 2rem 2rem !important;
+        p {
+            font-size: 15px !important;
+            text-align: justify;
+            color: #5b5b5b;
+            line-height: 20px!important;
+        }
+        span {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        h1{
+            font-size: 20px !important; 
+            color: #5b5b5b;
+            font-weight: 100;
+        }
+        .readmore_button{
+            padding: 0.3rem .7rem !important;
+            color: #565a5d;
+            font-size: 14px !important;
+            font-weight: 500;
+            background-color: transparent;
+            border: 2px solid #565a5d;
+            cursor: pointer;
+        }
+    }
+}
+
+@media (min-width:768.1px) and (max-width:991px){
+    .col-space{
+        p {
+            text-align: justify; 
+        }
+    }
+}
+
+@media (min-width:991.1px) and (max-width:1049px){
+
+}
+
+@media (min-width:1049.1px) and (max-width:1200px){
+
+}
+
+@media (min-width:1200.1px){
+
+}

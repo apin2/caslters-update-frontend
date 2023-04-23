@@ -12,6 +12,7 @@ import { SocietyInfoViewComponent } from './society-info-view/society-info-view.
 import { SelectSocietyComponent } from './updatation/select-society/select-society.component';
 import { UpdatationComponent } from './updatation/updatation.component';
 import { UpdateSocietyMemberComponent } from './update-society-member/update-society-member.component';
+import { FAQComponent } from './faq/faq.component';
 // import { SocietyRegistrationComponent } from './society.registration/society.registration.component';
 
 const routes: Routes = [
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import("./login/login.module").then(m => m.LoginModule),
+    runGuardsAndResolvers: 'always'
+  },
+  {
+    path: 'faq',
+    component: FAQComponent,
     runGuardsAndResolvers: 'always'
   },
 
