@@ -43,6 +43,8 @@
         }
         .nav-link { 
             color: #565a5d;
+            display: flex;
+            justify-content: center;
             font-size: 13px;
             padding: 0.65rem;
         }

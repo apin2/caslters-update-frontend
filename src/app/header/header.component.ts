@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -11,13 +11,14 @@ export class HeaderComponent {
   user_role: any
   login: any = true;
   expand: any;
+  @Output() gototop = new EventEmitter();
   constructor(private route: ActivatedRoute, private router: Router, private toster: ToastrService,) {
   }
 
   ngOnInit() {
 
     this.router.events.subscribe((val: any) => {
-      console.log(val);
+      // console.log(val);
       let local: any = localStorage.getItem('user')
       let user: any = JSON.parse(local);
       this.user_role = user;
@@ -39,11 +40,7 @@ export class HeaderComponent {
 
   onTop() {
     this.menuVisible =! this.menuVisible ;
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
+    this.gototop.emit()
   }
 
   logout() {
