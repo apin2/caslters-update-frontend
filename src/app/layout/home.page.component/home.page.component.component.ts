@@ -10,6 +10,14 @@ export class HomePageComponentComponent implements OnInit{
   constructor() { }
   
   ngOnInit(): void {
+    this.gotoTop();
   }
 
+  gotoTop() {
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
+  }
 }
