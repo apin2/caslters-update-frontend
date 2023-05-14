@@ -25,6 +25,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SocietyInfoViewComponent } from './society-info-view/society-info-view.component';
 import { NgChartsModule } from 'ng2-charts';
 import { FAQComponent } from './faq/faq.component';
+import { TenderComponent } from './tender/tender.component';
 
 // import { SocietyRegistrationModule } from './society.registration/society.registration.module';
 // import { DeveloperRegistrationModule } from './developer.registration/developer.registration.module';
@@ -32,6 +33,7 @@ import { FAQComponent } from './faq/faq.component';
 @NgModule({
   declarations: [
     AppComponent,
+    TenderComponent,
     // HomePageComponentComponent,
     HeaderComponent,
     FooterComponent,

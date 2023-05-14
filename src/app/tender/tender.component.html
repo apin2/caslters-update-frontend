@@ -1,0 +1,261 @@
+<div class="home-page-container">
+    <section>
+      <div class="accor_container">
+  
+        <!-- Technical Details Start -->
+  
+        <div class="faq-drawer">
+          <input class="faq-drawer__trigger" id="faq-drawer-1" (click)="clickelayer1('layer1')" type="checkbox" />
+          <label class="faq-drawer__title" for="faq-drawer-1">SOCIETY PROJECT CODE</label>
+          <div class="faq-drawer__content-wrapper" *ngIf="layer=='layer1'">
+            <div class="faq-drawer__content">
+              <div class="developer_KYC_form">
+                <div class="container mt-3">
+                    <form>
+                    <div class="row jumbotron box8">                    
+                      <div class="col-lg-4 col-md-6 col-sm-8 col-12  form-group">
+                        <label class="metro" for="sizeOfPlot">Society’s project code</label>
+                        <input type="text" class="form-control" name="sizeOfPlot" id="sizeOfPlot"
+                          placeholder="Enter society’s project code" required>
+                      </div>
+                      <div class="col-lg-4 col-md-6 col-12 form-group">
+                        <button class="upload">Submit</button> 
+                      </div>
+                      
+                    </div>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Technical Details End -->
+
+        <!-- GENERAL INFORMATION Start -->
+        <div class="faq-drawer">
+          <input class="faq-drawer__trigger" id="faq-drawer-2" (click)="clickelayer1('layer2')" type="checkbox" />
+          <label class="faq-drawer__title" for="faq-drawer-2">GENERAL INFORMATION</label>
+          <div class="faq-drawer__content-wrapper" *ngIf="layer=='layer2'">
+            <div class="faq-drawer__content">
+              <div class="developer_KYC_form">
+                <div class="container mt-3">
+                  <form>
+                    <div class="row jumbotron box8">              
+                      <div class="col-md-12">
+                        <form action="">                          
+                            <div>
+                            <table class="table">
+                              <thead>
+                                <th>S.No</th>
+                                <th>Name of Society</th>
+                                <th>Society Registration Number</th>
+                                <th>Address of Society</th>
+                                <th>Age of Building</th>
+                                <th>Number of Member's</th>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-label="S.No">1</td>
+                                  <td data-label="Name of Society">Chairmen</td>
+                                  <td data-label="Registration Number">Dinesh Kelkar</td>
+                                  <td data-label="Address of Society">dinesh@gmail.com</td>
+                                  <td data-label="Age of building">9876003322</td>
+                                  <td data-label="Number of Member's">9876003322</td>
+                                </tr>
+                            
+                                <tr>
+                                  <td data-label="S.No">2</td>
+                                  <td data-label="Name of Society">Secretory</td>
+                                  <td data-label="Registration Number">Rajesh Kumar</td>
+                                  <td data-label="Address of Society">rajesh@gmail.com</td>
+                                  <td data-label="Age of building">9876456722</td>
+                                  <td data-label="Number of Member's">9876456722</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- GENERAL INFORMATION End -->
+  
+        
+        <!-- TECHNICAL DETAILSS Start -->
+        <div class="faq-drawer">
+          <input class="faq-drawer__trigger" id="faq-drawer-3" (click)="clickelayer1('layer3')" type="checkbox" /><label
+            class="faq-drawer__title" for="faq-drawer-3">TECHNICAL DETAILS</label>
+          <div class="faq-drawer__content-wrapper" *ngIf="layer=='layer3'">
+            <div class="faq-drawer__content">
+              <div class="partners_kyc_form">
+                <div class="container mt-3">
+                  <form>
+                    <div class="row jumbotron box8">              
+                      <div class="col-md-12">
+                        <form action="">                          
+                            <div class="table_layout">
+                              <table style="width:95%">
+                                <tr>
+                                  <th>Size of Plot (sq meter)</th>
+                                  <td>5500</td>
+                                </tr>
+                                <tr>
+                                  <th>Plot Dimensions (meter)</th>
+                                  <td>2450</td>
+                                </tr>
+                                <tr>
+                                  <th>Use of existing building</th>
+                                  <td>555 77 855</td>
+                                </tr>
+                                <tr>
+                                  <th>Number of Wings</th>
+                                  <td>555</td>
+                                </tr>
+                                <tr>
+                                  <th>Existing Commercial Tenaments</th>
+                                  <td>555</td>
+                                </tr>
+                                <tr>
+                                  <th>Existing Residential Tenaments</th>
+                                  <td>555</td>
+                                </tr>
+                                <tr>
+                                  <th>Existing Commercial Built-up Area</th>
+                                  <td>555</td>
+                                </tr>
+                                <tr>
+                                  <th>Existing Residential Built-up Area</th>
+                                  <td>555</td>
+                                </tr>
+                                <tr>
+                                  <th>Total built-up Area</th>
+                                  <td>555</td>
+                                </tr>
+                                <tr>
+                                  <th>Width of Approach Road (meter)</th>
+                                  <td>555</td>
+                                </tr>
+                              </table>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>      
+        <!-- TECHNICAL DETAILSS End -->
+        
+        <!-- Tender Form Details Start -->
+        <div class="faq-drawer">
+          <input class="faq-drawer__trigger" id="faq-drawer-4" (click)="clickelayer1('layer4')" type="checkbox" /><label
+            class="faq-drawer__title" for="faq-drawer-4">TENDER'S FORM</label>
+          <div class="faq-drawer__content-wrapper" *ngIf="layer=='layer4'">
+            <div class="faq-drawer__content">
+  
+              <!-- Partners KYC Form start -->
+              <div class="partners_kyc_form">
+                <div class="container mt-3">
+                  <form>
+                    <div class="row jumbotron box8">
+                      <div class="col-lg-4 col-md-6  form-group">
+                        <label class="metro">PERCENTAGE OF INCREASED AREA</label>
+                        <input type="text" class="form-control" name="increasedArea" id="increasedArea"
+                          placeholder="Enter Increased Area" required>
+                      </div>
+                      <div class="col-lg-4 col-md-6  form-group">
+                        <label class="metro">QUANTAM OF AREA AT DISCOUNT RATE</label>
+                        <input type="text" class="form-control" name="QuantamdiscountRate" id="QuantamdiscountRate"
+                          placeholder="Enter Discount Rate" required>
+                      </div>
+                      <div class="col-lg-4 col-md-6  form-group">
+                        <label class="metro">EXPECTED DISCOUNTED RATE</label>
+                        <input type="text" class="form-control" name="expectedDisRate" id="expectedDisRate"
+                          placeholder="Enter Expected Discount Rate" required>
+                      </div>
+                      <div class="col-lg-4 col-md-6  form-group">
+                        <label class="metro">CORPUS FUND</label>
+                        <input type="text" class="form-control" name="corpusFund" id="corpusFund"
+                          placeholder="Enter Corpus Fund" required>
+                      </div>
+                      <div class="col-lg-4 col-md-6  form-group">
+                        <label class="metro">RENT PER SQ.FT FLAT</label>
+                        <input type="text" class="form-control" name="flatRate" id="flatRate"
+                          placeholder="Enter Rent per sq.ft Flat" required>
+                      </div>
+                      <div class="col-lg-4 col-md-6  form-group">
+                        <label class="metro">RENT PER SQ.FT OFFICE</label>
+                        <input type="text" class="form-control" name="officeRate" id="officeRate"
+                          placeholder="Enter Rent per sq.ft Office" required>
+                      </div>
+                      <div class="col-lg-4 col-md-6  form-group">
+                        <label class="metro">RENT PER SQ.FT SHOP</label>
+                        <input type="text" class="form-control" name="shopRate" id="shopRate"
+                          placeholder="Enter Rent per sq.ft Shop" required>
+                      </div>
+                      <div class="col-lg-4 col-md-6  form-group">
+                        <label class="metro">PARKING PER MEMBER</label>
+                        <input type="text" class="form-control" name="parkingMember" id="parkingMember"
+                          placeholder="Enter Parking per Member" required>
+                      </div>
+                      <div class="col-lg-4 col-md-6  form-group">
+                        <label class="metro">TYPE OF PROJECT</label>
+                        <input type="text" class="form-control" name="projectType" id="projectType"
+                          placeholder="Enter Project Type" required>
+                      </div>
+                      <div class="col-lg-4 col-md-6  form-group">
+                        <label class="metro">REFUNDABLE DEPOSIT PER MEMBER FOR FLAT (FOR RENTAL ACCOMODATION) </label>
+                        <input type="text" class="form-control" name="flatRefundableDeposite" id="flatRefundableDeposite"
+                          placeholder="Enter Refundable Deposite" required>
+                      </div>
+                      <div class="col-lg-4 col-md-6  form-group">
+                        <label class="metro">REFUNDABLE DEPOSIT PER MEMBER FOR OFFICE (FOR RENTAL ACCOMODATION)</label>
+                        <input type="text" class="form-control" name="officeRefundableDeposite" id="officeRefundableDeposite"
+                          placeholder="Enter Refundable Deposite" required>
+                      </div>
+                      <div class="col-lg-4 col-md-6  form-group">
+                        <label class="metro">REFUNDABLE DEPOSIT PER MEMBER FOR SHOP (FOR RENTAL ACCOMODATION)</label>
+                        <input type="text" class="form-control" name="shopRefundableDeposite" id="shopRefundableDeposite"
+                          placeholder="Enter Refundable Deposite" required>
+                      </div>
+                      <div class="col-lg-4 col-md-6  form-group">
+                        <label class="metro">SHIFTING CHARGES FOR FLAT, OFFICE & SHOP</label>
+                        <input type="text" class="form-control" name="shiftingCharges" id="shiftingCharges"
+                          placeholder="Enter Shifting Charges" required>
+                      </div>
+                      <div class="col-lg-4 col-md-6  form-group">
+                        <label class="metro">BETTERMENT CHARGES PER MEMBER</label>
+                        <input type="text" class="form-control" name="bettermentCharges" id="bettermentCharges"
+                          placeholder="Enter Betterment Charges" required>
+                      </div>
+                      <div class="col-md-4 form-group mb-0">
+                        <div class="form-group mb-0">
+                          <button class="upload">Submit</button>
+                        </div>
+                      </div>
+                      <div class="col-md-4 form-group mb-0">
+                        <div class="form-group mb-0">
+                          <button class="upload">Update</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- Partners KYC Form end -->
+            </div>
+          </div>
+        </div> 
+        <!-- Tender Form Details end -->
+  
+      </div>
+    </section>
+  </div>

@@ -13,6 +13,7 @@ import { SelectSocietyComponent } from './updatation/select-society/select-socie
 import { UpdatationComponent } from './updatation/updatation.component';
 import { UpdateSocietyMemberComponent } from './update-society-member/update-society-member.component';
 import { FAQComponent } from './faq/faq.component';
+import { TenderComponent } from './tender/tender.component';
 // import { SocietyRegistrationComponent } from './society.registration/society.registration.component';
 
 const routes: Routes = [
@@ -46,6 +47,8 @@ const routes: Routes = [
   // { path: 'developerRegistration', component: DeveloperRegistrationComponent },
   // { path: 'DeveloperKYC', component: DeveloperKYCComponent },
   // { path: 'societyRegistration', component: SocietyRegistrationComponent },
+  // TenderComponent
+  { path: 'tender', component: TenderComponent, canActivate: [AuthGuard],data: { roles: ['Admin']} },
   { path: 'notification', component: NotificationComponent, canActivate: [AuthGuard],data: { roles: ['Admin','User']} },
   { path: 'LetterOfInterest', component: LetterOfInterestComponent, canActivate: [AuthGuard],data: { roles: ['Admin']} },
   { path: 'UpdateSocietyMember', component: UpdateSocietyMemberComponent, canActivate: [AuthGuard],data: { roles: ['Admin']} },

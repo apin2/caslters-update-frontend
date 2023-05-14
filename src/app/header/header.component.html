@@ -1,28 +1,18 @@
 <div class="home-page-container">
   <div class="navbar-content">
-    <nav
-      class="navbar navbar-expand-lg navbar-light navbar-background-color navbar-fixed-top gotham_medium"
-    >
-      <a class="navbar-brand"
-        ><img src="../../assets/images/castlers_logoNew.png"
-      /></a>
-      <button
-        class="navbar-toggler"
-       
-      >
+    <nav class="navbar navbar-expand-lg navbar-light navbar-background-color navbar-fixed-top gotham_medium">
+      <a class="navbar-brand"><img src="../../assets/images/castlers_logoNew.png" /></a>
+      <button class="navbar-toggler">
         <span (click)="menueshow()" class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" [ngClass]="menuVisible ? '' : 'nodisplay'" >
+      <div class="collapse navbar-collapse" [ngClass]="menuVisible ? '' : 'nodisplay'">
         <ul class="navbar-nav mr-auto" style="width: 100%;">
           <li class="nav-item active">
-            <a (click)="onTop()" class="nav-link" routerLink="/" aria-expanded="true" aria-controls="widget1"
-              >Home <span class="sr-only">(current)</span></a
-            >
+            <a (click)="onTop()" class="nav-link" routerLink="/" aria-expanded="true" aria-controls="widget1">Home <span
+                class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="onTop()"  routerLink="/aboutUs" routerLinkActive="active"
-              >About Us</a
-            >
+            <a class="nav-link" (click)="onTop()" routerLink="/aboutUs" routerLinkActive="active">About Us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" (click)="onTop()" href="#">Tie-up Developers</a>
@@ -61,55 +51,31 @@
             <a class="nav-link" (click)="onTop()" href="#">News</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"(click)="onTop()"  href="#">Blogs</a>
+            <a class="nav-link" (click)="onTop()" href="#">Blogs</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" (click)="onTop()" routerLink="faq">FAQ</a>
           </li>
-          
+
           <li class="nav-item">
             <a class="nav-link" (click)="onTop()">Presentation</a>
           </li>
           <li class="nav-item dropdown" *ngIf="user_role?.role == 'Admin'">
-            <a (click)="onTop()"
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-              >Admin
+            <a (click)="onTop()" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin
             </a>
-            <div
-              class="dropdown-menu"
-              aria-labelledby="navbarDropdownMenuLink"
-              style="background-color: #edcbaf"
-            >
-              <a (click)="onTop()" class="dropdown-item gotham_medium" routerLink="/"
-                >Organisation Registration</a
-              >
-              <a (click)="onTop()"
-                class="dropdown-item gotham_medium"
-                routerLink="/societyRegistration"
-                >Society Registration</a
-              >
-              <a (click)="onTop()"
-                class="dropdown-item gotham_medium"
-                routerLink="/LetterOfInterest"
-                >Society Updation</a
-              >
-              <a (click)="onTop()" class="dropdown-item gotham_medium" routerLink="/selectSociety"
-                >Old Society Updation</a
-              >
-              <a (click)="onTop()"
-                class="dropdown-item gotham_medium"
-                routerLink="/UpdateSocietyMember"
-                >Update Society Member</a
-              >
-              <a (click)="onTop()" class="dropdown-item gotham_medium" routerLink="/"
-                >Display Society</a
-              >
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #edcbaf">
+              <a (click)="onTop()" class="dropdown-item gotham_medium" routerLink="/">Organisation Registration</a>
+              <a (click)="onTop()" class="dropdown-item gotham_medium" routerLink="/societyRegistration">Society
+                Registration</a>
+              <a (click)="onTop()" class="dropdown-item gotham_medium" routerLink="/LetterOfInterest">Society
+                Updation</a>
+              <a (click)="onTop()" class="dropdown-item gotham_medium" routerLink="/selectSociety">Old Society
+                Updation</a>
+              <a (click)="onTop()" class="dropdown-item gotham_medium" routerLink="/UpdateSocietyMember">Update Society
+                Member</a>
+              <a (click)="onTop()" class="dropdown-item gotham_medium" routerLink="/">Display Society</a>
+              <a (click)="onTop()" class="dropdown-item gotham_medium" routerLink="/tender">Tender</a>
             </div>
           </li>
           <li class="nav-item" *ngIf="login">
@@ -130,11 +96,7 @@
       </div>
       <div class="carousel-item active">
         <div class="img_brightness">
-          <img
-            class="d-block w-100"
-            src="../assets/images/slide_image-1.png"
-            alt="First slide"
-          />
+          <img class="d-block w-100" src="../assets/images/slide_image-1.png" alt="First slide" />
         </div>
         <div class="carousel-caption d-md-block r3">
           <h1>
@@ -146,11 +108,7 @@
       </div>
       <div class="carousel-item">
         <div class="img_brightness">
-          <img
-            class="d-block w-100"
-            src="../assets/images/slider-img2.png"
-            alt="Second slide"
-          />
+          <img class="d-block w-100" src="../assets/images/slider-img2.png" alt="Second slide" />
         </div>
         <div class="carousel-caption d-md-block r3">
           <h1>
@@ -162,11 +120,7 @@
       </div>
       <div class="carousel-item">
         <div class="img_brightness">
-          <img
-            class="d-block w-100"
-            src="../assets/images/slide_image-1.png"
-            alt="Third slide"
-          />
+          <img class="d-block w-100" src="../assets/images/slide_image-1.png" alt="Third slide" />
         </div>
         <div class="carousel-caption d-md-block r3">
           <h1>
@@ -177,21 +131,11 @@
         </div>
       </div>
     </div>
-    <a
-      class="carousel-control-prev"
-      href="#carouselExampleControls"
-      role="button"
-      data-slide="prev"
-    >
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a
-      class="carousel-control-next"
-      href="#carouselExampleControls"
-      role="button"
-      data-slide="next"
-    >
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
