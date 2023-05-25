@@ -55,7 +55,7 @@ const routes: Routes = [
   { path: 'DisplaySociety', component: DisplaySocietyComponent, canActivate: [AuthGuard],data: { roles: ['Admin']} },
   { path: 'selectSociety', component: SelectSocietyComponent, canActivate: [AuthGuard],data: { roles: ['Admin']} },
   { path: 'updateSociety/:id', component: UpdatationComponent, canActivate: [AuthGuard],data: { roles: ['Admin']} },
-  { path: 'society-info-view', component: SocietyInfoViewComponent, canActivate: [AuthGuard],data: { roles: ['Admin','user']} }
+  { path: 'society-info-view', component: SocietyInfoViewComponent, canActivate: [AuthGuard],data: { roles: ['user']} }
 
 ];
 
