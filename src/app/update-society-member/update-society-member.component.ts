@@ -45,6 +45,7 @@ export class UpdateSocietyMemberComponent {
   onSocietySelected(societyid: any) {
     console.log(societyid);
     this.service.getallmember(societyid).subscribe((res) => {
+      debugger;
       this.societydata = res;
       this.show = true;
     });
@@ -142,7 +143,7 @@ export class UpdateSocietyMemberComponent {
     formfile.append('societyNewMemberDetails', this.file);
     formfile.append('societyId', this.selectedsocietyid);
     console.log(formfile);
-    
+
     this.service.addnewmember(formfile).subscribe((res) => {
       console.log(res);
       if (res) {
