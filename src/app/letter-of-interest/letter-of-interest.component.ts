@@ -54,7 +54,25 @@ export class LetterOfInterestComponent {
   }
 
   technical_detail_save(f:any){
-    console.log(this.technicaldetail);
+    let obj={
+       registeredSocietyId:this.selectedsocietyid,
+ sizeOfPlot : this.technicaldetail.sizeOfPlot,
+ plotDimensions:this.technicaldetail.plotDimensions,
+ residentialUse:this.technicaldetail.existingbuilding == 'residentialuse'?true:false,
+ commercialUse:this.technicaldetail.existingbuilding == 'commercialuse'?true:false,
+ mixedUse:this.technicaldetail.existingbuilding == 'mixeduse'?true:false,
+ numberOfWings:this.technicaldetail.numberofwing,
+ numberOfCommercialTenaments:this.technicaldetail.existing_commercial_tenaments,
+ numberOfResidentialTenaments:this.technicaldetail.existing_residential_tenaments,
+ totalCommercialBuiltUpBldgArea:this.technicaldetail.existing_commercial_builtup_area,
+ totalResidentialBuiltUpBldgArea:this.technicaldetail.existing_residential_builtup_area,
+ totalBuiltUpArea:this.technicaldetail.total_builtup_area,
+ approchRoadWidth:this.technicaldetail.width_of_approach_road
+    }
+    console.log(obj);
+    this.service.technicaldetailsubmit(obj).subscribe((res)=>{
+      console.log(res);
+    })
   }
   legaldocSave(f:any){
     const obj = new FormData ;

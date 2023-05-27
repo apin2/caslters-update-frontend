@@ -8,7 +8,7 @@
             <select #mySelect id="typeOfDevelopment" (change)="onSocietySelected(mySelect.value)"
               [(ngModel)]="selectedsocietyid" name="typeOfDevelopment" class="form-control browser-default custom-select">
               <option value="select" disabled selected> -Select Society- </option>
-              <option [value]="allsociety.societyRegisteredCode" *ngFor="let allsociety of allregistersociety">
+              <option [value]="allsociety.registeredSocietyId" *ngFor="let allsociety of allregistersociety">
                 {{allsociety.societyName}}</option>
   
             </select>
