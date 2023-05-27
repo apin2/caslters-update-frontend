@@ -76,4 +76,7 @@ export class ServiceService {
   public technicaldetailsubmit(data:any){
     return this.http.post(this.baseURL+'UpdateTechnicalDetailsSocietyAsync',data);
   }
+  public fileupload(data:any){
+    return this.http.post(this.baseURL+'SocietyDocuments/SocietyDocumentUpload',data);
+  }
 }

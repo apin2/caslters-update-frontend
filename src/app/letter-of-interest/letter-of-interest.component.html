@@ -147,7 +147,7 @@
                             </div>
                             <div class="col-lg-4 col-md-6  form-group">
                               <label class="metro" for="chooseFile"> Select File</label>
-                              <input type="file" class="form-control" [(ngModel)]="legal.file" name="chooseFile"
+                              <input type="file" class="form-control" (change)="onFileChange($event)" [(ngModel)]="legal.file" name="chooseFile"
                                 id="chooseFile" required>
                             </div>
                             <div class="col-md-4 form-group mb-0">
@@ -188,7 +188,7 @@
                             </div>
                             <div class="col-lg-4 col-md-6  form-group">
                               <label class="metro" for="chooseFile"> Select File</label>
-                              <input type="file" class="form-control" [(ngModel)]="technicaldoc.file" name="chooseFile"
+                              <input type="file"  (change)="onFileChange($event)" class="form-control" [(ngModel)]="technicaldoc.file" name="chooseFile"
                                 id="chooseFile" required>
                             </div>
                             <div class="col-md-4 form-group mb-0">
@@ -258,7 +258,7 @@
                             </div>
                             <div class="col-lg-4 col-md-6  form-group">
                               <label class="metro" for="chooseFile"> Select File</label>
-                              <input type="file" [(ngModel)]="resolution.file" class="form-control" name="chooseFile"
+                              <input type="file"  (change)="onFileChange($event)" [(ngModel)]="resolution.file" class="form-control" name="chooseFile"
                                 id="chooseFile" required>
                             </div>
                             <div class="col-md-4 form-group mb-0">
@@ -302,7 +302,7 @@
                             </div>
                             <div class="col-lg-4 col-md-6  form-group">
                               <label class="metro" for="chooseFile"> Select File</label>
-                              <input type="file" class="form-control" [(ngModel)]="consents.file" name="chooseFile"
+                              <input type="file"  (change)="onFileChange($event)" class="form-control" [(ngModel)]="consents.file" name="chooseFile"
                                 id="chooseFile" required>
                             </div>
                             <div class="col-md-4 form-group mb-0">
@@ -350,7 +350,7 @@
                             </div>
                             <div class="col-lg-4 col-md-6  form-group">
                               <label class="metro" for="chooseFile"> Select File</label>
-                              <input type="file" [(ngModel)]="reports.file" class="form-control" name="chooseFile"
+                              <input type="file"  (change)="onFileChange($event)" [(ngModel)]="reports.file" class="form-control" name="chooseFile"
                                 id="chooseFile" required>
                             </div>
                             <div class="col-md-4 form-group mb-0">

@@ -25,6 +25,7 @@ export class LetterOfInterestComponent {
   societydata:any;
   show:any=false;
   selectedsocietyid:any;
+  file:any;
 
   constructor(
     private service: ServiceService,
@@ -43,8 +44,13 @@ export class LetterOfInterestComponent {
 
   onSocietySelected(societyid: any) {
     console.log(societyid);
+    for(let i=0;i<=this.allregistersociety.length;i++){
+    if(this.allregistersociety[i]?.registeredSocietyId == societyid){
+      this.societydata = this.allregistersociety[i];
+    }
+  }
     this.service.getallmember(societyid).subscribe((res) => {
-      this.societydata = res;
+      // this.societydata = res;
       this.show = true;
     });
   }
@@ -74,60 +80,185 @@ export class LetterOfInterestComponent {
       console.log(res);
     })
   }
+  onFileChange(event:any){
+    console.log(event);
+    this.file=event.target.files[0];
+    console.log(this.file);
+  }
   legaldocSave(f:any){
+    console.log(this.societydata);
     const obj = new FormData ;
-    obj.append('societyid','098234');
-    obj.append('societyname','test');
+    obj.append('societyid',this.selectedsocietyid);
+    obj.append('societyname',this.societydata.societyName);
     obj.append('type','MasterFileDocument');
-    obj.append('subtype','LegalDocument');
-    obj.append('typeofdocument',this.legal.type_of_document);
-    obj.append('documentfile',this.legal.file);
+    obj.append('subtype','Legal');
+    obj.append('typeofdocumentName',this.legal.type_of_document);
+    obj.append('documentfile',this.file);
+    obj.append('isupdate','false');
     console.log(obj);
+    let uplaodobj={
+      societyid:this.selectedsocietyid,
+      societyname:this.societydata.societyName,
+      type:'MasterFileDocument',
+      subtype:'Legal',
+      typeofdocumentName:this.legal.type_of_document,
+    documentfile:this.file,
+    isupdate:false
+    }
+    this.service.fileupload(obj).subscribe((res:any)=>{
+      console.log(res);
+      if(res.Status=='Failed' ){
+        this.conformupdate(res.Message,uplaodobj)
+      }
+    })
+  }
+  conformupdate(message: any,fileobj:any) {
+    if(confirm(message)) {
+      const obj = new FormData ;
+    obj.append('societyid',fileobj.societyid);
+    obj.append('societyname',fileobj.societyname);
+    obj.append('type',fileobj.type);
+    obj.append('subtype',fileobj.subtype);
+    obj.append('typeofdocumentName',fileobj.typeofdocumentName);
+    obj.append('documentfile',fileobj.documentfile);
+    obj.append('isupdate','true');
+    console.log(obj);
+    this.service.fileupload(obj).subscribe((res:any)=>{
+      console.log(res);
+    })
+    }
   }
   technicaldocSave(f:any){
     const obj = new FormData ;
-    obj.append('societyid','098234');
-    obj.append('societyname','test');
+    obj.append('societyid',this.selectedsocietyid);
+    obj.append('societyname',this.societydata.societyName);
     obj.append('type','MasterFileDocument');
     obj.append('subtype','TechnicalDocument');
-    obj.append('typeofdocument',this.technicaldoc.type_of_document);
-    obj.append('documentfile',this.technicaldoc.file);
-    console.log(this.technicaldoc);    
+    obj.append('typeofdocumentName',this.technicaldoc.type_of_document);
+    obj.append('documentfile',this.file);
+    obj.append('isupdate','false');
+    console.log(this.technicaldoc);
+    let uplaodobj={
+      societyid:this.selectedsocietyid,
+      societyname:this.societydata.societyName,
+      type:'MasterFileDocument',
+      subtype:'Legal',
+      typeofdocumentName:this.technicaldoc.type_of_document,
+    documentfile:this.file,
+    isupdate:false
+    }
+    this.service.fileupload(obj).subscribe((res:any)=>{
+      console.log(res);
+      if(res.Status=='Failed' ){
+        this.conformupdate(res.Message,uplaodobj)
+      }
+    })    
   }
   resolutionSave(f:any){
     const obj = new FormData ;
-    obj.append('societyid','098234');
-    obj.append('societyname','test');
+    obj.append('societyid',this.selectedsocietyid);
+    obj.append('societyname',this.societydata.societyName);
     obj.append('type','ComplianceDocument');
     obj.append('subtype','ResolutionDocument');
-    obj.append('typeofdocument',this.resolution.type_of_document);
-    obj.append('documentfile',this.resolution.file);
-    console.log(this.resolution);    
+    obj.append('typeofdocumentName',this.resolution.type_of_document);
+    obj.append('documentfile',this.file);
+    obj.append('isupdate','false');
+    console.log(this.resolution);
+    let uplaodobj={
+      societyid:this.selectedsocietyid,
+      societyname:this.societydata.societyName,
+      type:'ComplianceDocument',
+      subtype:'ResolutionDocument',
+      typeofdocumentName:this.resolution.type_of_document,
+    documentfile:this.file,
+    isupdate:false
+    }
+    this.service.fileupload(obj).subscribe((res:any)=>{
+      console.log(res);
+      if(res.Status=='Failed' ){
+        this.conformupdate(res.Message,uplaodobj)
+      }
+    })    
   }
   ConsentsSave(f:any){
     const obj = new FormData ;
-    obj.append('societyid','098234');
-    obj.append('societyname','test');
+    obj.append('societyid',this.selectedsocietyid);
+    obj.append('societyname',this.societydata.societyName);
     obj.append('type','ComplianceDocument');
     obj.append('subtype','ConsentsDocument');
-    obj.append('typeofdocument',this.consents.type_of_document);
-    obj.append('documentfile',this.consents.file);
+    obj.append('typeofdocumentName',this.consents.type_of_document);
+    obj.append('documentfile',this.file);
+    obj.append('isupdate','false');
     console.log(this.consents);
+    let uplaodobj={
+      societyid:this.selectedsocietyid,
+      societyname:this.societydata.societyName,
+      type:'ComplianceDocument',
+      subtype:'ConsentsDocument',
+      typeofdocumentName:this.consents.type_of_document,
+    documentfile:this.file,
+    isupdate:false
+    }
+    this.service.fileupload(obj).subscribe((res:any)=>{
+      console.log(res);
+      if(res.Status=='Failed' ){
+        this.conformupdate(res.Message,uplaodobj)
+      }
+    })   
     
   }
   ReportsSave(f:any){
     const obj = new FormData ;
-    obj.append('societyid','098234');
-    obj.append('societyname','test');
+    obj.append('societyid',this.selectedsocietyid);
+    obj.append('societyname',this.societydata.societyName);
     obj.append('type','ComplianceDocument');
     obj.append('subtype','ReportsDocument');
-    obj.append('typeofdocument',this.reports.type_of_document);
-    obj.append('documentfile',this.reports.file);
-    console.log(this.reports);
+    obj.append('typeofdocumentName',this.reports.type_of_document);
+    obj.append('documentfile',this.file);
+    obj.append('isupdate','false');
+    console.log(this.consents);
+    let uplaodobj={
+      societyid:this.selectedsocietyid,
+      societyname:this.societydata.societyName,
+      type:'ComplianceDocument',
+      subtype:'ReportsDocument',
+      typeofdocumentName:this.reports.type_of_document,
+    documentfile:this.file,
+    isupdate:false
+    }
+    this.service.fileupload(obj).subscribe((res:any)=>{
+      console.log(res);
+      if(res.Status=='Failed' ){
+        this.conformupdate(res.Message,uplaodobj)
+      }
+    }) 
     
   }
   appointmentSave(f:any){
     const obj = new FormData ;
+    obj.append('societyid',this.selectedsocietyid);
+    obj.append('societyname',this.societydata.societyName);
+    obj.append('type','AppointmentofDevloper');
+    // obj.append('subtype','ReportsDocument');
+    // obj.append('typeofdocumentName',this.reports.type_of_document);
+    obj.append('documentfile',this.file);
+    obj.append('isupdate','false');
+    console.log(this.consents);
+    let uplaodobj={
+      societyid:this.selectedsocietyid,
+      societyname:this.societydata.societyName,
+      type:'AppointmentofDevloper',
+      // subtype:'ReportsDocument',
+      // typeofdocumentName:this.reports.type_of_document,
+    documentfile:this.file,
+    isupdate:false
+    }
+    this.service.fileupload(obj).subscribe((res:any)=>{
+      console.log(res);
+      if(res.Status=='Failed' ){
+        this.conformupdate(res.Message,uplaodobj)
+      }
+    }) 
     obj.append('societyid','098234');
     obj.append('societyname','test');
     obj.append('type','AppointmentofDevloper');
